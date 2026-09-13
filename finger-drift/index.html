@@ -1,1 +1,41 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080a0f"><title>Finger Drift</title><link rel="stylesheet" href="style.css?v=1"></head><body><div class="wrap"><div class="top"><div class="title"><h1>Finger Drift 🏁</h1><p>Guide la voiture au doigt. Garde ton inertie, coupe les virages, passe tous les checkpoints.</p></div><div class="stats"><span class="pill">Tour <strong id="lap">0</strong>/3</span><span class="pill hideSmall">Temps <strong id="time">0.00</strong></span><span class="pill best">Best <strong id="best">--</strong></span><button class="btn" onclick="history.back()">← Hub</button></div></div><div class="game" id="game"><canvas id="c"></canvas><div class="hint">Maintiens le doigt devant la voiture pour l'attirer • plus tu tires loin, plus elle accélère</div><div class="overlay" id="overlay"><div class="card"><h2>Finger Drift</h2><p>Un petit jeu de trajectoire pensé pour l'écran tactile. Passe les portes bleues dans l'ordre. La voiture conserve son inertie, donc anticipe les virages.</p><button class="btn primary" id="start">Démarrer</button></div></div></div></div><script src="app.js?v=1"></script></body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#091018">
+<title>Volt Runner</title>
+<link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="title">
+      <h1>Volt Runner ⚡</h1>
+      <p>Un endless runner tactile pensé pour le grand écran.</p>
+    </div>
+    <div class="stats">
+      <span class="pill">Score <strong id="score">0</strong></span>
+      <span class="pill hideSmall">Distance <strong id="distance">0</strong> m</span>
+      <span class="pill hideSmall">Vitesse <strong id="speed">1.0×</strong></span>
+      <span class="pill best">Best <strong id="best">0</strong></span>
+      <button class="btn" onclick="history.back()">← Hub</button>
+    </div>
+  </header>
+
+  <main class="game" id="game">
+    <canvas id="c"></canvas>
+    <div class="hudHint">Touchez l'écran pour sauter • double saut autorisé</div>
+    <div class="overlay" id="overlay">
+      <div class="card">
+        <div class="carBadge">⚡</div>
+        <h2 id="overlayTitle">Volt Runner</h2>
+        <p id="overlayText">Une voiture électrique, une route qui n'en finit jamais et des obstacles de plus en plus rapides. Touchez pour sauter. Touchez une seconde fois en l'air pour le double saut.</p>
+        <button class="btn primary" id="start">Démarrer</button>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="app.js?v=2"></script>
+</body>
+</html>
