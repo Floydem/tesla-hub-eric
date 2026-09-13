@@ -1,1 +1,21 @@
-:root{--bg:#080a0f;--panel:#121722;--line:rgba(255,255,255,.1);--text:#f7f9fc;--muted:#98a2b3;--red:#e82127;--blue:#5aa7ff}*{box-sizing:border-box}html,body{margin:0;background:radial-gradient(circle at 20% -10%,rgba(232,33,39,.17),transparent 35%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow:hidden}button{font:inherit}.wrap{height:100vh;padding:14px 18px 18px;display:grid;grid-template-rows:auto 1fr;gap:12px}.top{display:flex;gap:12px;align-items:center;justify-content:space-between}.title h1{margin:0;font-size:30px}.title p{margin:3px 0 0;color:var(--muted);font-size:13px}.stats{display:flex;gap:8px;align-items:center}.pill,.btn{padding:9px 12px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.06);color:var(--text)}.pill strong{font-size:18px}.btn{cursor:pointer}.btn.primary{background:var(--red);border-color:transparent}.game{position:relative;min-height:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#111822}.game canvas{width:100%;height:100%;display:block;touch-action:none}.overlay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(4,6,10,.56);backdrop-filter:blur(6px)}.card{width:min(560px,90%);padding:28px;border-radius:24px;border:1px solid var(--line);background:rgba(17,21,29,.96);text-align:center}.card h2{font-size:34px;margin:0 0 10px}.card p{color:var(--muted);line-height:1.5}.hint{position:absolute;left:18px;bottom:14px;padding:9px 12px;border-radius:13px;background:rgba(0,0,0,.45);color:#d9dee6;font-size:12px;pointer-events:none}.best{color:#ffd36d}@media(max-width:850px){.title p{display:none}.stats .hideSmall{display:none}.title h1{font-size:24px}.wrap{padding:9px}.pill,.btn{padding:8px 10px}}
+:root{--bg:#071019;--panel:#111923;--line:rgba(255,255,255,.12);--text:#f7f9fc;--muted:#9ba7b5;--red:#e82127;--blue:#5aa7ff;--amber:#ffd56a}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:radial-gradient(circle at 20% -10%,rgba(90,167,255,.18),transparent 34%),#071019;color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button{font:inherit}
+.wrap{height:100vh;padding:14px 18px 18px;display:grid;grid-template-rows:auto 1fr;gap:12px}
+.top{display:flex;gap:14px;align-items:center;justify-content:space-between}
+.title h1{margin:0;font-size:30px;letter-spacing:-.8px}
+.title p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.stats{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.pill,.btn{padding:9px 12px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.06);color:var(--text)}
+.pill strong{font-size:18px}
+.best{color:var(--amber)}
+.btn{cursor:pointer}.btn.primary{background:var(--red);border-color:transparent;min-width:150px}.btn:active{transform:scale(.98)}
+.game{position:relative;min-height:0;border:1px solid var(--line);border-radius:26px;overflow:hidden;background:#87c7ee;box-shadow:0 25px 80px rgba(0,0,0,.3)}
+.game canvas{width:100%;height:100%;display:block;touch-action:none}
+.hudHint{position:absolute;left:18px;bottom:14px;padding:9px 13px;border-radius:13px;background:rgba(3,8,13,.56);backdrop-filter:blur(8px);color:#eef4fb;font-size:12px;pointer-events:none}
+.overlay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(4,8,13,.52);backdrop-filter:blur(7px)}
+.card{width:min(590px,90%);padding:30px;border-radius:26px;border:1px solid var(--line);background:rgba(13,19,28,.96);text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.carBadge{width:62px;height:62px;margin:0 auto 14px;border-radius:20px;display:grid;place-items:center;font-size:30px;background:linear-gradient(145deg,rgba(232,33,39,.24),rgba(90,167,255,.16));border:1px solid var(--line)}
+.card h2{font-size:36px;margin:0 0 10px;letter-spacing:-1px}.card p{color:var(--muted);line-height:1.55;margin:0 0 20px}
+@media(max-width:900px){.title p{display:none}.hideSmall{display:none}.title h1{font-size:24px}.wrap{padding:9px}.pill,.btn{padding:8px 10px}.card{padding:24px}.card h2{font-size:30px}}
