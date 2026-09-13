@@ -1,0 +1,53 @@
+/* Eric Tesla Hub V4.5 weather polish */
+.clockWeatherWidget{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:42px 1fr;
+  gap:10px;
+  align-items:center;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(255,255,255,.055);
+  max-width:290px;
+}
+.clockWeatherWidget .cwIcon{
+  width:42px;height:42px;border-radius:13px;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line);
+}
+.clockWeatherWidget svg{width:25px;height:25px}
+.clockWeatherWidget .cwTop{display:flex;align-items:baseline;gap:8px;min-width:0}
+.clockWeatherWidget .cwTemp{font-size:24px;font-weight:700;letter-spacing:-.6px}
+.clockWeatherWidget .cwCond{font-size:13px;color:#e4e7eb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.clockWeatherWidget .cwSub{font-size:11px;color:var(--muted);margin-top:2px}
+.weatherTimeline{
+  margin-top:12px;
+  padding:13px 14px;
+  border:1px solid rgba(88,165,255,.2);
+  border-radius:15px;
+  background:rgba(55,105,170,.08);
+}
+.weatherTimeline .wtLabel{
+  color:#8dbdff;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:10px;
+  font-weight:700;
+  margin-bottom:5px;
+}
+.weatherTimeline strong{font-size:14px;line-height:1.45}
+.weatherTimeline .wtSub{color:var(--muted);font-size:12px;margin-top:4px}
+.hour.richHour{min-width:92px;padding:10px}
+.richHour .rhTime{font-size:12px;color:#d5dae0}
+.richHour .rhIcon{height:24px;display:grid;place-items:center;margin:5px auto 3px}
+.richHour .rhIcon svg{width:22px;height:22px}
+.richHour .rhTemp{font-size:18px;font-weight:700}
+.richHour .rhRain{font-size:11px;color:#9fc8ff;margin-top:3px}
+.richHour .rhType{font-size:10px;color:var(--muted);margin-top:2px;white-space:nowrap}
+#weatherHourlyHint{margin-top:8px;color:var(--muted);font-size:11px}
+.footer .v45mark{color:#ff8b8f}
+@media(max-width:1180px){
+  .clockWeatherWidget{max-width:100%}
+}
