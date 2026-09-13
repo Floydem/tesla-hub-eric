@@ -48,13 +48,14 @@ function ensureUi(){
     const hourly=byId('hourly');
     if(hourly) hourly.insertAdjacentElement('afterend',timeline);
     else weatherCard.appendChild(timeline);
+
     const hint=document.createElement('div');
     hint.id='weatherHourlyHint';
     hint.textContent='Prévisions horaires calculées depuis l’heure actuelle de la voiture.';
     timeline.insertAdjacentElement('afterend',hint);
   }
   const footer=document.querySelector('.footer span');
-  if(footer) footer.innerHTML='Eric Tesla Hub • <span class="v45mark">V4.5</span>';
+  if(footer) footer.innerHTML='Eric Tesla Hub • <span class="v45mark">V4.5.1</span>';
 }
 
 function typeFor(code,rain,snow,pp){
@@ -184,5 +185,49 @@ setTimeout(ensureUi,500);
 setTimeout(refresh,900);
 setInterval(refresh,10*60*1000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden) setTimeout(refresh,300);});
+
+// V4.5.1: météo recalée automatiquement après ~3 km de déplacement.
+let movementAnchor=getSavedPos(), lastMovementRefresh=0;
+function distanceKm(a,b,c,d){
+  const R=6371, rad=x=>x*Math.PI/180;
+  const p=rad(c-a), q=rad(d-b);
+  const h=Math.sin(p/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(q/2)**2;
+  return 2*R*Math.asin(Math.sqrt(h));
+}
+function saveBasePosition(lat,lon){
+  try{
+    const key='ericTeslaHubV44', s=JSON.parse(localStorage.getItem(key)||'{}');
+    s.pos={lat,lon}; localStorage.setItem(key,JSON.stringify(s));
+  }catch(e){}
+}
+function movedPosition(p){
+  const lat=p.coords.latitude, lon=p.coords.longitude, now=Date.now();
+  if(!movementAnchor){movementAnchor={lat,lon};return;}
+  const moved=distanceKm(movementAnchor.lat,movementAnchor.lon,lat,lon);
+  if(moved>=3 && now-lastMovementRefresh>90000){
+    movementAnchor={lat,lon}; lastMovementRefresh=now;
+    saveBasePosition(lat,lon);
+    const b=byId('refreshWeather'); if(b) b.click();
+    fetchDetailed(lat,lon);
+  }
+}
+if(navigator.geolocation){
+  navigator.geolocation.watchPosition(movedPosition,()=>{},
+    {enableHighAccuracy:true,maximumAge:10000,timeout:15000});
+}
+
+// Barre cockpit flottante légèrement agrandie pour l'écran Tesla.
+const bigBar=document.createElement('style');
+bigBar.id='v451FloatingBar';
+bigBar.textContent=`
+.floatingCockpit{padding:15px 22px!important;gap:26px!important;border-radius:22px!important;top:14px!important}
+.floatingCockpit>div{min-width:116px!important}
+.floatingCockpit strong{font-size:31px!important}
+.floatingCockpit .fcLabel{font-size:11px!important;margin-bottom:4px!important}
+.floatingCockpit small{font-size:13px!important}
+@media(max-width:1200px){.floatingCockpit{gap:20px!important;padding:14px 20px!important}.floatingCockpit strong{font-size:28px!important}}
+@media(max-width:820px){.floatingCockpit{left:10px!important;right:10px!important;gap:14px!important;padding:13px 16px!important}.floatingCockpit>div{min-width:auto!important}.floatingCockpit strong{font-size:24px!important}}
+`;
+document.head.appendChild(bigBar);
 
 })();
