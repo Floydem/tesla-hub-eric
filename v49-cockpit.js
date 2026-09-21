@@ -51,7 +51,7 @@ const status=byId('cockpitStatus');
 let opened=false,watchId=null,timer=null,map=null,marker=null,mapPromise=null,mapFailed=false;
 let firstFix=0,lastFix=null,tripMeters=0,instant=null,lastMapAt=0,lastMapPos=null;
 function updateGauge(kmh){
-  if(kmh===null||!Number.isFinite(kmh)){byId('cockpitSpeed').textContent='--';byId('cockpitProgress').setAttribute('d',arc(0,131));return}
+  if(kmh===null||!Number.isFinite(kmh)){byId('cockpitSpeed').textContent='--';byId('cockpitProgress').setAttribute('d',arc(0,131));const n=byId('cockpitNeedle');const pt=point(140,112);n.setAttribute('x2',pt[0]);n.setAttribute('y2',pt[1]);byId('cockpitRoadLine').style.animationPlayState='paused';return}
   const v=Math.max(0,Math.round(kmh)),f=Math.min(v/maxSpeed,1);
   byId('cockpitSpeed').textContent=String(v);
   byId('cockpitProgress').setAttribute('d',arc(f,131));
@@ -108,7 +108,8 @@ function setupMap(){
   if(!opened||map||mapFailed||typeof window.L==='undefined')return;
   try{
     const saved=(()=>{try{return JSON.parse(localStorage.getItem('ericTeslaHubV44')||'{}').pos}catch(e){return null}})();
-    const center=lastFix?[lastFix.lat,lastFix.lon]:saved&&Number.isFinite(+saved.lat)&&Number.isFinite(+saved.lon)?[+saved.lat,+saved.lon]:[47.1,6.6];
+    if(!lastFix&&!(saved&&Number.isFinite(+saved.lat)&&Number.isFinite(+saved.lon)))return;
+    const center=lastFix?[lastFix.lat,lastFix.lon]:[+saved.lat,+saved.lon];
     map=L.map('cockpitMap',{zoomControl:false,attributionControl:true,dragging:false,scrollWheelZoom:false,doubleClickZoom:false,touchZoom:false,keyboard:false,boxZoom:false,preferCanvas:true}).setView(center,15);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{minZoom:4,maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',updateWhenIdle:true,keepBuffer:1}).addTo(map);
     byId('cockpitFallback').style.display='none';
