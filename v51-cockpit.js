@@ -195,12 +195,15 @@ const root=document.getElementById('immersiveCockpit');
 if(!root)return;
 const $=s=>root.querySelector(s);
 const styles=[
-  ['A','MINIMAL','Élégant · carbone et rouge'],
-  ['B','NEON','Technologie · cyan et carte'],
-  ['C','SPORT','Performance · rouge et acier'],
-  ['D','FLOW','Tech · argent et bleu glacier'],
-  ['E','PERFORMANCE','Sport · noir et rouge intense'],
-  ['F','HORIZON','Futuriste · bleu panoramique']
+  ['A','ÉPURE','Minimalisme · anthracite et rouge'],
+  ['B','NÉON','Technologie · cyan et carte'],
+  ['C','PISTE','Sport · rouge et acier'],
+  ['D','GLACIER','Élégance · argent et bleu glacier'],
+  ['E','VORTEX','Performance · noir et rouge intense'],
+  ['F','HORIZON','Futuriste · bleu panoramique'],
+  ['G','PANORAMA','Paysage · cartes premium et cadran central'],
+  ['H','ION','Technologie · HUD bleu et panneaux lumineux'],
+  ['I','ATELIER','Modulaire · grand compteur et widgets pratiques']
 ];
 const KEY='ericTeslaHubCockpitStyleV2';
 function saved(){try{return localStorage.getItem(KEY)||'A'}catch(e){return 'A'}}
@@ -208,7 +211,7 @@ function keep(value){try{localStorage.setItem(KEY,value)}catch(e){}}
 const titles=new Map(styles.map(([id,name,description])=>[id,{name,description}]));
 let current=titles.has(saved())?saved():'A';
 const brand=$('.cockpitBrand');
-if(brand)brand.innerHTML='<strong>COCKPIT</strong><small id="cockpitStyleCaption">Six univers • affichage GPS indicatif</small>';
+if(brand)brand.innerHTML='<strong>COCKPIT</strong><small id="cockpitStyleCaption">Neuf univers • affichage GPS indicatif</small>';
 const title=document.createElement('div');
 title.className='cockpitThemeTitle';title.innerHTML='<span id="cockpitThemeHeading"></span><i></i>';
 root.appendChild(title);
@@ -241,6 +244,7 @@ function changeStyle(id){
   const caption=$('#cockpitStyleCaption');
   if(caption)caption.textContent=t.name+' • vitesse GPS indicative';
   chooser.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.style===id)));
+  root.dispatchEvent(new CustomEvent('hub:cockpit-style',{detail:{id,name:t.name}}));
   const map=root.querySelector('#cockpitMap .leaflet-container');
   if(map)map.setAttribute('aria-hidden','true');
 }
@@ -333,7 +337,7 @@ weather();
 setInterval(weather,15000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)weather()});
 const footer=document.querySelector('.footer span');
-if(footer)footer.textContent='Eric Tesla Hub • V5.1';
+if(footer)footer.textContent='Eric Tesla Hub • V5.2';
 })();
 
 // The multistyle cockpit is the starting view, even on a phone.
