@@ -17,6 +17,6 @@
 .hubTileEdit #mediaGrid>.tile,.hubTileEdit #gamesGrid>.tile,.hubTileEdit #discoverGrid>.tile,.hubTileEdit #toolsGrid>.tile,.hubTileEdit #driveGrid>.quickTile{touch-action:manipulation}
 .hubOrderTools{display:none!important}
 .hubTileEdit .hubOrderTools{display:flex!important;position:absolute;bottom:7px;right:8px;z-index:4;gap:8px;align-items:center}
-.hubOrderTools button{display:inline-flex;align-items:center;justify-content:center;width:42px;height:39px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:#253142;color:#fff;font-size:20px;cursor:pointer}
-.hubOrderTools button:disabled{opacity:.3;cursor:default}
+.hubOrderTools [data-move]{display:inline-flex;align-items:center;justify-content:center;width:42px;height:39px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:#253142;color:#fff;font-size:20px;cursor:pointer}
+.hubOrderTools [data-move][aria-disabled="true"]{opacity:.3;cursor:default}
 @media(max-width:780px){.hubArrangeBtn{padding:8px 11px}.dockSoundBtn{min-width:54px}.soundMenu{max-height:70vh;overflow:auto}}
