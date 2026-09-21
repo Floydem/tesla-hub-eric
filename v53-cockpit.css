@@ -1,0 +1,231 @@
+/* V5.3 visual rebuild. Each theme has its own composition, photographic setting, type treatment,
+   shape language and information hierarchy. No fake Tesla vehicle data is ever displayed. */
+#immersiveCockpit{--v53-photo:url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=82");--v53-sky:#101c2a;--v53-tint:rgba(10,19,30,.17);--v53-accent:#ff5267;--v53-radius:18px;--v53-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--v53-card:rgba(7,17,28,.82);font-family:var(--v53-family)!important;background:var(--v53-sky)!important}
+#immersiveCockpit .v53Backdrop{position:absolute;inset:0;z-index:3;pointer-events:none;background:var(--v53-sky);overflow:hidden}
+#immersiveCockpit .v53Landscape{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,.43),transparent 28%,transparent 70%,rgba(0,0,0,.31)),linear-gradient(0deg,rgba(3,8,16,.89),transparent 35%,rgba(5,11,22,.12) 70%,rgba(4,10,19,.55)),var(--v53-photo);background-position:center;background-size:cover;filter:saturate(.86)}
+#immersiveCockpit .v53Light{position:absolute;left:20%;top:35%;width:60%;height:60%;background:radial-gradient(ellipse,var(--v53-tint),transparent 70%)}
+#immersiveCockpit .v53Road{position:absolute;bottom:-5%;left:12%;width:76%;height:46%;background:linear-gradient(90deg,transparent 0%,rgba(3,6,13,.4) 25%,rgba(7,11,19,.9) 49%,rgba(3,6,13,.4) 75%,transparent 100%);clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);mask-image:linear-gradient(transparent,#000 32%)}
+#immersiveCockpit .v53Road:after{content:"";position:absolute;left:48%;top:13%;width:4%;height:110%;background:repeating-linear-gradient(to bottom,rgba(235,243,252,.7) 0 14px,transparent 15px 49px);transform:perspective(280px) rotateX(53deg);opacity:.65}
+#immersiveCockpit .cockpitScene{z-index:4!important;opacity:.80;--scene-height:39%;mix-blend-mode:normal}
+#immersiveCockpit #cockpitMap{z-index:1!important;opacity:.11!important}
+#immersiveCockpit #cockpitTint{display:none!important}
+#immersiveCockpit .cockpitTop{z-index:40!important}
+#immersiveCockpit .cockpitMain{z-index:6!important}
+#immersiveCockpit .v52Stage{z-index:10!important;pointer-events:none}
+#immersiveCockpit .v52Stage .v52Card{pointer-events:auto;backdrop-filter:blur(14px);border-radius:var(--v53-radius);background:var(--v53-card)}
+#immersiveCockpit .v53Caption{position:absolute;z-index:12;left:50%;bottom:17px;transform:translateX(-50%);text-align:center;font-size:10px;letter-spacing:.19em;white-space:nowrap;color:rgba(228,241,251,.77);pointer-events:none;text-shadow:0 2px 8px #000}
+#immersiveCockpit .v53Media .v53MusicBody{display:flex;align-items:center;gap:10px;min-width:0;min-height:46px}
+#immersiveCockpit .v53Cover{display:flex;align-items:center;justify-content:center;width:56px;height:56px;flex:none;border-radius:9px;background:linear-gradient(135deg,#735b7d,#203e5c 50%,#0b1727);font-size:31px;color:#e1eaf5;box-shadow:inset 0 0 15px rgba(255,255,255,.11)}
+#immersiveCockpit .v53MusicDetails{min-width:0;display:flex;flex-direction:column;gap:6px}
+#immersiveCockpit .v53MusicDetails strong{font-size:13px;line-height:1.2;overflow-wrap:anywhere}
+#immersiveCockpit .v53MusicDetails span{font-size:10px;line-height:1.3;color:#b4c9d9}
+#immersiveCockpit .v53Media .v52Action{margin-top:auto;align-self:flex-start}
+#immersiveCockpit .v53Sun .v53SunRow{display:flex;align-items:center;gap:13px;margin:auto 0}
+#immersiveCockpit .v53Sun #v53SunIcon{font-size:36px;color:var(--v53-accent)}
+#immersiveCockpit .v53Sun .v53SunRow div{display:flex;flex-direction:column;gap:7px}
+#immersiveCockpit .v53Sun strong{font-size:14px}
+#immersiveCockpit .v53Sun small{font-size:11px;color:#b9cbd7}
+#immersiveCockpit[data-cockpit-style] .cockpitInfo,#immersiveCockpit[data-cockpit-style] .cockpitWeather{display:none!important}
+#immersiveCockpit[data-cockpit-style] .v52Stage{display:grid}
+#immersiveCockpit[data-cockpit-style] .cockpitMapTitle{display:none!important}
+#immersiveCockpit[data-cockpit-style] .cockpitThemeTitle{display:none!important}
+#immersiveCockpit[data-cockpit-style] .cockpitStyleDescription{display:none!important}
+#immersiveCockpit[data-cockpit-style] .cockpitDial{border:0;box-shadow:none}
+#immersiveCockpit[data-cockpit-style] .v52Card{grid-column:auto;grid-row:auto;max-width:none;min-height:0;align-self:stretch;justify-self:stretch}
+#immersiveCockpit .v53Media header{font-size:11px}
+#immersiveCockpit .cockpitFooter{z-index:38;bottom:5px}
+#immersiveCockpit .cockpitStatus{font-size:10px;padding:6px 9px;max-width:80%}
+#immersiveCockpit .cockpitAttribution{font-size:9px}
+#immersiveCockpit .cockpitStyleChooser .v52Current{min-width:105px}
+#immersiveCockpit .cockpitStyleChooser>button[data-style]{display:none!important}
+#immersiveCockpit .cockpitStyleChooser select{display:block!important;max-width:132px}
+#immersiveCockpit .v52Card .v52Quiet{margin-top:auto}
+#immersiveCockpit .v52Card .v52Distance{margin:4px 0}
+#immersiveCockpit .v53Media,#immersiveCockpit .v53Sun{display:flex}
+/* A: typography-first minimal display, asymmetrical and mostly borderless. */
+#immersiveCockpit[data-cockpit-style="A"]{--v53-photo:url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=84");--v53-family:"Avenir Next",Avenir,"Helvetica Neue",sans-serif;--v53-card:rgba(4,13,23,.43);--v53-radius:2px;--v53-accent:#ff5466;--dial-left:49%;--dial-top:41%;--dial-size:min(40vw,500px)}
+#immersiveCockpit[data-cockpit-style="A"] .v52Stage{inset:93px 2.5% 75px;grid-template-columns:19% 1fr 22%;grid-template-rows:35% 28% 1fr;gap:12px}
+#immersiveCockpit[data-cockpit-style="A"] .v52Stage .v52Card{background:transparent;box-shadow:none;backdrop-filter:none;border:0;border-bottom:1px solid rgba(238,246,254,.35);border-radius:0;padding:10px 4px}
+#immersiveCockpit[data-cockpit-style="A"] .v52Journey{grid-area:1/1/3/2}
+#immersiveCockpit[data-cockpit-style="A"] .v52Conditions{grid-area:1/3/2/4}
+#immersiveCockpit[data-cockpit-style="A"] .v52Today{grid-area:2/3/3/4}
+#immersiveCockpit[data-cockpit-style="A"] .v52Agenda{grid-area:3/1/4/2}
+#immersiveCockpit[data-cockpit-style="A"] .v53Media{grid-area:3/3/4/4}
+#immersiveCockpit[data-cockpit-style="A"] .v52Status,#immersiveCockpit[data-cockpit-style="A"] .v52Essentials,#immersiveCockpit[data-cockpit-style="A"] .v52MapTile,#immersiveCockpit[data-cockpit-style="A"] .v53Sun{display:none}
+#immersiveCockpit[data-cockpit-style="A"] .cockpitDial{background:radial-gradient(circle,rgba(5,12,21,.66) 0 40%,transparent 70%)!important}
+#immersiveCockpit[data-cockpit-style="A"] .cockpitDial .dialTrack{stroke:rgba(255,255,255,.28)}
+#immersiveCockpit[data-cockpit-style="A"] .cockpitDial .dialNumber{font-weight:300;font-size:11px}
+#immersiveCockpit[data-cockpit-style="A"] .cockpitCurrentNum{font-weight:300;font-size:clamp(95px,10.5vw,152px)}
+#immersiveCockpit[data-cockpit-style="A"] .cockpitScene{opacity:.58}
+/* B: bold cyan cyber HUD, small left column / large right mapping panel and media bottom. */
+#immersiveCockpit[data-cockpit-style="B"]{--v53-photo:url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=85");--v53-family:Rajdhani,"Arial Narrow",Impact,sans-serif;--v53-card:rgba(1,19,38,.85);--v53-radius:13px;--v53-accent:#17dbfa;--dial-left:43%;--dial-top:39%;--dial-size:min(42vw,540px)}
+#immersiveCockpit[data-cockpit-style="B"] .v52Stage{inset:83px 1.4% 65px;grid-template-columns:24% 1fr 27%;grid-template-rows:38% 34% 1fr;gap:9px}
+#immersiveCockpit[data-cockpit-style="B"] .v52Stage .v52Card{border-color:rgba(37,211,255,.58);box-shadow:inset 0 0 15px rgba(12,162,247,.09),0 0 14px rgba(3,177,242,.12);background:rgba(0,23,44,.81)}
+#immersiveCockpit[data-cockpit-style="B"] .v52Journey{grid-area:1/1/2/2}
+#immersiveCockpit[data-cockpit-style="B"] .v53Media{grid-area:2/1/4/2}
+#immersiveCockpit[data-cockpit-style="B"] .v52Conditions{grid-area:1/3/2/4}
+#immersiveCockpit[data-cockpit-style="B"] .v52MapTile{grid-area:2/3/3/4}
+#immersiveCockpit[data-cockpit-style="B"] .v52Today{grid-area:3/3/4/4}
+#immersiveCockpit[data-cockpit-style="B"] .v52Status,#immersiveCockpit[data-cockpit-style="B"] .v52Agenda,#immersiveCockpit[data-cockpit-style="B"] .v52Essentials,#immersiveCockpit[data-cockpit-style="B"] .v53Sun{display:none}
+#immersiveCockpit[data-cockpit-style="B"] .cockpitDial{box-shadow:inset 0 0 48px rgba(5,133,215,.2),0 0 36px rgba(0,188,255,.11);background:radial-gradient(circle,rgba(4,22,43,.95) 0 39%,rgba(1,21,42,.62) 67%,transparent 76%)!important}
+#immersiveCockpit[data-cockpit-style="B"] .cockpitCurrentNum{font-weight:800;text-shadow:0 0 23px rgba(17,203,246,.48)}
+#immersiveCockpit[data-cockpit-style="B"] .cockpitScene{opacity:.84}
+/* C: muscular asymmetrical performance with trip telemetry full width underneath dial. */
+#immersiveCockpit[data-cockpit-style="C"]{--v53-photo:url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=84");--v53-family:"Arial Narrow",Impact,system-ui,sans-serif;--v53-card:rgba(9,10,14,.84);--v53-radius:8px;--v53-accent:#ff3346;--dial-left:52%;--dial-top:34%;--dial-size:min(53vw,615px)}
+#immersiveCockpit[data-cockpit-style="C"] .v52Stage{inset:85px 2% 75px;grid-template-columns:22% 22% 1fr 26%;grid-template-rows:28% 1fr 22%;gap:9px}
+#immersiveCockpit[data-cockpit-style="C"] .v52Journey{grid-area:3/1/4/4;display:flex;flex-direction:row;align-items:center;justify-content:space-around}
+#immersiveCockpit[data-cockpit-style="C"] .v52Journey .v52Distance{font-size:clamp(35px,3.6vw,58px)}
+#immersiveCockpit[data-cockpit-style="C"] .v52Conditions{grid-area:1/4/2/5}
+#immersiveCockpit[data-cockpit-style="C"] .v53Media{grid-area:3/4/4/5}
+#immersiveCockpit[data-cockpit-style="C"] .v52Today{grid-area:1/1/2/2}
+#immersiveCockpit[data-cockpit-style="C"] .v52Status,#immersiveCockpit[data-cockpit-style="C"] .v52Agenda,#immersiveCockpit[data-cockpit-style="C"] .v52Essentials,#immersiveCockpit[data-cockpit-style="C"] .v52MapTile,#immersiveCockpit[data-cockpit-style="C"] .v53Sun{display:none}
+#immersiveCockpit[data-cockpit-style="C"] .v52Card{border-left:3px solid #e72b42}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitCurrentNum{font-style:italic;font-weight:900;font-size:clamp(95px,11.5vw,166px);text-shadow:0 2px 0 #96999d,0 12px 18px rgba(0,0,0,.65)}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitDial{background:radial-gradient(circle,rgba(8,9,15,.93) 0 42%,rgba(5,7,12,.52) 69%,transparent 75%)!important}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitScene{opacity:.9;filter:saturate(.8)}
+/* D: bright silver-glass editorial, small centered dial with a wide right-hand stats matrix. */
+#immersiveCockpit[data-cockpit-style="D"]{--v53-photo:url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85");--v53-family:"Helvetica Neue",Helvetica,Arial,sans-serif;--v53-card:rgba(32,47,63,.7);--v53-radius:27px;--v53-accent:#d3f3ff;--dial-left:36%;--dial-top:39%;--dial-size:min(36vw,445px)}
+#immersiveCockpit[data-cockpit-style="D"] .v52Stage{inset:91px 1.6% 67px;grid-template-columns:22% 1fr 25% 23%;grid-template-rows:39% 29% 1fr;gap:11px}
+#immersiveCockpit[data-cockpit-style="D"] .v52Conditions{grid-area:1/4/2/5}
+#immersiveCockpit[data-cockpit-style="D"] .v52Journey{grid-area:1/1/2/2}
+#immersiveCockpit[data-cockpit-style="D"] .v52MapTile{grid-area:2/4/4/5}
+#immersiveCockpit[data-cockpit-style="D"] .v52Agenda{grid-area:3/1/4/2}
+#immersiveCockpit[data-cockpit-style="D"] .v53Media{grid-area:3/3/4/4}
+#immersiveCockpit[data-cockpit-style="D"] .v52Today{grid-area:2/1/3/2}
+#immersiveCockpit[data-cockpit-style="D"] .v52Status,#immersiveCockpit[data-cockpit-style="D"] .v52Essentials,#immersiveCockpit[data-cockpit-style="D"] .v53Sun{display:none}
+#immersiveCockpit[data-cockpit-style="D"] .v52Stage .v52Card{background:linear-gradient(135deg,rgba(97,131,160,.48),rgba(22,41,59,.59));border:1px solid rgba(235,247,255,.39);box-shadow:inset 0 1px rgba(255,255,255,.24),0 6px 36px rgba(0,0,0,.16)}
+#immersiveCockpit[data-cockpit-style="D"] .cockpitCurrentNum{font-weight:300}
+#immersiveCockpit[data-cockpit-style="D"] .cockpitDial{background:rgba(14,35,53,.4)!important}
+/* E: red racer; giant right speed, powerful left rail, trip+weather narrow footer. */
+#immersiveCockpit[data-cockpit-style="E"]{--v53-photo:url("https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1800&q=85");--v53-family:Impact,"Arial Black",sans-serif;--v53-card:rgba(18,12,19,.88);--v53-radius:7px;--v53-accent:#ff233c;--dial-left:63%;--dial-top:36%;--dial-size:min(52vw,620px)}
+#immersiveCockpit[data-cockpit-style="E"] .v52Stage{inset:93px 2% 64px;grid-template-columns:22% 22% 1fr 25%;grid-template-rows:40% 28% 1fr;gap:8px}
+#immersiveCockpit[data-cockpit-style="E"] .v52Today{grid-area:1/1/2/2}
+#immersiveCockpit[data-cockpit-style="E"] .v52Journey{grid-area:2/1/4/2}
+#immersiveCockpit[data-cockpit-style="E"] .v52Conditions{grid-area:3/2/4/3}
+#immersiveCockpit[data-cockpit-style="E"] .v53Media{grid-area:3/4/4/5}
+#immersiveCockpit[data-cockpit-style="E"] .v52Agenda{grid-area:1/4/2/5}
+#immersiveCockpit[data-cockpit-style="E"] .v52Status,#immersiveCockpit[data-cockpit-style="E"] .v52Essentials,#immersiveCockpit[data-cockpit-style="E"] .v52MapTile,#immersiveCockpit[data-cockpit-style="E"] .v53Sun{display:none}
+#immersiveCockpit[data-cockpit-style="E"] .v52Stage .v52Card{border:1px solid rgba(255,88,103,.3);border-left:4px solid rgba(255,36,62,.79);background:linear-gradient(125deg,rgba(21,7,15,.91),rgba(7,8,14,.73))}
+#immersiveCockpit[data-cockpit-style="E"] .cockpitCurrentNum{font-style:italic;font-weight:900;letter-spacing:-.11em}
+#immersiveCockpit[data-cockpit-style="E"] .cockpitDial{box-shadow:0 0 50px rgba(244,7,33,.19);background:radial-gradient(circle,rgba(13,6,12,.97) 0 43%,rgba(26,8,18,.64) 68%,transparent 75%)!important}
+/* F: panoramic map-forward blue; no enclosed dial; trip/clock in low horizontal strip. */
+#immersiveCockpit[data-cockpit-style="F"]{--v53-photo:url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=84");--v53-family:"Segoe UI",Arial,sans-serif;--v53-card:rgba(3,27,47,.53);--v53-radius:5px;--v53-accent:#55b8ff;--dial-left:46%;--dial-top:36%;--dial-size:min(44vw,540px)}
+#immersiveCockpit[data-cockpit-style="F"] .v52Stage{inset:86px 1% 63px;grid-template-columns:24% 1fr 24%;grid-template-rows:32% 1fr 21%;gap:8px}
+#immersiveCockpit[data-cockpit-style="F"] .v52Journey{grid-area:3/1/4/3;flex-direction:row;align-items:center;justify-content:space-around}
+#immersiveCockpit[data-cockpit-style="F"] .v52Today{grid-area:1/1/2/2}
+#immersiveCockpit[data-cockpit-style="F"] .v52Conditions{grid-area:1/3/2/4}
+#immersiveCockpit[data-cockpit-style="F"] .v52MapTile{grid-area:2/3/3/4}
+#immersiveCockpit[data-cockpit-style="F"] .v53Media{grid-area:3/3/4/4}
+#immersiveCockpit[data-cockpit-style="F"] .v52Agenda,#immersiveCockpit[data-cockpit-style="F"] .v52Status,#immersiveCockpit[data-cockpit-style="F"] .v52Essentials,#immersiveCockpit[data-cockpit-style="F"] .v53Sun{display:none}
+#immersiveCockpit[data-cockpit-style="F"] .cockpitDial{background:radial-gradient(circle,rgba(3,25,46,.81) 0 42%,transparent 67%)!important}
+#immersiveCockpit[data-cockpit-style="F"] .cockpitCurrentNum{font-weight:500}
+#immersiveCockpit[data-cockpit-style="F"] .cockpitScene{opacity:.45}
+#immersiveCockpit[data-cockpit-style="F"] .v52Stage .v52Card{border-color:rgba(100,177,249,.36);border-radius:5px;background:rgba(4,28,48,.62)}
+/* G: owner's panorama reference. Center speed + scenic road, THREE strong cards on left,
+    weather/air/time/media arrangement on right and trip beneath speed. */
+#immersiveCockpit[data-cockpit-style="G"]{--v53-photo:url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=88");--v53-family:"Avenir Next","Segoe UI",Arial,sans-serif;--v53-card:rgba(7,17,27,.89);--v53-radius:20px;--v53-accent:#63dba6;--dial-left:50%;--dial-top:34%;--dial-size:min(33vw,415px)}
+#immersiveCockpit[data-cockpit-style="G"] .v52Stage{inset:80px 1.1% 64px;grid-template-columns:29% 1fr 17% 17%;grid-template-rows:29% 25% 18% 1fr;gap:9px}
+#immersiveCockpit[data-cockpit-style="G"] .v52Journey{grid-area:1/1/2/2}
+#immersiveCockpit[data-cockpit-style="G"] .v52Agenda{grid-area:2/1/3/2}
+#immersiveCockpit[data-cockpit-style="G"] .v52Today{grid-area:3/1/5/2}
+#immersiveCockpit[data-cockpit-style="G"] .v52Conditions{grid-area:1/3/2/5}
+#immersiveCockpit[data-cockpit-style="G"] .v52MapTile{grid-area:2/3/3/4}
+#immersiveCockpit[data-cockpit-style="G"] .v52Status{grid-area:2/4/3/5}
+#immersiveCockpit[data-cockpit-style="G"] .v53Sun{grid-area:3/3/4/5}
+#immersiveCockpit[data-cockpit-style="G"] .v53Media{grid-area:4/3/5/5}
+#immersiveCockpit[data-cockpit-style="G"] .v52Essentials{grid-area:4/2/5/3;align-self:end}
+#immersiveCockpit[data-cockpit-style="G"] .cockpitDial{background:radial-gradient(circle,rgba(7,19,30,.86) 0 38%,rgba(7,17,26,.39) 62%,transparent 73%)!important}
+#immersiveCockpit[data-cockpit-style="G"] .cockpitCurrentNum{font-weight:320;font-size:clamp(75px,8.7vw,120px)}
+#immersiveCockpit[data-cockpit-style="G"] .v52Stage .v52Card{background:linear-gradient(125deg,rgba(25,39,52,.85),rgba(6,14,24,.86));border-color:rgba(188,219,240,.26);border-radius:17px}
+#immersiveCockpit[data-cockpit-style="G"] .v52Conditions{background:linear-gradient(135deg,rgba(35,58,75,.93),rgba(8,19,33,.65))}
+/* H: owner's neon image. Road front and large cyan speed, stacked instrument left, weather+map right. */
+#immersiveCockpit[data-cockpit-style="H"]{--v53-photo:url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=88");--v53-family:Rajdhani,"Arial Narrow","Segoe UI",sans-serif;--v53-card:rgba(1,17,37,.91);--v53-radius:14px;--v53-accent:#14d9ff;--dial-left:49%;--dial-top:37%;--dial-size:min(40vw,500px)}
+#immersiveCockpit[data-cockpit-style="H"] .v52Stage{inset:77px 1% 60px;grid-template-columns:27% 1fr 27%;grid-template-rows:25% 24% 25% 1fr;gap:9px}
+#immersiveCockpit[data-cockpit-style="H"] .v52Journey{grid-area:1/1/2/2}
+#immersiveCockpit[data-cockpit-style="H"] .v52Today{grid-area:2/1/3/2}
+#immersiveCockpit[data-cockpit-style="H"] .v52Agenda{grid-area:3/1/4/2}
+#immersiveCockpit[data-cockpit-style="H"] .v53Media{grid-area:4/1/5/2}
+#immersiveCockpit[data-cockpit-style="H"] .v52Conditions{grid-area:1/3/2/4}
+#immersiveCockpit[data-cockpit-style="H"] .v52MapTile{grid-area:2/3/4/4}
+#immersiveCockpit[data-cockpit-style="H"] .v52Status{grid-area:4/3/5/4}
+#immersiveCockpit[data-cockpit-style="H"] .v52Essentials{grid-area:4/2/5/3;align-self:end}
+#immersiveCockpit[data-cockpit-style="H"] .v53Sun{display:none}
+#immersiveCockpit[data-cockpit-style="H"] .v52Stage .v52Card{background:rgba(1,18,38,.83);border:1px solid rgba(27,212,255,.76);box-shadow:0 0 20px rgba(2,179,250,.17),inset 0 0 25px rgba(0,109,204,.13)}
+#immersiveCockpit[data-cockpit-style="H"] .cockpitDial{background:radial-gradient(circle,rgba(3,17,40,.89) 0 41%,rgba(1,21,49,.54) 67%,transparent 73%)!important}
+#immersiveCockpit[data-cockpit-style="H"] .cockpitCurrentNum{font-weight:800;text-shadow:0 0 20px rgba(18,210,255,.63);font-size:clamp(83px,10vw,145px)}
+/* I: owner's modular mockup. One tall speed IMAGE card to the left, all other cards a
+    true modular dashboard on right. No giant central circular gauge here. */
+#immersiveCockpit[data-cockpit-style="I"]{--v53-photo:url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=87");--v53-family:"Segoe UI",Roboto,Arial,sans-serif;--v53-card:rgba(21,31,44,.95);--v53-radius:16px;--v53-accent:#c6e6ff;--dial-left:15.4%;--dial-top:39%;--dial-size:min(27vw,335px)}
+#immersiveCockpit[data-cockpit-style="I"] .v53Landscape{opacity:.30}
+#immersiveCockpit[data-cockpit-style="I"] .v53Road{left:1%;width:31%;height:75%}
+#immersiveCockpit[data-cockpit-style="I"] .cockpitScene{left:0!important;width:32%!important;bottom:0!important;height:49%!important;opacity:.92}
+#immersiveCockpit[data-cockpit-style="I"] .cockpitMain::before{content:"";z-index:-1;position:absolute;left:1%;top:79px;bottom:57px;width:29.5%;border:1px solid rgba(196,224,245,.31);border-radius:19px;background-image:linear-gradient(0deg,rgba(4,9,18,.85),transparent 55%,rgba(6,17,30,.45)),url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=740&q=82");background-position:center;background-size:cover;box-shadow:0 13px 30px rgba(0,0,0,.35)}
+#immersiveCockpit[data-cockpit-style="I"] .cockpitDial{box-shadow:none!important;background:transparent!important;border:0!important;filter:none!important}
+#immersiveCockpit[data-cockpit-style="I"] .cockpitDial svg{display:none!important}
+#immersiveCockpit[data-cockpit-style="I"] .cockpitCurrentNum{font-weight:300;font-size:clamp(100px,12vw,167px)}
+#immersiveCockpit[data-cockpit-style="I"] .v52Stage{inset:81px 1.1% 63px auto;width:67%;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:31% 28% 1fr;gap:9px}
+#immersiveCockpit[data-cockpit-style="I"] .v52Conditions{grid-area:1/3/2/5}
+#immersiveCockpit[data-cockpit-style="I"] .v52Today{grid-area:1/1/2/3}
+#immersiveCockpit[data-cockpit-style="I"] .v52Journey{grid-area:2/1/3/3}
+#immersiveCockpit[data-cockpit-style="I"] .v52Agenda{grid-area:2/3/3/4}
+#immersiveCockpit[data-cockpit-style="I"] .v52Status{grid-area:2/4/3/5}
+#immersiveCockpit[data-cockpit-style="I"] .v52MapTile{grid-area:3/1/4/3}
+#immersiveCockpit[data-cockpit-style="I"] .v53Media{grid-area:3/3/4/5}
+#immersiveCockpit[data-cockpit-style="I"] .v52Essentials,#immersiveCockpit[data-cockpit-style="I"] .v53Sun{display:none}
+#immersiveCockpit[data-cockpit-style="I"] .v52Stage .v52Card{border-radius:14px;background:rgba(26,36,48,.96);box-shadow:inset 0 1px rgba(238,247,255,.05)}
+#immersiveCockpit[data-cockpit-style="I"] .v52Stage .v52MapTile{background-image:linear-gradient(90deg,rgba(9,25,44,.95),rgba(10,27,47,.43)),url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=75");background-size:cover;background-position:center}
+#immersiveCockpit[data-cockpit-style="I"] .v53Caption{left:15%;bottom:65px;font-size:8px;max-width:27%;white-space:normal}
+/* Tablet layouts preserve the silhouettes while collapsing optional modules. */
+@media(max-width:1200px){
+#immersiveCockpit .v52Stage .v52Card{padding:8px 10px;gap:5px}
+#immersiveCockpit .v52Card header{font-size:10px}
+#immersiveCockpit .v52Card .v52Eyebrow{font-size:10px}
+#immersiveCockpit .v53Media .v53Cover{width:36px;height:36px;font-size:22px}
+#immersiveCockpit .v53MusicDetails strong{font-size:11px}
+#immersiveCockpit .v53MusicDetails span{font-size:9px}
+#immersiveCockpit .v52Stage .v52Card .v52Action{min-height:29px;font-size:9px;padding:5px}
+#immersiveCockpit .v52Stage .v52Card .v52GridStats strong{font-size:15px}
+#immersiveCockpit .v52Stage .v52Card .v52Distance{font-size:30px}
+#immersiveCockpit .v52Stage .v52Card .v52ConditionsMain strong{font-size:31px}
+#immersiveCockpit .v52Stage .v52Card .v52Time{font-size:30px}
+#immersiveCockpit[data-cockpit-style="G"] .v52Stage,#immersiveCockpit[data-cockpit-style="H"] .v52Stage{grid-template-columns:26% 1fr 22% 22%}
+#immersiveCockpit[data-cockpit-style="I"] .v52Stage{grid-template-rows:31% 28% 1fr}
+}
+@media(max-width:950px) and (orientation:landscape){
+#immersiveCockpit[data-cockpit-style] .v52Stage{top:62px;bottom:37px}
+#immersiveCockpit[data-cockpit-style] .cockpitDial{transform:translate(-50%,-50%) scale(.79)}
+#immersiveCockpit .v52Stage .v52Card{padding:5px 7px;gap:3px}
+#immersiveCockpit .v52Stage .v52Card .v52ConditionsMain strong{font-size:24px}
+#immersiveCockpit .v52Stage .v52Card .v52Time{font-size:25px}
+#immersiveCockpit .v52Stage .v52Card .v52Distance{font-size:24px}
+#immersiveCockpit .v52Stage .v52Card .v52Eyebrow{font-size:9px}
+#immersiveCockpit .v52Stage .v52Card .v52Quiet{display:none}
+#immersiveCockpit .v53Media .v52Action{display:none}
+#immersiveCockpit .v53Media .v53MusicDetails span{display:none}
+#immersiveCockpit .v53Caption{display:none}
+}
+/* Portrait phones: an independent scrollable composition, dial above the card list.
+   Respect each visual theme and backdrop without hiding information behind controls. */
+@media(max-width:700px) and (orientation:portrait){
+#immersiveCockpit[data-cockpit-style] .v53Backdrop{position:fixed;opacity:.9}
+#immersiveCockpit[data-cockpit-style] .cockpitMain{height:390px!important;min-height:390px!important;position:relative!important}
+#immersiveCockpit[data-cockpit-style] .cockpitMain::before{display:none!important}
+#immersiveCockpit[data-cockpit-style] .cockpitDial{left:50%!important;top:187px!important;width:min(88vw,355px)!important;max-width:355px!important;transform:translate(-50%,-50%)!important}
+#immersiveCockpit[data-cockpit-style="I"] .cockpitDial svg{display:none!important}
+#immersiveCockpit[data-cockpit-style] .cockpitCurrentNum{font-size:clamp(70px,21vw,114px)!important}
+#immersiveCockpit[data-cockpit-style] .v52Stage{position:relative!important;inset:auto!important;width:94%!important;margin:0 3% 18px!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:auto!important;gap:8px!important}
+#immersiveCockpit[data-cockpit-style] .v52Stage .v52Card{grid-area:auto!important;min-height:105px!important;max-width:none!important;padding:11px!important;border-radius:13px!important;display:flex}
+#immersiveCockpit[data-cockpit-style] .v52Stage .v52Journey,
+#immersiveCockpit[data-cockpit-style] .v52Stage .v52Conditions,
+#immersiveCockpit[data-cockpit-style] .v52Stage .v53Media,
+#immersiveCockpit[data-cockpit-style] .v52Stage .v52MapTile{grid-column:1/-1!important}
+#immersiveCockpit[data-cockpit-style] .v52Stage .v53Sun,
+#immersiveCockpit[data-cockpit-style] .v52Stage .v52Status,
+#immersiveCockpit[data-cockpit-style] .v52Stage .v52Agenda,
+#immersiveCockpit[data-cockpit-style] .v52Stage .v52Today,
+#immersiveCockpit[data-cockpit-style] .v52Stage .v52Essentials{display:flex!important}
+#immersiveCockpit[data-cockpit-style] .cockpitFooter{position:relative!important;padding:3px 10px 15px!important}
+#immersiveCockpit[data-cockpit-style] .v53Caption{display:none}
+#immersiveCockpit .v53Media .v52Action{display:inline-flex}
+#immersiveCockpit .v53Media .v53MusicDetails span{display:inline}
+}
