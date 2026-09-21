@@ -43,5 +43,5 @@ function render(){
 render();
 setInterval(render,30*60*1000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
-const footer=document.querySelector('.footer span');if(footer)footer.innerHTML='Eric Tesla Hub • <span style="color:#ff8b8f">V4.8</span>';
+const footer=document.querySelector('.footer span');if(footer)footer.innerHTML='Eric Tesla Hub • <span style="color:#ff8b8f">V5.0</span>';
 })();
