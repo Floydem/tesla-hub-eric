@@ -173,9 +173,9 @@ function placeSharedBanner(){
  var inDigital=digitalRoot.classList.contains('isOpen')&&digitalRoot.dataset.cockpitStyle==='J';
  if(inDigital){
   if(sharedBanner.parentElement!==digitalRoot)digitalRoot.appendChild(sharedBanner);
-  digitalRoot.classList.add('v6SharedBannerOpen');
+  if(!digitalRoot.classList.contains('v6SharedBannerOpen'))digitalRoot.classList.add('v6SharedBannerOpen');
  }else{
-  digitalRoot.classList.remove('v6SharedBannerOpen');
+  if(digitalRoot.classList.contains('v6SharedBannerOpen'))digitalRoot.classList.remove('v6SharedBannerOpen');
   if(sharedBanner.parentElement!==dashboard)dashboard.insertBefore(sharedBanner,dashboard.firstChild);
  }
 }
