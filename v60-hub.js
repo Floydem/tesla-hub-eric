@@ -165,6 +165,25 @@ doc.querySelectorAll('.sidebar [data-go]').forEach(function(btn){
   doc.querySelectorAll('.sidebar [data-go]').forEach(function(n){n.classList.toggle('active',n===btn);});
  });
 });
+/* One shared banner element, not two lookalikes: it moves into Digital cockpit
+   and returns to the Hub on close or when another existing cockpit theme is chosen. */
+var digitalRoot=byId('immersiveCockpit'),sharedBanner=byId('v6Banner');
+function placeSharedBanner(){
+ if(!digitalRoot||!sharedBanner)return;
+ var inDigital=digitalRoot.classList.contains('isOpen')&&digitalRoot.dataset.cockpitStyle==='J';
+ if(inDigital){
+  if(sharedBanner.parentElement!==digitalRoot)digitalRoot.appendChild(sharedBanner);
+  digitalRoot.classList.add('v6SharedBannerOpen');
+ }else{
+  digitalRoot.classList.remove('v6SharedBannerOpen');
+  if(sharedBanner.parentElement!==dashboard)dashboard.insertBefore(sharedBanner,dashboard.firstChild);
+ }
+}
+if(digitalRoot&&sharedBanner){
+ new MutationObserver(placeSharedBanner).observe(digitalRoot,{attributes:true,attributeFilter:['class','data-cockpit-style']});
+ digitalRoot.addEventListener('hub:cockpit-style',placeSharedBanner);
+ placeSharedBanner();
+}
 var footer=doc.querySelector('.footer span');if(footer)footer.textContent='Eric Tesla Hub • V6.0';
 doc.body.classList.add('v6-ready');
 })();
