@@ -172,3 +172,39 @@ body.v6-ready #immersiveCockpit{scroll-margin-top:0}
  #immersiveCockpit[data-cockpit-style="J"] .cockpitStatus{display:none}
  #immersiveCockpit[data-cockpit-style="J"] .v53Caption{display:none}
 }
+
+/* Digital view borrows the physical, live Hub banner. Background, speed, hour
+   and weather are consequently identical, not independent imitations. */
+#immersiveCockpit[data-cockpit-style="J"].v6SharedBannerOpen>.v6Banner{
+ position:absolute!important;top:70px!important;left:2%!important;right:2%!important;
+ width:auto!important;min-height:151px!important;margin:0!important;padding:15px 25px 24px!important;
+ z-index:15!important;transform:none!important;box-sizing:border-box!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitMain{top:50%!important}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitTop{z-index:40!important}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitTopBtns{flex-wrap:wrap;justify-content:flex-end}
+#immersiveCockpit[data-cockpit-style="J"] .v6BannerCenter strong{font-size:clamp(53px,5.3vw,79px)}
+@media(max-width:850px){
+ #immersiveCockpit[data-cockpit-style="J"].isOpen{overflow-y:auto!important;overflow-x:hidden!important}
+ #immersiveCockpit[data-cockpit-style="J"].v6SharedBannerOpen>.v6Banner{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+  margin:76px 9px 10px!important;width:calc(100% - 18px)!important;min-height:132px!important;
+  padding:10px 10px 20px!important
+ }
+ #immersiveCockpit[data-cockpit-style="J"] .cockpitTop{position:absolute;top:7px;left:7px;right:7px}
+ #immersiveCockpit[data-cockpit-style="J"] .cockpitBrand{font-size:11px}
+ #immersiveCockpit[data-cockpit-style="J"] .cockpitMain{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+  margin:0 auto!important;transform:none!important;width:100%!important;min-height:165px!important;
+ }
+ #immersiveCockpit[data-cockpit-style="J"] .cockpitDial{
+  width:100%!important;height:175px!important;min-height:175px!important
+ }
+ #immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentNum{font-size:clamp(76px,17vw,130px)!important}
+ #immersiveCockpit[data-cockpit-style="J"] .v52Stage{
+  position:relative!important;inset:auto!important;margin:0 9px 34px!important;
+  width:calc(100% - 18px)!important;height:auto!important;min-height:238px!important;
+  grid-template-rows:repeat(2,minmax(112px,auto))!important;
+ }
+ #immersiveCockpit[data-cockpit-style="J"] .cockpitFooter{position:relative!important;bottom:auto!important;left:auto!important;right:auto!important;padding:0 10px 10px!important}
+}
