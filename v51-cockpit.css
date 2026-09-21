@@ -1,0 +1,229 @@
+/* V5.1 unified immersive cockpit style sheet: base + A-F themes + mobile selector */
+/* Cockpit immersive v4.9: viewport presentation only; native Tesla controls stay outside browser. */
+#immersiveCockpit{position:fixed;inset:0;z-index:350;display:none;overflow:hidden;color:#f6f8fb;font-family:inherit;background:#0c1721;isolation:isolate}
+#immersiveCockpit.isOpen{display:block}
+body.cockpitOpen{overflow:hidden}
+#cockpitMap,#cockpitFallback{position:absolute;inset:0}
+#cockpitMap{z-index:0;background:transparent}
+#cockpitFallback{z-index:0;background:radial-gradient(ellipse at 62% 25%,#2d4f55 0%,#132a38 50%,#101924 100%);overflow:hidden}
+#cockpitFallback::before{content:"";position:absolute;inset:-50%;background:repeating-linear-gradient(28deg,transparent 0 69px,rgba(127,176,185,.085) 70px 72px,transparent 73px 160px),repeating-linear-gradient(123deg,transparent 0 114px,rgba(127,176,185,.08) 115px 118px,transparent 119px 245px)}
+#immersiveCockpit .leaflet-container{background:#182631;font-family:inherit}
+#immersiveCockpit .leaflet-control-attribution{font-size:10px;opacity:.88;color:#18232a!important}
+#immersiveCockpit .leaflet-control-attribution a{color:#126293!important}
+#cockpitTint{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(3,9,16,.92),rgba(3,9,16,.44) 47%,rgba(3,9,16,.39)),linear-gradient(180deg,rgba(3,9,16,.66),transparent 24%,transparent 65%,rgba(3,9,16,.81));pointer-events:none}
+.cockpitTop{position:absolute;z-index:7;top:16px;left:20px;right:20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.cockpitBrand{display:flex;flex-direction:column;gap:1px}
+.cockpitBrand strong{font-size:24px;letter-spacing:.08em}
+.cockpitBrand small{font-size:12px;color:#a9c1d0}
+.cockpitTopBtns{display:flex;gap:10px;align-items:center}
+.cockpitBtn{min-height:46px;padding:10px 17px;border:1px solid rgba(206,228,238,.3);border-radius:14px;background:rgba(12,23,33,.83);backdrop-filter:blur(10px);color:white;cursor:pointer;font:inherit;font-size:14px;font-weight:700}
+.cockpitBtn:active{background:rgba(57,92,119,.85)}
+.cockpitMain{position:absolute;z-index:5;top:50%;left:clamp(28px,5vw,104px);right:clamp(24px,4vw,75px);display:flex;align-items:center;justify-content:space-between;gap:30px;transform:translateY(-45%);pointer-events:none}
+.cockpitDial{position:relative;width:clamp(330px,43vw,545px);aspect-ratio:1;background:radial-gradient(circle at 50% 45%,rgba(8,16,26,.96) 0 36%,rgba(8,16,26,.87) 56%,rgba(8,16,26,.35) 71%,transparent 72%);border-radius:50%;filter:drop-shadow(0 16px 34px rgba(0,0,0,.58))}
+.cockpitDial svg{width:100%;height:100%;overflow:visible}
+.cockpitDial .dialTrack{fill:none;stroke:rgba(221,236,249,.18);stroke-width:8;stroke-linecap:round}
+.cockpitDial .dialProgress{fill:none;stroke:#ff4854;stroke-width:8;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(252,52,64,.7))}
+.cockpitDial .dialTick{stroke:#d5e2ed;stroke-width:1.3;opacity:.6}
+.cockpitDial .dialTick.major{stroke-width:2.7;opacity:.95}
+.cockpitDial .dialNumber{font-family:inherit;fill:#b8c8d4;font-size:13px;text-anchor:middle;dominant-baseline:middle}
+.cockpitDial .needle{stroke:#ff4a51;stroke-width:3.5;stroke-linecap:round;filter:drop-shadow(0 0 7px rgba(255,58,65,.65))}
+.cockpitCenter{position:absolute;left:50%;top:49%;transform:translate(-50%,-50%);text-align:center;min-width:220px}
+.cockpitCurrentLabel{font-size:12px;text-transform:uppercase;letter-spacing:.21em;color:#a9c0cc}
+.cockpitCurrentNum{font-size:clamp(88px,11vw,154px);font-weight:760;line-height:.94;letter-spacing:-.07em;font-variant-numeric:tabular-nums}
+.cockpitCurrentUnit{font-size:19px;color:#b8cbd8;font-weight:650;letter-spacing:.12em}
+.cockpitInfo{width:min(315px,28vw);display:grid;gap:13px}
+.cockpitInfoCard{padding:18px 20px;border:1px solid rgba(214,232,242,.18);border-radius:22px;background:rgba(7,17,28,.75);backdrop-filter:blur(16px)}
+.cockpitInfoCard .infoLabel{font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:#b9cbd7}
+.cockpitInfoCard .infoValue{margin:5px 0;font-size:clamp(29px,3.6vw,46px);font-weight:760;font-variant-numeric:tabular-nums}
+.cockpitInfoCard .infoValue small{font-size:16px;color:#aec4d1}
+.cockpitInfoCard .infoSub{font-size:12px;color:#afc0cb;line-height:1.4}
+.cockpitRoad{position:absolute;z-index:3;bottom:-2%;left:24%;width:52%;height:34%;background:linear-gradient(90deg,transparent 0%,rgba(51,69,77,.09) 18%,rgba(27,39,46,.76) 35%,rgba(14,24,32,.95) 50%,rgba(27,39,46,.76) 65%,rgba(51,69,77,.09) 82%,transparent 100%);clip-path:polygon(47% 0,53% 0,100% 100%,0 100%);pointer-events:none}
+.cockpitRoad::before,.cockpitRoad::after{content:"";position:absolute;top:0;bottom:0;width:3px;background:linear-gradient(180deg,rgba(180,213,225,.08),rgba(204,228,234,.65));transform-origin:top}
+.cockpitRoad::before{left:48%;transform:rotate(22deg)}.cockpitRoad::after{right:48%;transform:rotate(-22deg)}
+.cockpitCenterLine{position:absolute;top:0;left:calc(50% - 3px);width:6px;height:200%;background:repeating-linear-gradient(to bottom,rgba(240,246,247,.7) 0 30px,transparent 31px 65px);transform:perspective(220px) rotateX(56deg);animation:cockpitRoadScroll .95s linear infinite;animation-play-state:paused}
+@keyframes cockpitRoadScroll{to{background-position-y:65px}}
+.cockpitFooter{position:absolute;z-index:6;bottom:24px;left:22px;right:22px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;pointer-events:none}
+.cockpitStatus{padding:8px 12px;background:rgba(7,17,28,.81);border:1px solid rgba(214,232,242,.18);border-radius:12px;font-size:12px;color:#d1dfe9;max-width:70%}
+.cockpitAttribution{font-size:10px;color:#c4d2dc;text-shadow:0 2px 5px #000}
+#cockpitMap .leaflet-control-attribution{pointer-events:auto}
+#cockpitMap .leaflet-bottom{bottom:51px!important}
+#immersiveCockpit .cockpitCarMarker{background:transparent;border:0}
+#immersiveCockpit .cockpitCarMarker svg{width:36px;height:40px;filter:drop-shadow(0 3px 6px #000)}
+@media(max-width:900px){.cockpitTop{top:10px;left:12px;right:12px}.cockpitBrand strong{font-size:17px}.cockpitMain{left:14px;right:14px;gap:8px}.cockpitDial{width:min(54vw,390px)}.cockpitInfo{width:min(35vw,265px);gap:9px}.cockpitInfoCard{padding:10px 12px;border-radius:14px}.cockpitInfoCard .infoValue{font-size:clamp(24px,4vw,36px)}.cockpitCenter{min-width:150px}.cockpitCurrentNum{font-size:clamp(67px,12vw,110px)}.cockpitCurrentUnit{font-size:14px}.cockpitRoad{left:20%;width:60%}.cockpitStatus{max-width:70%;font-size:11px}}
+@media(max-width:600px){.cockpitTopBtns{gap:4px}.cockpitBtn{min-height:40px;padding:8px 9px;font-size:11px}.cockpitMain{top:53%;transform:translateY(-45%);align-items:center}.cockpitDial{width:min(64vw,340px)}.cockpitInfo{width:29vw;gap:6px}.cockpitInfoCard{padding:8px}.cockpitInfoCard .infoLabel{font-size:9px}.cockpitInfoCard .infoValue{font-size:23px}.cockpitInfoCard .infoSub{font-size:9px}.cockpitCenter{min-width:110px}.cockpitCurrentNum{font-size:clamp(55px,13vw,84px)}.cockpitCurrentLabel{font-size:9px}.cockpitCurrentUnit{font-size:11px}.cockpitFooter{bottom:12px;left:12px;right:12px}}
+
+/* V5.0: six original cockpit treatments sharing one GPS/map engine.
+   The screen illustrations are decorative. No route, gear, battery or Autopilot data is fabricated. */
+#immersiveCockpit{--ui-accent:#ff4f5f;--ui-glow:rgba(255,60,80,.38);--glass:rgba(7,14,23,.76);--map-bright:.50;--dial-size:min(47vw,570px);--dial-left:45%;--dial-top:46%;--scene-height:43%;--shade:rgba(5,10,17,.58);color:#f5f8fc;font-variant-numeric:tabular-nums;background:#071019!important}
+#immersiveCockpit #cockpitFallback{display:block!important;background:radial-gradient(ellipse at 75% 22%,#273d4f,#0b1825 65%,#060a10)}
+#immersiveCockpit #cockpitMap{z-index:1!important;opacity:var(--map-bright);filter:saturate(.8) brightness(.7)}
+#immersiveCockpit #cockpitTint{z-index:2!important;background:linear-gradient(90deg,rgba(3,8,15,.9) 0%,rgba(3,8,15,.15) 40%,rgba(3,8,15,.38) 100%),linear-gradient(0deg,#03070d 0%,rgba(3,7,13,.30) 53%,rgba(3,7,13,.55) 100%)!important}
+#immersiveCockpit #cockpitFallback::before{opacity:.25}
+#immersiveCockpit .cockpitScene{z-index:3;position:absolute;bottom:-2%;left:0;width:100%;height:var(--scene-height);pointer-events:none;opacity:.95;overflow:hidden;mask-image:linear-gradient(to bottom,transparent 0%,black 30%)}
+#immersiveCockpit .cockpitScene svg{width:100%;height:100%;display:block}
+#immersiveCockpit .cockpitRoad{display:none!important}
+#immersiveCockpit .cockpitTop{top:13px;left:22px;right:22px;z-index:21!important;gap:12px}
+#immersiveCockpit .cockpitBrand strong{font-size:19px;letter-spacing:.15em}
+#immersiveCockpit .cockpitBrand small{font-size:11px;color:#a6bccb}
+#immersiveCockpit .cockpitTopBtns{gap:7px}
+#immersiveCockpit .cockpitBtn{min-height:39px;padding:7px 12px;border-radius:11px;font-size:12px;white-space:nowrap;background:rgba(5,12,19,.87)}
+#immersiveCockpit .cockpitStyleChooser{display:flex;gap:5px;align-items:center;margin-right:6px;padding:4px 5px;border:1px solid rgba(220,236,255,.19);border-radius:12px;background:rgba(2,10,18,.9)}
+#immersiveCockpit .cockpitStyleChooser span{padding:0 5px;color:#aabecb;font-size:10px;letter-spacing:.07em;text-transform:uppercase}
+#immersiveCockpit .cockpitStyleChooser button{min-width:33px;height:32px;border:1px solid transparent;border-radius:9px;color:#b9cbd7;background:transparent;font:700 12px/1.2 system-ui,sans-serif;cursor:pointer;touch-action:manipulation}
+#immersiveCockpit .cockpitStyleChooser button[aria-pressed="true"]{background:var(--ui-accent);color:#061017;border-color:rgba(255,255,255,.3);box-shadow:0 0 14px var(--ui-glow)}
+#immersiveCockpit .cockpitMain{position:absolute;inset:0!important;transform:none!important;display:block!important;z-index:5!important;pointer-events:none}
+#immersiveCockpit .cockpitDial{position:absolute;left:var(--dial-left);top:var(--dial-top);transform:translate(-50%,-50%);width:var(--dial-size);height:auto;aspect-ratio:1;filter:drop-shadow(0 15px 33px rgba(0,0,0,.65));background:radial-gradient(circle at 50% 49%,rgba(5,11,19,.98) 0 35%,rgba(5,11,19,.75) 57%,rgba(5,11,19,.08) 73%,transparent 74%)!important}
+#immersiveCockpit .cockpitDial .dialProgress,#immersiveCockpit .cockpitDial .needle{stroke:var(--ui-accent)!important;filter:drop-shadow(0 0 7px var(--ui-glow))!important}
+#immersiveCockpit .cockpitDial svg>circle{fill:var(--ui-accent)!important}
+#immersiveCockpit .cockpitDial .dialTrack{stroke:rgba(222,238,248,.35)}
+#immersiveCockpit .cockpitDial .dialNumber{fill:rgba(225,238,250,.9);font-size:13px}
+#immersiveCockpit .cockpitCenter{top:49%}
+#immersiveCockpit .cockpitCurrentNum{font-size:clamp(88px,10vw,142px);letter-spacing:-.075em;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+#immersiveCockpit .cockpitCurrentLabel{color:#a9c7da;font-size:11px;letter-spacing:.2em}
+#immersiveCockpit .cockpitCurrentUnit{font-size:18px;color:#ccdfeb}
+#immersiveCockpit .cockpitInfo{position:absolute;left:2.8%;top:25%;width:min(305px,22vw);display:flex;flex-direction:column;gap:11px}
+#immersiveCockpit .cockpitInfoCard{border:1px solid rgba(215,236,253,.18);border-radius:17px;padding:12px 17px;background:var(--glass);backdrop-filter:blur(9px);box-shadow:0 6px 30px rgba(0,0,0,.25)}
+#immersiveCockpit .cockpitInfoCard .infoLabel{font-size:10px;letter-spacing:.13em;color:#a7becd}
+#immersiveCockpit .cockpitInfoCard .infoValue{font-size:clamp(29px,3vw,40px);margin:2px 0}
+#immersiveCockpit .cockpitInfoCard .infoValue small{font-size:13px}
+#immersiveCockpit .cockpitInfoCard .infoSub{font-size:11px;line-height:1.32;color:#a9becd}
+#immersiveCockpit .cockpitWeather{position:absolute;z-index:7;right:2.2%;top:24%;width:min(290px,21vw);padding:17px 20px;border:1px solid rgba(224,238,255,.2);border-radius:18px;background:var(--glass);backdrop-filter:blur(11px)}
+#immersiveCockpit .cockpitWeather .wxTitle,#immersiveCockpit .cockpitMapTitle{font-size:10px;color:#a9bdcd;letter-spacing:.15em;text-transform:uppercase}
+#immersiveCockpit .wxRow{display:flex;align-items:center;gap:11px;margin:8px 0 10px}
+#immersiveCockpit .wxIcon{font-size:34px}
+#immersiveCockpit .wxTemp{font-size:47px;font-weight:780;line-height:1;letter-spacing:-.045em}
+#immersiveCockpit .wxCond{font-size:13px;color:#e0edf7}
+#immersiveCockpit .wxNext{margin-top:12px;padding-top:11px;border-top:1px solid rgba(255,255,255,.17);font-size:12px;line-height:1.35;color:#d8e7ef}
+#immersiveCockpit .cockpitMapTitle{position:absolute;right:2.2%;top:61%;z-index:7;text-align:right;padding:12px 15px;border-radius:12px;background:rgba(6,14,24,.67);border:1px solid rgba(255,255,255,.1);max-width:240px;line-height:1.55}
+#immersiveCockpit .cockpitFooter{z-index:12;bottom:18px;left:20px;right:20px}
+#immersiveCockpit .cockpitStatus{font-size:11px;border-color:rgba(220,239,250,.18);color:#bdd2df;background:rgba(4,11,19,.86)}
+#immersiveCockpit .cockpitAttribution{background:rgba(3,10,18,.64);padding:7px;border-radius:8px;font-size:10px}
+#immersiveCockpit .leaflet-bottom{bottom:42px!important}
+#immersiveCockpit .cockpitThemeTitle{position:absolute;z-index:8;top:16%;left:3%;font-size:11px;letter-spacing:.36em;color:#c1d2de;font-weight:750;text-transform:uppercase;text-shadow:0 2px 9px #000;pointer-events:none}
+#immersiveCockpit .cockpitThemeTitle i{display:block;width:30px;height:2px;background:var(--ui-accent);margin-top:12px}
+#immersiveCockpit .cockpitStyleDescription{display:block;position:absolute;right:23px;top:75px;font-size:11px;letter-spacing:.14em;color:#c3d0dc;text-transform:uppercase;z-index:8;text-shadow:0 1px 7px #000}
+/* A / MINIMAL: airy text, translucent map, fine red arc and low-slung road. */
+#immersiveCockpit[data-cockpit-style="A"]{--ui-accent:#ff5161;--ui-glow:rgba(255,81,97,.46);--dial-left:50%;--dial-size:min(46vw,570px);--dial-top:43%;--scene-height:41%;--map-bright:.38;--glass:rgba(6,12,19,.44)}
+#immersiveCockpit[data-cockpit-style="A"] .cockpitDial{background:radial-gradient(circle,rgba(8,14,21,.93) 0 37%,rgba(7,12,18,.72) 64%,transparent 74%)!important}
+#immersiveCockpit[data-cockpit-style="A"] .cockpitInfo{left:5.5%;top:24%;width:195px;gap:2px}
+#immersiveCockpit[data-cockpit-style="A"] .cockpitInfoCard{padding:13px 2px 19px;border:0;border-bottom:1px solid rgba(255,255,255,.22);border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}
+#immersiveCockpit[data-cockpit-style="A"] .cockpitWeather{right:4.2%;top:26%;width:210px;border:0;background:rgba(5,12,20,.18);backdrop-filter:none}
+#immersiveCockpit[data-cockpit-style="A"] .cockpitMapTitle{right:4.4%;top:61%}
+/* B / NEON: cyan/red, cyber HUD map exposed on right. */
+#immersiveCockpit[data-cockpit-style="B"]{--ui-accent:#29dcff;--ui-glow:rgba(30,209,255,.58);--dial-left:44%;--dial-top:43%;--dial-size:min(47vw,570px);--glass:rgba(3,26,46,.81);--map-bright:.79;--scene-height:45%}
+#immersiveCockpit[data-cockpit-style="B"] .cockpitDial{box-shadow:0 0 26px rgba(0,205,255,.15),inset 0 0 40px rgba(0,135,225,.18)}
+#immersiveCockpit[data-cockpit-style="B"] .cockpitInfo{left:1.5%;top:22%;width:min(315px,23vw)}
+#immersiveCockpit[data-cockpit-style="B"] .cockpitInfoCard{border-color:rgba(40,210,255,.43);background:rgba(2,23,42,.82)}
+#immersiveCockpit[data-cockpit-style="B"] .cockpitWeather{right:1.5%;top:27%;width:295px;border-color:rgba(41,220,255,.5);box-shadow:0 0 25px rgba(0,180,255,.12)}
+#immersiveCockpit[data-cockpit-style="B"] .cockpitMapTitle{right:1.5%;top:64%;border-color:rgba(41,220,255,.33)}
+/* C / SPORT: wide metallic dial, heavy red illumination, horizontal trip strip. */
+#immersiveCockpit[data-cockpit-style="C"]{--ui-accent:#ff263c;--ui-glow:rgba(255,27,50,.68);--dial-left:49%;--dial-top:39%;--dial-size:min(53vw,635px);--map-bright:.32;--scene-height:45%;--glass:rgba(12,14,20,.81)}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitDial{background:radial-gradient(circle at 50% 50%,#050709 0 34%,rgba(6,8,10,.94) 64%,transparent 75%)!important;box-shadow:0 0 0 1px rgba(255,255,255,.11),0 0 48px rgba(250,20,42,.17)}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitCurrentNum{font-style:italic;font-weight:900}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitInfo{top:auto;bottom:11%;left:3%;width:57%;flex-direction:row;gap:0}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitInfoCard{min-width:0;flex:1;border-radius:0;border-width:0 1px 0 0;background:rgba(5,9,14,.57);padding:9px 15px;backdrop-filter:blur(4px)}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitInfoCard .infoValue{font-size:clamp(25px,2.9vw,38px)}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitWeather{top:19%;right:2.5%;width:210px;background:rgba(5,10,17,.34);border:0}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitMapTitle{top:68%;right:2.5%}
+/* D / FLOW: graphite silver / glacial blue; simplified fluid surfaces. */
+#immersiveCockpit[data-cockpit-style="D"]{--ui-accent:#a2ddff;--ui-glow:rgba(126,209,255,.46);--dial-left:47%;--dial-top:43%;--dial-size:min(44vw,535px);--map-bright:.5;--scene-height:36%;--glass:rgba(18,30,44,.65)}
+#immersiveCockpit[data-cockpit-style="D"] .cockpitDial{background:radial-gradient(circle at 50% 50%,rgba(12,23,36,.95) 0 45%,rgba(12,23,36,.45) 68%,transparent 75%)!important}
+#immersiveCockpit[data-cockpit-style="D"] .cockpitInfo{left:3.5%;top:26%;width:245px}
+#immersiveCockpit[data-cockpit-style="D"] .cockpitInfoCard{border-radius:22px;background:rgba(37,55,72,.69);border-color:rgba(212,237,253,.32)}
+#immersiveCockpit[data-cockpit-style="D"] .cockpitWeather{right:3%;width:235px;background:rgba(43,57,72,.69);border-color:rgba(212,237,253,.3)}
+#immersiveCockpit[data-cockpit-style="D"] #cockpitMap{filter:saturate(.55) brightness(.87)}
+/* E / PERFORMANCE: sharp red sport focus, map visible on right. */
+#immersiveCockpit[data-cockpit-style="E"]{--ui-accent:#ff334a;--ui-glow:rgba(255,25,46,.8);--dial-left:48%;--dial-top:41%;--dial-size:min(51vw,620px);--map-bright:.57;--scene-height:42%;--glass:rgba(13,14,19,.87)}
+#immersiveCockpit[data-cockpit-style="E"] .cockpitDial{box-shadow:0 0 2px rgba(255,255,255,.52),0 0 37px rgba(255,0,43,.25);border:1px solid rgba(255,255,255,.18)}
+#immersiveCockpit[data-cockpit-style="E"] .cockpitCurrentNum{font-weight:900;font-style:italic;text-shadow:0 0 20px rgba(255,37,56,.14)}
+#immersiveCockpit[data-cockpit-style="E"] .cockpitInfo{left:2%;top:24%;width:min(295px,22vw)}
+#immersiveCockpit[data-cockpit-style="E"] .cockpitInfoCard{border-left:2px solid rgba(255,40,61,.75);border-radius:5px 15px 15px 5px}
+#immersiveCockpit[data-cockpit-style="E"] .cockpitWeather{right:2%;top:22%;width:235px;border-color:rgba(255,72,91,.39)}
+#immersiveCockpit[data-cockpit-style="E"] .cockpitMapTitle{border-color:rgba(255,72,91,.34);right:2%;top:65%}
+/* F / HORIZON: blue map-first panoramic cockpit, elegant bottom HUD. */
+#immersiveCockpit[data-cockpit-style="F"]{--ui-accent:#69baff;--ui-glow:rgba(86,176,255,.6);--dial-left:48%;--dial-top:43%;--dial-size:min(45vw,560px);--map-bright:.87;--scene-height:45%;--glass:rgba(3,19,37,.67)}
+#immersiveCockpit[data-cockpit-style="F"] .cockpitDial{background:radial-gradient(circle at 50% 49%,rgba(7,19,33,.94) 0 42%,rgba(7,19,33,.54) 67%,transparent 75%)!important}
+#immersiveCockpit[data-cockpit-style="F"] .cockpitInfo{left:2%;top:22%;width:min(300px,22vw)}
+#immersiveCockpit[data-cockpit-style="F"] .cockpitInfoCard{background:rgba(6,26,50,.7);border-color:rgba(117,189,255,.32);border-radius:6px}
+#immersiveCockpit[data-cockpit-style="F"] .cockpitWeather{top:14%;right:2.5%;width:255px;background:rgba(3,21,41,.66);border-color:rgba(117,189,255,.38)}
+#immersiveCockpit[data-cockpit-style="F"] .cockpitMapTitle{top:64%;right:2.5%}
+@media(max-width:1200px){
+#immersiveCockpit{--dial-size:min(48vw,490px)}
+#immersiveCockpit .cockpitMain .cockpitInfo{left:1.5%;width:24vw}
+#immersiveCockpit .cockpitMain .cockpitInfoCard{padding:9px 11px}
+#immersiveCockpit .cockpitMain .cockpitInfoCard .infoValue{font-size:30px}
+#immersiveCockpit .cockpitWeather{right:1%;width:21vw;padding:12px}
+#immersiveCockpit .wxTemp{font-size:35px}
+#immersiveCockpit .cockpitStyleDescription{display:none}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitMain .cockpitInfo{top:auto;bottom:11%;left:2%;width:60%}
+}
+@media(max-width:820px){
+#immersiveCockpit .cockpitTop{left:9px;right:9px;top:7px}
+#immersiveCockpit .cockpitBrand strong{font-size:14px}
+#immersiveCockpit .cockpitBrand small{font-size:9px;max-width:155px}
+#immersiveCockpit .cockpitTopBtns{gap:4px}
+#immersiveCockpit .cockpitStyleChooser{gap:2px;margin-right:1px;padding:3px}
+#immersiveCockpit .cockpitStyleChooser span{display:none}
+#immersiveCockpit .cockpitStyleChooser button{min-width:28px;height:30px}
+#immersiveCockpit .cockpitBtn{min-height:36px;font-size:10px;padding:6px}
+#immersiveCockpit .cockpitThemeTitle{display:none}
+#immersiveCockpit .cockpitDial{width:min(49vw,370px);left:46%;top:46%}
+#immersiveCockpit .cockpitCurrentNum{font-size:clamp(58px,10vw,96px)}
+#immersiveCockpit .cockpitCurrentLabel{font-size:8px}
+#immersiveCockpit .cockpitCurrentUnit{font-size:13px}
+#immersiveCockpit .cockpitMain .cockpitInfo{top:22%;left:1%;width:24vw;gap:5px}
+#immersiveCockpit .cockpitMain .cockpitInfoCard{padding:7px 8px;border-radius:9px}
+#immersiveCockpit .cockpitMain .cockpitInfoCard .infoLabel{font-size:8px}
+#immersiveCockpit .cockpitMain .cockpitInfoCard .infoValue{font-size:22px}
+#immersiveCockpit .cockpitMain .cockpitInfoCard .infoSub{font-size:9px}
+#immersiveCockpit .cockpitWeather{top:22%;width:24vw;right:1%;padding:9px;border-radius:10px}
+#immersiveCockpit .wxTemp{font-size:28px}
+#immersiveCockpit .wxIcon{font-size:21px}
+#immersiveCockpit .wxCond,#immersiveCockpit .wxNext{font-size:10px}
+#immersiveCockpit .cockpitMapTitle{display:none}
+#immersiveCockpit .cockpitFooter{bottom:6px}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitMain .cockpitInfo{top:auto;bottom:11%;left:1%;width:67%;flex-direction:row}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitMain .cockpitInfoCard{padding:5px}
+#immersiveCockpit[data-cockpit-style="C"] .cockpitMain .cockpitInfoCard .infoValue{font-size:19px}
+}
+@media(max-width:550px){#immersiveCockpit .cockpitBrand{display:none}#immersiveCockpit .cockpitTopBtns{width:100%;justify-content:space-between}#immersiveCockpit .cockpitInfoCard .infoSub{display:none}#immersiveCockpit .cockpitFooter .cockpitAttribution{display:none}}
+
+
+/* A visible selector on all screens, including phones with narrow portrait viewports. */
+#immersiveCockpit .cockpitStyleChooser select{display:none;appearance:auto;font-family:inherit;font-size:13px;font-weight:700;max-width:180px;min-height:42px;padding:7px 10px;border:1px solid rgba(173,206,235,.5);border-radius:10px;color:#f5f8ff;background:#142438;cursor:pointer;touch-action:manipulation}
+#immersiveCockpit .cockpitStyleChooser select option{color:#f5f8ff;background:#142438}
+@media(max-width:950px){
+ #immersiveCockpit .cockpitStyleChooser>button,#immersiveCockpit .cockpitStyleChooser>span{display:none!important}
+ #immersiveCockpit .cockpitStyleChooser select{display:block}
+ #immersiveCockpit .cockpitTop{flex-wrap:wrap;justify-content:flex-end}
+ #immersiveCockpit .cockpitTopBtns{width:100%;justify-content:flex-end;flex-wrap:wrap}
+ #immersiveCockpit .cockpitBrand{display:none}
+ #immersiveCockpit .cockpitStyleChooser{margin-right:auto}
+}
+@media(max-width:700px){
+ #immersiveCockpit .cockpitTop{left:8px;right:8px}
+ #immersiveCockpit .cockpitTopBtns{gap:5px;justify-content:space-between}
+ #immersiveCockpit .cockpitStyleChooser{margin-right:0;padding:2px}
+ #immersiveCockpit .cockpitStyleChooser select{font-size:12px;max-width:152px;min-height:38px}
+ #immersiveCockpit #cockpitReset{display:none!important}
+ #immersiveCockpit #cockpitClose{font-size:11px;padding:7px 9px;min-height:38px}
+ #immersiveCockpit .cockpitCurrentNum{font-size:clamp(56px,11vw,100px)}
+}
+@media(max-width:700px) and (orientation:portrait){
+ #immersiveCockpit{overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain}
+ #immersiveCockpit .cockpitTop{position:sticky;top:0;left:0;right:0;z-index:45!important;margin:0;width:100%;padding:8px 10px;background:rgba(7,17,29,.96);box-shadow:0 8px 19px rgba(0,0,0,.42);border-bottom:1px solid rgba(255,255,255,.12)}
+ #immersiveCockpit .cockpitMain{position:relative!important;inset:auto!important;width:100%;height:620px;min-height:620px;margin-top:4px}
+ #immersiveCockpit[data-cockpit-style] .cockpitDial{left:50%!important;top:192px!important;width:min(94vw,365px)!important;max-width:365px!important;transform:translate(-50%,-50%)!important}
+ #immersiveCockpit .cockpitCurrentNum{font-size:clamp(68px,21vw,112px)}
+ #immersiveCockpit .cockpitCenter{top:49%}
+ #immersiveCockpit[data-cockpit-style] .cockpitMain .cockpitInfo{position:absolute!important;top:405px!important;bottom:auto!important;left:4%!important;right:4%!important;width:92%!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ #immersiveCockpit[data-cockpit-style] .cockpitMain .cockpitInfoCard{min-width:0!important;flex:auto!important;border:1px solid rgba(190,218,239,.22)!important;border-radius:12px!important;padding:10px!important;background:rgba(5,17,29,.83)!important}
+ #immersiveCockpit .cockpitMain .cockpitInfoCard .infoValue{font-size:clamp(23px,7vw,32px)!important}
+ #immersiveCockpit .cockpitInfoCard .infoSub{display:block!important;font-size:10px!important}
+ #immersiveCockpit[data-cockpit-style] .cockpitWeather{position:relative!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;width:92%!important;max-width:none!important;margin:4px 4% 12px!important;display:block!important;border-radius:14px!important;padding:13px!important}
+ #immersiveCockpit .cockpitWeather .wxRow{margin:4px 0}
+ #immersiveCockpit .cockpitFooter{position:relative!important;inset:auto!important;display:block!important;padding:4px 14px 18px}
+ #immersiveCockpit .cockpitFooter .cockpitStatus{max-width:none!important}
+ #immersiveCockpit .cockpitScene{position:fixed;bottom:-2%;opacity:.32}
+ #immersiveCockpit .cockpitMapTitle{display:none!important}
+}
