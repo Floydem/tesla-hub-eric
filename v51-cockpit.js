@@ -344,7 +344,7 @@ if(footer)footer.textContent='Eric Tesla Hub • V5.2';
 // The multistyle cockpit is the starting view, even on a phone.
 // The Hub remains accessible through the explicit Retour au Hub control.
 (()=>{'use strict';
-if(location.search.includes('view=hub')||location.hash==='#hub')return;
+if((window.HUB_V6_DEFAULT_HOME&&!location.search.includes('view=cockpit'))||location.search.includes('view=hub')||location.hash==='#hub')return;
 const start=()=>window.HUB_OPEN_COCKPIT?.();
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
 else start();
