@@ -27,6 +27,16 @@ if(dock){
   }
 }
 
+// Keep Rupteur next to Dribe in the full tools catalog as well as the compact dock menu.
+const toolsGrid=document.getElementById('toolsGrid');
+if(toolsGrid && !toolsGrid.querySelector('[data-hub-rupteur]')){
+  const a=document.createElement('a');
+  a.className='tile externalLink';a.href='https://rupteur.app/app';
+  a.target='_blank';a.rel='noopener noreferrer';a.dataset.hubRupteur='1';
+  a.innerHTML='<span class="arrow">↗</span><div class="icon appIcon" aria-hidden="true">🔊</div><div><strong>Rupteur</strong><br><small>Simulateur de sons moteur pour Tesla.</small></div>';
+  toolsGrid.appendChild(a);
+}
+
 // Personalization inspired by the idea of an editable launchpad, implemented independently.
 // Uses visible move buttons rather than drag-only gestures for the Tesla touch screen.
 const panels=[
