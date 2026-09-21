@@ -203,7 +203,9 @@ const styles=[
   ['F','HORIZON','Futuriste · bleu panoramique'],
   ['G','PANORAMA','Paysage · cartes premium et cadran central'],
   ['H','ION','Technologie · HUD bleu et panneaux lumineux'],
-  ['I','ATELIER','Modulaire · grand compteur et widgets pratiques']
+  ['I','ATELIER','Modulaire · grand compteur et widgets pratiques'],
+  ['J','DIGITAL','Interface Tesla épurée · grand compteur entièrement numérique'],
+  ['J','DIGITAL','Interface Tesla épurée · grand compteur entièrement numérique']
 ];
 const KEY='ericTeslaHubCockpitStyleV2';
 function saved(){try{return localStorage.getItem(KEY)||'A'}catch(e){return 'A'}}
@@ -211,7 +213,7 @@ function keep(value){try{localStorage.setItem(KEY,value)}catch(e){}}
 const titles=new Map(styles.map(([id,name,description])=>[id,{name,description}]));
 let current=titles.has(saved())?saved():'A';
 const brand=$('.cockpitBrand');
-if(brand)brand.innerHTML='<strong>COCKPIT</strong><small id="cockpitStyleCaption">Neuf univers • affichage GPS indicatif</small>';
+if(brand)brand.innerHTML='<strong>COCKPIT</strong><small id="cockpitStyleCaption">Dix univers • affichage GPS indicatif</small>';
 const title=document.createElement('div');
 title.className='cockpitThemeTitle';title.innerHTML='<span id="cockpitThemeHeading"></span><i></i>';
 root.appendChild(title);
