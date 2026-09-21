@@ -99,6 +99,19 @@ stage.innerHTML=`
 `;
 root.appendChild(stage);
 function openAgenda(){
+  // While the cockpit uses browser fullscreen, outside-body overlays cannot be displayed.
+  // Move the existing calendar modal into the cockpit temporarily, then restore it on close.
+  const overlay=document.getElementById('agendaOverlay');
+  if(overlay && !root.contains(overlay)){
+    root.appendChild(overlay);
+    const observer=new MutationObserver(()=>{
+      if(!overlay.classList.contains('show')){
+        observer.disconnect();
+        if(root.contains(overlay))document.body.appendChild(overlay);
+      }
+    });
+    observer.observe(overlay,{attributes:true,attributeFilter:['class']});
+  }
   const trigger=document.getElementById('openAgenda');
   if(trigger){trigger.click();return}
   const tile=document.getElementById('openAgendaTile');
