@@ -204,7 +204,6 @@ const styles=[
   ['G','PANORAMA','Paysage · cartes premium et cadran central'],
   ['H','ION','Technologie · HUD bleu et panneaux lumineux'],
   ['I','ATELIER','Modulaire · grand compteur et widgets pratiques'],
-  ['J','DIGITAL','Interface Tesla épurée · grand compteur entièrement numérique'],
   ['J','DIGITAL','Interface Tesla épurée · grand compteur entièrement numérique']
 ];
 const KEY='ericTeslaHubCockpitStyleV2';
