@@ -30,12 +30,13 @@ const labels={
  F:['HORIZON','La route est à vous.'],
  G:['PANORAMA','Le voyage commence ici.'],
  H:['ION','L’énergie du mouvement.'],
- I:['ATELIER','Chaque information à sa place.']
+ I:['ATELIER','Chaque information à sa place.'],
+ J:['DIGITAL','La route en toute simplicité.']
 };
 function apply(){
  const id=root.dataset.cockpitStyle||'A',m=labels[id]||labels.A;
  cap.textContent=m[0]+' / '+m[1];
- root.querySelector('.cockpitCurrentLabel').textContent=id==='I'?'Vitesse GPS':id==='E'?'VITESSE INSTANTANÉE':'Vitesse';
+ root.querySelector('.cockpitCurrentLabel').textContent=id==='J'?'Vitesse GPS indicative':id==='I'?'Vitesse GPS':id==='E'?'VITESSE INSTANTANÉE':'Vitesse';
  // Never show an invented value for vehicle status, gear selection or a fictitious route.
  const footer=$('.cockpitAttribution');if(footer)footer.textContent='Décor illustratif · GPS estimé · pas de données véhicule';
 }
