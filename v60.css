@@ -1,0 +1,174 @@
+/* V6.0: dashboard and digital cockpit. All original tile grids and modals are reused. */
+body.v6-ready{--v6-line:rgba(197,220,245,.16);--v6-panel:rgba(16,24,35,.91);background:radial-gradient(ellipse at 55% -15%,#152434 0,transparent 57%),#090d13;color:#f0f5fc}
+body.v6-ready .ambient{opacity:.28}
+body.v6-ready .shell{grid-template-columns:88px minmax(0,1fr)}
+body.v6-ready .sidebar{background:#0b1018;border-color:var(--v6-line);gap:13px;z-index:28}
+body.v6-ready .sidebar .brand{background:none!important;box-shadow:none!important;font-size:34px;color:#fff}
+body.v6-ready .sidebar .nav{border-radius:13px;width:57px;height:53px}
+body.v6-ready .sidebar .nav.active,body.v6-ready .sidebar .nav:hover{background:linear-gradient(145deg,#192c40,#0f1b2b);border-color:rgba(141,190,237,.27);box-shadow:inset 3px 0 #63b7ff}
+body.v6-ready .main{max-width:1840px;padding:14px clamp(12px,1.5vw,28px) 35px}
+body.v6-ready #home{display:none!important}
+body.v6-ready .floatingCockpit,body.v6-ready .footer:before{display:none!important}
+body.v6-ready.lounge-mode .driveSection{display:block!important}
+body.v6-ready #v6Dashboard{display:block;width:100%;scroll-margin-top:8px}
+.v6Banner{position:sticky;top:10px;z-index:25;isolation:isolate;display:grid;grid-template-columns:minmax(160px,1fr) minmax(190px,1.15fr) minmax(195px,1fr);align-items:center;gap:20px;min-height:176px;padding:19px clamp(17px,2.4vw,42px) 27px;margin-bottom:22px;border:1px solid rgba(143,185,230,.24);border-radius:23px;background:linear-gradient(180deg,rgba(16,29,48,.82),rgba(7,14,26,.96));box-shadow:0 15px 44px rgba(0,0,0,.43);overflow:hidden}
+.v6Banner>*:not(.v6Sky){position:relative;z-index:2}
+.v6Sky{position:absolute;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(ellipse at 60% 40%,rgba(64,99,146,.23),transparent 55%),linear-gradient(180deg,#0b1422,#152338 55%,#080f19)}
+.v6Sky:before,.v6Sky:after{content:"";position:absolute;width:120%;height:50%;left:-10%;bottom:0;background:#121c2b;clip-path:polygon(0 70%,8% 48%,17% 66%,26% 18%,33% 58%,43% 12%,53% 55%,64% 26%,75% 66%,85% 25%,100% 62%,100% 100%,0 100%);opacity:.8}
+.v6Sky:after{height:38%;background:#080f19;opacity:.82;clip-path:polygon(0 60%,14% 35%,27% 65%,37% 38%,49% 78%,60% 35%,73% 64%,85% 28%,100% 55%,100% 100%,0 100%)}
+.v6Mountains{position:absolute;inset:0;background:radial-gradient(ellipse at 51% 82%,rgba(71,133,220,.25),transparent 42%)}
+.v6Road{position:absolute;left:40%;width:20%;bottom:-6px;height:43%;background:linear-gradient(90deg,transparent,rgba(3,7,13,.78) 22% 78%,transparent);clip-path:polygon(49% 0,51% 0,100% 100%,0 100%);opacity:.8}
+.v6Road:before,.v6Road:after{content:"";position:absolute;top:15%;bottom:0;width:2px;background:linear-gradient(transparent,rgba(99,180,255,.8));transform-origin:top}
+.v6Road:before{left:44%;transform:rotate(17deg)}.v6Road:after{right:44%;transform:rotate(-17deg)}
+.v6BannerLeft{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:3px 16px}
+.v6BannerLeft>strong{font-size:clamp(25px,2.5vw,36px);font-weight:650;letter-spacing:-.04em;line-height:1.1;font-variant-numeric:tabular-nums}
+.v6BannerLeft>small{grid-column:1;white-space:nowrap;font-size:11px;color:#c2d0df}
+.v6BannerWeather{grid-column:2;grid-row:1/3;display:flex;align-items:center;gap:8px;min-width:0}
+.v6BannerWeather>span{font-size:27px;color:#d7eafb}
+.v6BannerWeather>div{display:grid;gap:3px;min-width:0}
+.v6BannerWeather strong{font-size:25px;font-weight:650}
+.v6BannerWeather small{color:#b4c6d9;font-size:11px;line-height:1.3}
+.v6BannerCenter{text-align:center;text-shadow:0 2px 16px #080e18}
+.v6BannerCenter>span{font-size:10px;letter-spacing:.21em;color:#d3e2f1}
+.v6BannerCenter>div{display:flex;align-items:baseline;justify-content:center;gap:11px;line-height:.95}
+.v6BannerCenter strong{font-size:clamp(57px,6vw,91px);font-weight:640;letter-spacing:-.07em;font-variant-numeric:tabular-nums}
+.v6BannerCenter div small{font-size:15px;color:#e1edfa}
+.v6BannerCenter>small{display:block;margin-top:8px;color:#c1d1e2;font-size:10px}
+.v6BannerRight{display:grid;justify-items:end;gap:12px;text-align:right}
+.v6Journey,.v6Next{display:flex;flex-direction:column;gap:4px}
+.v6Journey>small,.v6Next>small{font-size:10px;letter-spacing:.09em;color:#b2c4d8}
+.v6Journey strong{font-size:19px;font-weight:680;font-variant-numeric:tabular-nums}
+.v6Journey>span{color:#c0d1e0;font-size:10px}
+.v6Next strong{font-size:12px;font-weight:600}
+.v6BannerNote{position:absolute!important;bottom:8px;left:14px;right:14px;text-align:center;color:rgba(197,218,236,.68);font-size:9px;letter-spacing:.015em}
+.v6Titlebar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:6px 3px 17px}
+.v6Eyebrow{color:#9db7d3;font-size:10px;letter-spacing:.22em;font-weight:760}
+.v6Titlebar h1{margin:5px 0 3px;font-size:clamp(30px,3.3vw,48px);font-weight:660;letter-spacing:-.04em}
+.v6Titlebar p{margin:0;color:#b8c7d7;font-size:13px}
+.v6TitleActions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:9px}
+.v6TitleActions button,.v6TravelLinks>*{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:45px;padding:10px 14px;border:1px solid rgba(186,216,248,.18);border-radius:12px;background:linear-gradient(145deg,#172230,#111a26);color:#ecf4fe;font-size:12px;cursor:pointer}
+.v6TitleActions svg,.v6TravelLinks svg{width:18px;height:18px;flex:none}
+.v6TitleActions button:active,.v6TravelLinks>*:active{background:#244464}
+.v6Intro{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:12px;margin-bottom:12px}
+.v6Widget{min-height:170px;padding:17px;border:1px solid var(--v6-line);border-radius:16px;background:linear-gradient(145deg,rgba(22,35,52,.95),rgba(12,19,30,.95));box-shadow:inset 0 1px rgba(226,241,255,.04)}
+.v6WeatherWidget{background:linear-gradient(130deg,rgba(25,44,66,.86),rgba(10,19,32,.96)),radial-gradient(circle at 20% 0%,rgba(96,151,220,.3),transparent 50%)}
+.v6AgendaWidget{background:linear-gradient(130deg,#152130,#0d1622)}
+.v6TripWidget{background:linear-gradient(130deg,#122d2c,#0d1622)}
+.v6WidgetHead{display:flex;align-items:center;gap:8px;color:#dbeafb;font-size:12px;font-weight:710}
+.v6WidgetHead svg{width:19px;height:19px;flex:none;color:#91caff}
+.v6WidgetHead button{margin-left:auto;padding:5px 8px;min-height:26px;background:#1b2b3b;border:1px solid rgba(200,227,255,.2);border-radius:9px;color:#e2ecf7;font-size:11px;cursor:pointer}
+.v6WidgetNumber{font-size:clamp(34px,3.5vw,51px);letter-spacing:-.06em;font-weight:690;line-height:1.15;margin:14px 0 3px;font-variant-numeric:tabular-nums}
+.v6WidgetNumber small{font-size:14px;letter-spacing:0;color:#bcd1df}
+.v6WeatherWidget>span,.v6TripWidget>span{font-size:12px;color:#d2e0ee}
+.v6SmallLine{margin-top:8px;font-size:11px;color:#9fb4c7}
+.v6Appointment{font-size:clamp(16px,1.9vw,23px);font-weight:670;margin-top:18px;line-height:1.28;max-width:100%;overflow-wrap:anywhere}
+.v6DrawerList{display:grid;gap:10px}
+.v6Drawer{border:1px solid var(--v6-line);border-radius:17px;background:linear-gradient(110deg,#141d29,#101720);overflow:hidden;scroll-margin-top:200px}
+.v6Drawer.is-open{border-color:rgba(109,166,235,.45);background:linear-gradient(115deg,#172434,#0f1825);box-shadow:0 9px 34px rgba(0,0,0,.15)}
+.v6Drawer[data-drawer="media"].is-open{box-shadow:inset 4px 0 rgba(250,66,108,.66),0 10px 35px rgba(0,0,0,.15)}
+.v6Drawer[data-drawer="travel"].is-open{box-shadow:inset 4px 0 rgba(72,160,253,.8),0 10px 35px rgba(0,0,0,.15)}
+.v6DrawerHead{display:flex;align-items:center;gap:15px;text-align:left;width:100%;min-height:68px;padding:13px 18px;border:0;background:transparent;color:inherit;cursor:pointer}
+.v6DrawerIcon{width:40px;height:40px;display:grid;place-items:center;flex:none;color:#cde4f8}
+.v6DrawerIcon svg{width:29px;height:29px}
+.v6DrawerLabel{display:grid;gap:4px;min-width:0;flex:1}
+.v6DrawerLabel strong{font-size:17px;font-weight:710}
+.v6DrawerLabel small{font-size:12px;color:#9eafc1}
+.v6DrawerFlag{font-size:11px;color:#bac9d8}
+.v6Chevron{font-size:24px;color:#b8c8d9;transition:transform .2s}
+.v6Drawer.is-open .v6Chevron{transform:rotate(180deg)}
+.v6DrawerContent{padding:0 16px 18px}
+.v6DrawerContent[hidden]{display:none!important}
+.v6DrawerContent .section{margin:0!important;scroll-margin-top:200px}
+.v6DrawerContent .section>.head{margin:0 0 10px}
+.v6DrawerContent .section>.head h2{display:none}
+.v6DrawerContent .section>.head p{font-size:11px;color:#a9bacb}
+.v6DrawerContent .card{border-radius:13px;box-shadow:none}
+.v6DrawerContent .grid{grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
+.v6DrawerContent .tile{border-radius:14px;min-height:115px;padding:12px}
+.v6DrawerContent .tile strong{font-size:14px}
+.v6DrawerContent .tile small{font-size:11px;color:#a3b5c8}
+.v6DrawerContent .quickTile{border-radius:12px;min-height:72px}
+.v6DrawerContent .driveLayout{grid-template-columns:minmax(0,1.5fr) minmax(220px,1fr);gap:12px}
+.v6DrawerContent .driveCard{padding:15px}
+.v6DrawerContent .driveCard .sectionMiniHead{margin-bottom:9px}
+.v6DrawerContent .driveCard .sectionMiniHead h3{font-size:16px}
+.v6DrawerContent .quickGrid{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}
+.v6TravelLinks{display:flex;gap:9px;flex-wrap:wrap;margin:3px 0 13px}
+.v6TravelLinks>*{font-size:12px;min-height:43px}
+.v6Safety{margin:12px 5px;color:#91a4b6;font-size:11px}
+body.v6-ready .dock{border-color:var(--v6-line);background:#0b121c;position:sticky;bottom:10px}
+body.v6-ready .footer{color:#9eafc0}
+body.v6-ready #immersiveCockpit{scroll-margin-top:0}
+@media(max-width:1050px){
+ .v6Banner{gap:9px;grid-template-columns:1fr 1fr 1fr;padding:16px 16px 27px;min-height:150px}
+ .v6BannerLeft{grid-template-columns:1fr;gap:5px}.v6BannerWeather{grid-column:1;grid-row:3}.v6BannerCenter strong{font-size:58px}
+ .v6Intro{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .v6Titlebar{flex-wrap:wrap}
+ .v6DrawerContent .driveLayout{grid-template-columns:1fr}
+}
+@media(max-width:780px){
+ body.v6-ready .shell{grid-template-columns:1fr}
+ body.v6-ready .main{padding:8px 10px 105px}
+ body.v6-ready .sidebar{z-index:36}
+ .v6Banner{top:5px;border-radius:16px;grid-template-columns:1fr auto;min-height:137px;gap:6px;padding:12px 10px 25px}
+ .v6BannerLeft{grid-column:1;grid-row:1}.v6BannerCenter{grid-column:2;grid-row:1/3}.v6BannerCenter strong{font-size:55px}
+ .v6BannerCenter>span{font-size:8px}.v6BannerCenter>small{font-size:9px}
+ .v6BannerRight{grid-column:1/-1;grid-row:3;display:flex;justify-content:space-between;align-items:flex-end;text-align:left;gap:8px}
+ .v6Journey strong{font-size:15px}.v6Journey>span{display:none}
+ .v6Next strong{font-size:10px}.v6BannerNote{font-size:8px}
+ .v6BannerWeather{display:none}
+ .v6Titlebar{gap:10px;margin:12px 2px}
+ .v6Titlebar h1{font-size:30px}.v6Titlebar p{font-size:11px}
+ .v6TitleActions{justify-content:flex-start}.v6TitleActions button{font-size:11px;min-height:40px}
+ .v6Intro{grid-template-columns:1fr 1fr}
+ .v6TripWidget{grid-column:1/-1;min-height:120px}
+ .v6Widget{padding:12px;min-height:147px}
+ .v6WidgetNumber{font-size:34px}
+ .v6Drawer{scroll-margin-top:198px}
+ .v6DrawerHead{padding:11px;gap:8px}.v6DrawerLabel strong{font-size:15px}.v6DrawerLabel small{font-size:10px}
+ .v6DrawerContent{padding:0 10px 12px}
+ .v6DrawerContent .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .v6DrawerContent .quickGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .v6DrawerContent .tile{min-height:105px}
+}
+@media(max-width:420px){.v6BannerCenter strong{font-size:48px}.v6Intro{grid-template-columns:1fr}.v6TripWidget{grid-column:auto}.v6BannerNote{display:none}.v6Banner{padding-bottom:12px}.v6DrawerContent .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Theme J: fully digital speedometer, no fabricated car image, map route, lane or live Tesla data. */
+#immersiveCockpit[data-cockpit-style="J"]{--v53-photo:none!important;--v53-sky:#070b11;--v53-tint:rgba(29,86,144,.18);--v53-card:rgba(11,20,31,.89);--v53-radius:14px;background:#070b11!important}
+#immersiveCockpit[data-cockpit-style="J"] .v53Landscape{background:radial-gradient(ellipse at 50% 52%,#152a40,#080e17 52%,#05080d)!important;filter:none!important}
+#immersiveCockpit[data-cockpit-style="J"] .v53Landscape:before{content:"";position:absolute;inset:0;background:linear-gradient(170deg,transparent 49.5%,rgba(103,174,250,.08) 50%,transparent 50.5%) 0 0/90px 90px;mask-image:linear-gradient(transparent 10%,#000 85%)}
+#immersiveCockpit[data-cockpit-style="J"] .v53Light{background:radial-gradient(ellipse,rgba(43,114,186,.15),transparent 68%)}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitScene{display:none!important}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitRoad{display:none!important}
+#immersiveCockpit[data-cockpit-style="J"] .v53Road{display:block;bottom:-4%;left:27%;width:46%;height:62%;opacity:.63}
+#immersiveCockpit[data-cockpit-style="J"] #cockpitMap{opacity:0!important}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitMain{position:absolute!important;display:flex!important;z-index:18!important;top:34%!important;left:50%!important;right:auto!important;transform:translate(-50%,-50%)!important;width:auto!important;pointer-events:none!important}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitDial{position:relative!important;display:flex!important;align-items:center;justify-content:center;width:clamp(240px,29vw,440px)!important;height:clamp(220px,32vh,390px)!important;aspect-ratio:auto!important;background:none!important;border:0!important;box-shadow:none!important;filter:none!important}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitDial svg{display:none!important}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitCenter{position:relative!important;transform:none!important;top:auto!important;left:auto!important;min-width:0!important;display:flex;flex-direction:column;align-items:center}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentLabel{font-size:clamp(11px,1vw,15px);letter-spacing:.25em;color:#a9c1d9}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentNum{font-size:clamp(104px,14vw,230px)!important;font-weight:600!important;line-height:.9!important;letter-spacing:-.065em!important;text-shadow:0 5px 31px rgba(70,145,246,.23)}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentUnit{margin-top:8px;font-size:21px;font-weight:450;letter-spacing:.12em;color:#c0d3e7}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage{display:grid!important;position:absolute!important;z-index:16!important;inset:auto 2.4% 39px!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-template-rows:minmax(115px,1fr)!important;gap:11px!important;height:clamp(126px,29vh,231px)!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Card{grid-area:auto!important;display:flex!important;flex-direction:column!important;min-width:0!important;border:1px solid rgba(164,201,241,.16)!important;border-radius:14px!important;padding:12px!important;background:rgba(9,20,34,.88)!important;box-shadow:inset 0 1px rgba(208,232,255,.05)!important;backdrop-filter:blur(15px)!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Journey{grid-column:1!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Conditions{grid-column:2!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Today{grid-column:3!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Agenda{grid-column:4!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52MapTile,#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Essentials,#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Status,#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v53Media,#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v53Sun{display:none!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Card header{padding:0!important;margin-bottom:9px!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Card .v52Eyebrow{font-size:11px!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Distance{font-size:clamp(27px,3vw,42px)!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52ConditionsMain strong{font-size:clamp(25px,3vw,38px)!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Time{font-size:clamp(29px,3.2vw,43px)!important}
+#immersiveCockpit[data-cockpit-style="J"] .v53Caption{left:50%!important;bottom:13px!important;max-width:75%!important;white-space:nowrap!important;font-size:10px!important}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitFooter{bottom:5px!important}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitStatus{font-size:10px}
+@media(max-width:850px){
+ #immersiveCockpit[data-cockpit-style="J"] .cockpitTop{top:8px;left:8px;right:8px}
+ #immersiveCockpit[data-cockpit-style="J"] .cockpitMain{top:34%!important}
+ #immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentNum{font-size:clamp(85px,20vw,160px)!important}
+ #immersiveCockpit[data-cockpit-style="J"] .v52Stage{inset:auto 8px 41px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(90px,1fr))!important;height:clamp(215px,42vh,345px)!important;gap:6px!important}
+ #immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Card{padding:8px!important}
+ #immersiveCockpit[data-cockpit-style="J"] .cockpitStatus{display:none}
+ #immersiveCockpit[data-cockpit-style="J"] .v53Caption{display:none}
+}
