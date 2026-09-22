@@ -109,27 +109,26 @@ function setupMap(){
     if(!lastFix&&!(saved&&Number.isFinite(+saved.lat)&&Number.isFinite(+saved.lon)))return;
     const center=lastFix?[lastFix.lat,lastFix.lon]:[+saved.lat,+saved.lon];
     map=L.map('cockpitMap',{zoomControl:false,attributionControl:true,dragging:false,scrollWheelZoom:false,doubleClickZoom:false,touchZoom:false,keyboard:false,boxZoom:false,preferCanvas:true}).setView(center,15);
-    // V6.9: dark real-world map tiles, with OpenStreetMap fallback if unavailable.
-    // If the original OSM tile host is unreachable in the Tesla browser,
-    // try a second OSM-based tile service; never draw a fictitious map.
+    // V6.9.1: standard OpenStreetMap tiles do not need a CARTO API key.
+    // The previous CARTO endpoint returned a valid image containing
+    // "API KEY REQUIRED", so Leaflet's tileerror fallback never triggered.
+    // Dark-map appearance is applied in CSS to genuine OSM raster tiles.
     const mapHost=byId('cockpitMap');
     const osmattribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
     const options={minZoom:4,maxZoom:19,attribution:osmattribution,updateWhenIdle:true,keepBuffer:1};
-    let mainLoaded=false,alternativeLoaded=false,switched=false,mainErrors=0,alternativeErrors=0;
-    const original=L.tileLayer('https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{...options,attribution:osmattribution+' · &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
-    original.on('tileload',()=>{mainLoaded=true;mapHost.removeAttribute('data-map-state');});
-    function alternative(){
-      if(switched||mainLoaded||!opened||!map)return;
-      switched=true;
-      map.removeLayer(original);
-      const secondary=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',options);
-      secondary.on('tileload',()=>{alternativeLoaded=true;mapHost.removeAttribute('data-map-state');});
-      secondary.on('tileerror',()=>{if(++alternativeErrors>=2&&!alternativeLoaded)mapHost.dataset.mapState='unavailable';});
-      secondary.addTo(map);
-      setTimeout(()=>{if(opened&&!alternativeLoaded)mapHost.dataset.mapState='unavailable';},12000);
-    }
-    original.on('tileerror',()=>{if(++mainErrors>=2&&!mainLoaded)alternative();});
-    setTimeout(()=>{if(opened&&!mainLoaded)alternative();},9000);
+    let tilesLoaded=false,tileErrors=0;
+    mapHost.dataset.mapState='loading';
+    const original=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',options).addTo(map);
+    original.on('tileload',()=>{
+      tilesLoaded=true;
+      mapHost.removeAttribute('data-map-state');
+    });
+    original.on('tileerror',()=>{
+      if(!tilesLoaded&&++tileErrors>=2)mapHost.dataset.mapState='unavailable';
+    });
+    setTimeout(()=>{
+      if(opened&&!tilesLoaded)mapHost.dataset.mapState='unavailable';
+    },13000);
     byId('cockpitFallback').style.display='none';
     setTimeout(()=>{if(map){map.invalidateSize(false);if(lastFix)showPosition(lastFix.lat,lastFix.lon,lastFix.heading)}},120);
   }catch(e){mapFailed=true;byId('cockpitMap').dataset.mapState='unavailable';status.textContent='Carte indisponible • compteur GPS toujours actif'}
