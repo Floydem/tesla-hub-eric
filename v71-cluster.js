@@ -5,6 +5,8 @@
   const root=document.getElementById('immersiveCockpit');
   if(!root||!root.classList.contains('v69Ready')||root.classList.contains('v71Cluster'))return;
   root.classList.add('v71Cluster');
+  const release=document.querySelector('.footer span');
+  if(release)release.textContent='AERION • V7.1';
   const stage=root.querySelector('#v52Stage');
   const speed=root.querySelector('.cockpitMain');
   if(!stage||!speed)return;
