@@ -77,5 +77,5 @@
   new MutationObserver(()=>{if(root.classList.contains('isOpen'))refresh();}).observe(root,{attributes:true,attributeFilter:['class']});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh(true);});
   setInterval(()=>refresh(),5*60*1000);
-  const footer=document.querySelector('.footer span');if(footer)footer.textContent='Eric Tesla Hub • V6.3';
+  const footer=document.querySelector('.footer span');if(footer)footer.textContent='Eric Tesla Hub • V6.4';
 })();
