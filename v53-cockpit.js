@@ -72,5 +72,5 @@ function sunRefresh(){
 }
 sunRefresh();
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){mediaRefresh();sunRefresh()}});
-const current=document.querySelector('.footer span');if(current)current.textContent='Eric Tesla Hub • V5.3';
+const current=document.querySelector('.footer span');if(current)current.textContent='AERION • V7.0';
 })();
