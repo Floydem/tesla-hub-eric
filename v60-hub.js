@@ -4,6 +4,7 @@
 var doc=document, byId=function(id){return doc.getElementById(id);};
 var main=doc.querySelector('.main');
 if(!main || !byId('mediaGrid') || !byId('immersiveCockpit'))return;
+/* V6.1 leaves all existing grids, local storage and modal handlers intact. */
 var KEY='ericTeslaHubV6Drawers';
 var cache={};try{cache=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){}
 var initial={media:true,games:false,travel:true,tools:false,discover:false};
@@ -184,6 +185,6 @@ if(digitalRoot&&sharedBanner){
  digitalRoot.addEventListener('hub:cockpit-style',placeSharedBanner);
  placeSharedBanner();
 }
-var footer=doc.querySelector('.footer span');if(footer)footer.textContent='Eric Tesla Hub • V6.0';
+var footer=doc.querySelector('.footer span');if(footer)footer.textContent='Eric Tesla Hub • V6.1';
 doc.body.classList.add('v6-ready');
 })();
