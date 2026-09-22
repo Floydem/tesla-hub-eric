@@ -89,7 +89,7 @@ stage.innerHTML=`
       <button type="button" id="v52OpenCalendar">Mon agenda</button>
       <button type="button" id="v52ResetTrip">Remise à zéro trajet</button>
     </div>
-    <small>Fonctions disponibles dans Eric Tesla Hub</small>
+    <small>Fonctions disponibles dans AERION</small>
   </section>
   <section class="v52Card v52Status" aria-label="Qualité des données du cockpit">
     <header><span class="v52MiniIcon">◉</span><span class="v52Eyebrow">État des données</span></header>
@@ -177,5 +177,5 @@ refresh();
 const timer=setInterval(()=>{if(root.classList.contains('isOpen'))refresh()},2500);
 root.addEventListener('hub:cockpit-style',refresh);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
-const footer=document.querySelector('.footer span');if(footer)footer.textContent='Eric Tesla Hub • V5.2';
+const footer=document.querySelector('.footer span');if(footer)footer.textContent='AERION • V7.0';
 })();
