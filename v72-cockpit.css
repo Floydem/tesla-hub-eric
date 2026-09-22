@@ -1,0 +1,296 @@
+/* AERION V7.2 cockpit · match the approved Hub dashboard composition:
+   speed ring high in centre, date left, genuine forecast watch right,
+   three rectangular information panels underneath. Exactly one agenda. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v69Ready.v71Cluster.v72Layout{
+  --a72-dial:min(30vw,43vh,285px);
+  background:linear-gradient(135deg,#070c1a,#0b1836 45%,#101137 73%,#070c1d)!important;
+  overflow:hidden!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70Ambient{
+  display:block!important;position:absolute!important;inset:0!important;z-index:8!important;
+  background:radial-gradient(ellipse 30% 37% at 47% 52%,rgba(29,83,177,.18),transparent),
+    linear-gradient(180deg,rgba(7,13,30,.77),rgba(11,20,47,.26) 49%,rgba(9,13,33,.41) 88%),
+    url("assets/aerion-waves.svg?v=7.2") center 57%/100% 100% no-repeat!important;
+  opacity:1!important;pointer-events:none!important;overflow:hidden!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70Ambient:before{
+  content:"";display:block!important;position:absolute;inset:-8%!important;opacity:.21!important;
+  background:url("assets/aerion-waves.svg?v=7.2") center 59%/105% 100% no-repeat!important;
+  filter:drop-shadow(0 0 8px rgba(46,156,255,.36))!important;
+  transform:none!important;animation:a72CockpitWave 24s ease-in-out infinite alternate!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70Ambient:after{display:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70Wave{
+  display:block!important;opacity:.23!important;top:46%!important;
+  height:38%!important;border-top-width:1px!important;
+  box-shadow:none!important;filter:drop-shadow(0 0 7px rgba(66,170,255,.25))!important;
+}
+@keyframes a72CockpitWave{from{translate:-1.1% -5px;opacity:.14}to{translate:1.1% 7px;opacity:.37}}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout:not(.isOpen) .v70Ambient:before{animation-play-state:paused!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitTop{
+  z-index:82!important;top:clamp(8px,1.6vh,17px)!important;left:2.3%!important;right:2.3%!important;
+  align-items:flex-start!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitBrand strong{
+  color:#b6f3ff!important;letter-spacing:.28em!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout #cockpitReset{display:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitTopBtns .cockpitBtn{
+  background:linear-gradient(120deg,rgba(20,48,87,.85),rgba(24,21,60,.87))!important;
+  border-color:rgba(125,207,255,.47)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitMain{
+  position:absolute!important;inset:auto!important;left:50%!important;top:35%!important;
+  width:var(--a72-dial)!important;height:var(--a72-dial)!important;
+  min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;
+  aspect-ratio:1/1!important;margin:0!important;padding:0!important;
+  transform:translate(-50%,-50%)!important;z-index:57!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitDial.v69SpeedDial{
+  position:relative!important;left:auto!important;top:auto!important;
+  width:100%!important;height:100%!important;aspect-ratio:1/1!important;
+  min-width:0!important;min-height:0!important;border-radius:50%!important;
+  background:radial-gradient(circle at 50% 44%,#0b1735 0%,#0a193b 56%,#0b1534 100%)!important;
+  border:2px solid rgba(133,233,255,.91)!important;
+  box-shadow:0 0 0 5px rgba(31,95,177,.23),0 0 0 7px rgba(72,161,251,.22),0 0 31px rgba(36,177,255,.41),inset 0 0 26px rgba(54,133,227,.25)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitCurrentLabel{
+  color:#bceeff!important;font-size:clamp(9px,.98vw,13px)!important;letter-spacing:.2em!important;
+  white-space:normal!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitCurrentNum{
+  font-size:clamp(57px,calc(var(--a72-dial)*.37),114px)!important;line-height:.92!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitCurrentUnit{
+  font-size:clamp(13px,1.4vw,19px)!important;color:#fff!important;margin-top:4px!important;
+}
+/* The stage is an absolute viewport-size positioning plane; only the existing
+   real-data widgets are reflowed. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage{
+  position:absolute!important;inset:0!important;left:0!important;right:0!important;top:0!important;bottom:0!important;
+  width:100%!important;height:100%!important;max-height:none!important;
+  display:block!important;z-index:52!important;
+  grid-template-columns:none!important;grid-template-rows:none!important;gap:0!important;
+  overflow:visible!important;pointer-events:none!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v52Journey,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v52Conditions,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v52MapTile,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v52Essentials,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v52Status,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v53Media,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v53Sun{display:none!important}
+/* Top-left actual time/date. No duplicated calendar appointment here. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v52Today{
+  position:absolute!important;display:flex!important;visibility:visible!important;z-index:54!important;
+  left:3%!important;top:18%!important;right:auto!important;bottom:auto!important;
+  width:clamp(146px,24vw,340px)!important;height:auto!important;
+  min-height:0!important;max-height:none!important;aspect-ratio:auto!important;
+  transform:none!important;translate:none!important;grid-column:auto!important;grid-row:auto!important;
+  padding:0!important;margin:0!important;gap:7px!important;
+  border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;
+  align-items:flex-start!important;justify-content:flex-start!important;backdrop-filter:none!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today:before{content:none!important;display:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today header{display:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today .v52Time{
+  font-size:clamp(32px,4.15vw,66px)!important;line-height:1!important;font-weight:630!important;
+  color:#fff!important;text-align:left!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today .v52Date{
+  color:#e5e9f8!important;font-size:clamp(11px,1.08vw,17px)!important;line-height:1.25!important;
+  text-align:left!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today .v52Holiday{
+  border-top:1px solid rgba(141,185,249,.25)!important;padding-top:8px!important;margin:5px 0 0!important;
+  max-width:98%!important;text-align:left!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today .v52Holiday>span{
+  display:block!important;font-size:clamp(9px,.88vw,12px)!important;color:#bbd3f1!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today .v52Holiday strong{
+  font-size:clamp(10px,.98vw,13px)!important;line-height:1.2!important;color:#fff!important;
+}
+/* Top-right contextual forecast alert from Open-Meteo, not an official warning. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v70RiskCard{
+  position:absolute!important;display:flex!important;visibility:visible!important;
+  top:18%!important;right:3%!important;left:auto!important;bottom:auto!important;
+  width:clamp(164px,24vw,330px)!important;height:auto!important;max-height:none!important;min-height:0!important;
+  aspect-ratio:auto!important;transform:none!important;translate:none!important;
+  margin:0!important;padding:0!important;border:0!important;border-radius:0!important;
+  background:none!important;box-shadow:none!important;backdrop-filter:none!important;z-index:54!important;
+  gap:9px!important;align-items:flex-end!important;justify-content:flex-start!important;text-align:right!important;
+  grid-column:auto!important;grid-row:auto!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70RiskCard:before{display:none!important;content:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70RiskCard header{
+  justify-content:flex-end!important;color:#c9d5ee!important;font-size:clamp(10px,1.02vw,13px)!important;
+  letter-spacing:.17em!important;margin:0!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70RiskCard #v70RiskTitle{
+  color:#fff!important;font-size:clamp(13px,1.3vw,19px)!important;max-height:2.4em!important;
+  line-height:1.24!important;overflow:hidden!important;text-align:right!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70RiskCard #v70RiskText{
+  color:#cbd8f5!important;font-size:clamp(10px,.95vw,13px)!important;line-height:1.33!important;
+  max-height:3em!important;text-align:right!important;max-width:100%!important;
+}
+/* Bottom, only one agenda: local weather, personal agenda, 12h forecasts. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > :is(.v65Weather,.v52Agenda){
+  position:absolute!important;display:flex!important;visibility:visible!important;
+  top:auto!important;bottom:clamp(78px,12vh,116px)!important;right:auto!important;
+  width:30.4%!important;height:clamp(118px,25vh,208px)!important;
+  min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;
+  aspect-ratio:auto!important;transform:none!important;translate:none!important;
+  margin:0!important;padding:clamp(11px,1.2vw,19px)!important;
+  border-radius:20px!important;overflow:hidden!important;box-sizing:border-box!important;
+  border:1px solid rgba(108,184,255,.47)!important;
+  background:linear-gradient(126deg,rgba(12,33,69,.96),rgba(25,23,70,.96))!important;
+  box-shadow:inset 0 1px rgba(211,248,255,.1),0 8px 30px rgba(0,0,0,.28)!important;
+  backdrop-filter:blur(12px)!important;z-index:54!important;
+  align-items:stretch!important;justify-content:flex-start!important;gap:clamp(5px,.85vh,9px)!important;
+  grid-column:auto!important;grid-row:auto!important;pointer-events:auto!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > :is(.v65Weather,.v52Agenda):before{display:none!important;content:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v65Weather{
+  left:2.5%!important;
+  background:linear-gradient(90deg,rgba(8,20,50,.89),rgba(15,23,60,.45) 58%,rgba(15,19,58,.16)),url("assets/aerion-weather-sunset.svg?v=7.2") center center/cover no-repeat!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v52Agenda{
+  left:34.8%!important;background:linear-gradient(125deg,rgba(16,29,67,.97),rgba(27,22,75,.95))!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v65WeatherHead,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Agenda header{
+  justify-content:flex-start!important;gap:7px!important;font-size:clamp(10px,1.1vw,15px)!important;
+  text-align:left!important;margin:0!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v65WeatherSummary{
+  justify-content:flex-start!important;align-items:center!important;flex-direction:row!important;flex-wrap:wrap!important;
+  text-align:left!important;gap:3px 7px!important;margin:0!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v65WeatherTemp{
+  font-size:clamp(36px,3.65vw,58px)!important;line-height:1!important;
+  text-shadow:0 2px 9px #0b102c!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v65WeatherCondition,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v65WeatherMinMax{
+  text-align:left!important;color:#f5f8ff!important;flex:0 0 100%!important;
+  font-size:clamp(10px,.99vw,14px)!important;line-height:1.15!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Agenda .v52Appointment{
+  font-size:clamp(13px,1.55vw,22px)!important;line-height:1.22!important;
+  max-width:100%!important;max-height:2.5em!important;overflow:hidden!important;
+  text-align:left!important;margin:clamp(7px,1.2vh,17px) 0 0!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Agenda .v52AgendaDate{
+  max-width:100%!important;text-align:left!important;color:#d9e5f8!important;
+  font-size:clamp(10px,.99vw,13px)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Agenda #v52AgendaBtn{
+  align-self:flex-end!important;margin:auto 0 0!important;
+  background:linear-gradient(112deg,rgba(23,75,128,.95),rgba(56,48,131,.83))!important;
+  border-color:rgba(113,209,255,.56)!important;
+}
+/* A real, horizontally scrollable local hourly weather readout occupies the
+   third information card. Keep the risk summary only at top-right. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v69ForecastBar{
+  position:absolute!important;z-index:55!important;
+  top:auto!important;bottom:clamp(78px,12vh,116px)!important;left:67.1%!important;right:2.5%!important;
+  width:30.4%!important;height:clamp(118px,25vh,208px)!important;
+  min-width:0!important;min-height:0!important;max-height:none!important;
+  margin:0!important;padding:clamp(11px,1.2vw,19px)!important;
+  border-radius:20px!important;border:1px solid rgba(122,151,255,.5)!important;
+  background:linear-gradient(122deg,rgba(10,31,66,.97),rgba(31,23,80,.98))!important;
+  box-shadow:inset 0 1px rgba(211,248,255,.11),0 8px 30px rgba(0,0,0,.24)!important;
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;
+  justify-content:flex-start!important;gap:clamp(6px,1.3vh,12px)!important;overflow:hidden!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v69ForecastSummary{display:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v72ForecastTitle{
+  display:flex;align-items:center;gap:9px;color:#e8f5ff;font-size:clamp(11px,1.06vw,15px);
+  font-weight:710;line-height:1.3;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v72ForecastTitle span{color:#75e6ff;font-size:18px}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v69ForecastHours{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  align-content:start!important;gap:5px 8px!important;
+  overflow-x:hidden!important;overflow-y:auto!important;flex:1!important;max-width:100%!important;
+  padding:0 2px 2px 0!important;scrollbar-color:rgba(116,184,255,.56) transparent!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v69ForecastHour{
+  font-size:clamp(9px,.88vw,12px)!important;border:0!important;border-bottom:1px solid rgba(150,180,246,.16)!important;
+  padding:4px 1px!important;white-space:normal!important;line-height:1.22!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitFooter{
+  position:absolute!important;bottom:2px!important;left:2.5%!important;right:2.5%!important;
+  z-index:82!important;max-height:35px!important;overflow:hidden!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v53Caption{display:none!important}
+/* Tesla browser: fixed display with native controls occupying some height. */
+@media(orientation:landscape) and (max-height:600px){
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout{--a72-dial:min(29vw,38vh,218px)}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitMain{top:33%!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today,
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70RiskCard{top:19%!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > :is(.v65Weather,.v52Agenda),
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v69ForecastBar{
+  bottom:clamp(42px,8.5vh,61px)!important;height:clamp(109px,24vh,145px)!important;
+  padding:8px 10px!important;gap:3px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today .v52Holiday{display:none!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70RiskCard #v70RiskText{max-height:2.2em!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v65WeatherTemp{font-size:clamp(29px,3.1vw,43px)!important}
+}
+/* Portrait: real functional content stacks naturally and never squeezes circles. */
+@media(orientation:portrait) and (max-width:850px){
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout{--a72-dial:min(55vw,31vh,245px);overflow-x:hidden!important;overflow-y:auto!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitTop{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+  width:100%!important;margin:0!important;padding:8px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitMain{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+  width:var(--a72-dial)!important;height:var(--a72-dial)!important;margin:12px auto 13px!important;
+  transform:none!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage{
+  position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;
+  width:calc(100% - 16px)!important;height:auto!important;margin:0 8px!important;
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-template-rows:auto auto!important;gap:8px!important;align-items:stretch!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v52Today,
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v70RiskCard{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+  transform:none!important;translate:none!important;width:100%!important;min-height:105px!important;height:auto!important;
+  align-self:stretch!important;grid-column:auto!important;grid-row:1!important;
+  padding:11px!important;gap:6px!important;border:1px solid rgba(140,190,250,.27)!important;
+  border-radius:14px!important;background:rgba(12,24,54,.76)!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v52Today{grid-column:1!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v70RiskCard{grid-column:2!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today .v52Time{font-size:clamp(27px,7vw,40px)!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Today .v52Holiday{display:none!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > :is(.v65Weather,.v52Agenda){
+  position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+  width:100%!important;height:auto!important;min-height:clamp(160px,43vw,210px)!important;
+  grid-row:2!important;grid-column:auto!important;transform:none!important;translate:none!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v65Weather{grid-column:1!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v52Stage > .v52Agenda{grid-column:2!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v69ForecastBar{
+  position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+  width:calc(100% - 16px)!important;min-height:130px!important;height:auto!important;
+  margin:9px 8px 30px!important;padding:12px!important;display:flex!important;border-radius:15px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v69ForecastHours{
+  display:flex!important;flex-direction:row!important;overflow-x:auto!important;overflow-y:hidden!important;gap:8px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v69ForecastHour{flex:none!important;white-space:nowrap!important;padding:5px 8px!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .cockpitFooter{
+  position:relative!important;inset:auto!important;bottom:auto!important;margin:0 8px 20px!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v72Layout .v70Ambient:before{animation:none!important}
+}
