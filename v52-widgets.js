@@ -4,7 +4,7 @@
 const root=document.getElementById('immersiveCockpit');
 if(!root)return;
 const $=(s,scope=root)=>scope.querySelector(s);
-const styles=[['A','Épure'],['B','Néon'],['C','Piste'],['D','Glacier'],['E','Vortex'],['F','Horizon'],['G','Panorama'],['H','Ion'],['I','Atelier'],['J','Digital']];
+const styles=[['J','Digital']];
 const ids=styles.map(x=>x[0]);
 const chooser=$('.cockpitStyleChooser');
 if(!chooser)return;
@@ -42,7 +42,7 @@ function updateTitle(){
   name.textContent=item[0]+' · '+item[1];
   name.setAttribute('aria-label','Vue '+item[0]+' '+item[1]);
   const bar=$('.cockpitStyleChooser > span');
-  if(bar)bar.textContent='10 styles';
+  if(bar)bar.textContent='Digital';
 }
 root.addEventListener('hub:cockpit-style',updateTitle);updateTitle();
 
