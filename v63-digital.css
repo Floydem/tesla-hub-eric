@@ -134,3 +134,50 @@
   }
   #immersiveCockpit[data-cockpit-style="J"] .v52Stage > .v63ForecastCard{grid-column:1/-1!important;grid-row:auto!important}
 }
+
+
+/* V6.4 single Digital cockpit. The old style switch is deliberately removed
+   from every viewport, without changing the working Hub layout. */
+#immersiveCockpit[data-cockpit-style="J"] .cockpitStyleChooser,
+#immersiveCockpit[data-cockpit-style="J"] #v52Prev,
+#immersiveCockpit[data-cockpit-style="J"] #v52Next,
+#immersiveCockpit[data-cockpit-style="J"] #v52Current,
+#immersiveCockpit[data-cockpit-style="J"] #cockpitMobileStyle{
+  display:none!important;
+}
+/* Actual Leaflet/OpenStreetMap localisation, gently visible BEHIND the big GPS
+   speedometer and five weather/trip/agenda widgets. Not Tesla navigation data. */
+#immersiveCockpit[data-cockpit-style="J"] #cockpitMap{
+  position:absolute!important;inset:0!important;
+  display:block!important;z-index:5!important;opacity:1!important;
+  background:transparent!important;pointer-events:none!important;overflow:hidden!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] #cockpitMap .leaflet-container{
+  background:transparent!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] #cockpitMap .leaflet-tile-pane{
+  opacity:.23!important;
+  filter:grayscale(1) saturate(.45) brightness(.82) contrast(1.15);
+  -webkit-mask-image:radial-gradient(ellipse 85% 83% at 50% 49%,#000 16%,rgba(0,0,0,.82) 52%,transparent 100%);
+  mask-image:radial-gradient(ellipse 85% 83% at 50% 49%,#000 16%,rgba(0,0,0,.82) 52%,transparent 100%);
+}
+#immersiveCockpit[data-cockpit-style="J"] #cockpitMap .leaflet-marker-pane{
+  opacity:.52!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] #cockpitMap .leaflet-control-attribution{
+  opacity:1!important;
+  font-size:10px!important;
+  color:#c4d9ea!important;
+  background:rgba(4,11,20,.82)!important;
+  border-radius:6px!important;
+  padding:2px 5px!important;
+  pointer-events:auto!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] #cockpitMap .leaflet-control-attribution a{
+  color:#abd9ff!important;
+  pointer-events:auto!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v53Backdrop{z-index:3!important}
+#immersiveCockpit[data-cockpit-style="J"] .v53Road{opacity:.35!important}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitMain{z-index:18!important}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage{z-index:20!important}
