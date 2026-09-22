@@ -164,13 +164,13 @@ function onFix(p){
   }
   lastFix=fix;
   updateGauge(instant);
-  status.textContent=fix.accuracy>80?'Position GPS peu précise • vitesse indicative':'Vitesse GPS indicative • carte de localisation (sans itinéraire)';
-  if(map)showPosition(fix.lat,fix.lon,fix.heading);else if(window.L)setupMap();
+  status.textContent=fix.accuracy>80?'Position GPS peu précise • vitesse indicative':'Vitesse GPS indicative • données GPS du navigateur';
+  if(!host.classList.contains('v71Cluster')){if(map)showPosition(fix.lat,fix.lon,fix.heading);else if(window.L)setupMap();}
   clock();
 }
 function onError(error){
   if(!opened)return;
-  status.textContent=error&&error.code===1?'Autorise la localisation pour afficher la vitesse et la carte':'GPS indisponible : vitesse et moyenne en attente';
+  status.textContent=error&&error.code===1?'Autorise la localisation pour afficher la vitesse GPS':'GPS indisponible : vitesse indicative en attente';
 }
 function open(){
   if(opened)return;
@@ -179,8 +179,11 @@ function open(){
   clock();timer=setInterval(clock,1000);
   if(navigator.geolocation)watchId=navigator.geolocation.watchPosition(onFix,onError,{enableHighAccuracy:true,maximumAge:2000,timeout:15000});
   else status.textContent='Ce navigateur ne fournit pas de localisation GPS';
-  if(map){map.invalidateSize(false);if(lastFix)showPosition(lastFix.lat,lastFix.lon,lastFix.heading)}
-  else loadMap();
+  // This AERION cockpit deliberately has no map: do not download Leaflet or map tiles.
+  if(!host.classList.contains('v71Cluster')){
+    if(map){map.invalidateSize(false);if(lastFix)showPosition(lastFix.lat,lastFix.lon,lastFix.heading)}
+    else loadMap();
+  }
   if(host.requestFullscreen){try{const p=host.requestFullscreen({navigationUI:'hide'});if(p&&p.catch)p.catch(()=>{})}catch(e){}}
 }
 function close(){
