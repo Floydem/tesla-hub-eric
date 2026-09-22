@@ -217,7 +217,7 @@ const root=document.getElementById('immersiveCockpit');
 if(!root)return;
 const $=s=>root.querySelector(s);
 const styles=[
-  ['J','DIGITAL','Compteur GPS numérique et carte de localisation en transparence']
+  ['J','DIGITAL','Compteur GPS numérique · cadrans superposés · fond animé']
 ];
 const KEY='ericTeslaHubCockpitStyleV2';
 function saved(){try{return localStorage.getItem(KEY)||'J'}catch(e){return 'J'}}
