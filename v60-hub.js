@@ -22,7 +22,7 @@ function icon(kind){
  return '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">'+(paths[kind]||paths.tools)+'</svg>';
 }
 function button(text,id,cls){var b=doc.createElement('button');b.type='button';b.textContent=text;if(id)b.id=id;if(cls)b.className=cls;return b;}
-var dashboard=doc.createElement('section');dashboard.id='v6Dashboard';dashboard.setAttribute('aria-label','Tesla Hub version 6');
+var dashboard=doc.createElement('section');dashboard.id='v6Dashboard';dashboard.setAttribute('aria-label','VELOM');
 dashboard.innerHTML=
  '<header class="v6Banner" id="v6Banner">'+
  '<div class="v6Sky" aria-hidden="true"><i class="v6Mountains"></i><i class="v6Road"></i></div>'+
@@ -30,13 +30,13 @@ dashboard.innerHTML=
  '<div class="v6BannerWeather"><span aria-hidden="true">☁</span><div><strong id="v6Weather">--°</strong><small id="v6Condition">Météo locale indisponible</small></div></div></div>'+
  '<div class="v6BannerCenter"><span>VITESSE GPS INDICATIVE</span><div><strong id="v6Speed">--</strong><small>km/h</small></div><small id="v6SpeedState">En attente du GPS</small></div>'+
  '<div class="v6BannerRight"><div class="v6Journey"><small>TRAJET DEPUIS L’OUVERTURE</small><strong><span id="v6Distance">0,0</span> km</strong><span id="v6TripState">En attente du GPS</span></div><div class="v6Next"><small>PRÉVISION +1 H</small><strong id="v6NextWeather">En attente de la météo</strong></div></div>'+
- '<div class="v6BannerNote">Navigation et données Tesla non accessibles au navigateur. Vitesse et distance GPS indicatives.</div>'+
+ '<div class="v6BannerNote">Navigation et données du véhicule non accessibles au navigateur. Vitesse et distance GPS indicatives.</div>'+
  '</header>'+
- '<div class="v6Titlebar"><div><div class="v6Eyebrow">FLOYDEM · ÉDITION V6.0</div><h1>Tesla Hub</h1><p>Vos applications, contenus et outils. Pensé pour la route et les pauses.</p></div>'+
+ '<div class="v6Titlebar"><div><div class="v6Eyebrow">VELOM · HUB PERSONNEL</div><h1 class="velomBrand"><img src="assets/velom-wordmark.png?v=6.7" width="550" height="186" alt="VELOM"></h1><p>Vos applications, contenus et outils. Pensé pour la route et les pauses.</p></div>'+
  '<div class="v6TitleActions"><button type="button" id="v6CockpitBtn">'+icon('shield')+' Cockpit digital</button><button type="button" id="v6AgendaBtn">'+icon('calendar')+' Agenda</button><button type="button" id="v6SettingsBtn">'+icon('tools')+' Paramètres</button></div></div>'+
  '<div class="v6Intro"><article class="v6Widget v6WeatherWidget"><div class="v6WidgetHead">'+icon('travel')+' <span>Météo locale</span><button type="button" id="v6RefreshWx" aria-label="Actualiser la météo">↻</button></div><div class="v6WidgetNumber" id="v6WeatherLarge">--°</div><span id="v6WeatherDescription">Prévisions indisponibles</span><div class="v6SmallLine" id="v6WeatherDetails">Mini / maxi : --</div></article>'+
  '<article class="v6Widget v6AgendaWidget"><div class="v6WidgetHead">'+icon('calendar')+' <span>Agenda</span><button type="button" id="v6CalendarOpen">Ouvrir ↗</button></div><div id="v6Appointment" class="v6Appointment">Aucun rendez-vous à venir</div><div id="v6AppointmentWhen" class="v6SmallLine">Mes rendez-vous enregistrés dans ce navigateur</div></article>'+
- '<article class="v6Widget v6TripWidget"><div class="v6WidgetHead">'+icon('bolt')+' <span>Mon trajet</span><button type="button" id="v6TripReset">Réinitialiser</button></div><div class="v6WidgetNumber"><span id="v6TripCard">0,0</span><small> km</small></div><span id="v6TripCardState">Distance GPS depuis l’ouverture</span><div class="v6SmallLine">Le navigateur n’accède pas à la batterie ou à l’autonomie Tesla.</div></article></div>'+
+ '<article class="v6Widget v6TripWidget"><div class="v6WidgetHead">'+icon('bolt')+' <span>Mon trajet</span><button type="button" id="v6TripReset">Réinitialiser</button></div><div class="v6WidgetNumber"><span id="v6TripCard">0,0</span><small> km</small></div><span id="v6TripCardState">Distance GPS depuis l’ouverture</span><div class="v6SmallLine">Le navigateur n’accède pas directement à la batterie ni à l’autonomie du véhicule.</div></article></div>'+
  '<div class="v6DrawerList" id="v6DrawerList"></div>'+
  '<p class="v6Safety">Vidéos et jeux sont réservés aux moments où le véhicule est à l’arrêt. Ce site ne commande pas les fonctions de sécurité du véhicule.</p>';
 main.insertBefore(dashboard,main.firstChild);
@@ -45,7 +45,7 @@ var groups=[
  {id:'media',name:'Multimédia',desc:'Musique, vidéos et contenus en streaming',source:'media',symbol:'media'},
  {id:'games',name:'Jeux',desc:'Family Arcade, Finger Drift et tous vos jeux',source:'arcade',symbol:'games'},
  {id:'travel',name:'Voyage',desc:'Navigation, météo, agenda et infos en temps réel',source:'drive',symbol:'travel'},
- {id:'tools',name:'Outils',desc:'Utilitaires, Tesla et personnalisations',source:'tools',symbol:'tools'},
+ {id:'tools',name:'Outils',desc:'Utilitaires, voiture et personnalisations',source:'tools',symbol:'tools'},
  {id:'discover',name:'Découvrir',desc:'Actualités, curiosités et expériences web',source:'discover',symbol:'discover'}
 ];
 var sections={};
@@ -59,7 +59,7 @@ groups.forEach(function(g){
   var links=doc.createElement('div');links.className='v6TravelLinks';
   links.innerHTML='<a href="https://www.waze.com/live-map" target="_blank" rel="noopener noreferrer">'+icon('travel')+' Waze</a>'+
    '<a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">↗ Google Maps</a>'+
-   '<a href="https://www.tesla.com/findus" target="_blank" rel="noopener noreferrer">⚡ Bornes Tesla</a>'+
+   '<a href="https://www.tesla.com/findus" target="_blank" rel="noopener noreferrer">⚡ Bornes de recharge</a>'+
    '<button type="button" id="v6TravelAgenda">'+icon('calendar')+' Mon agenda</button>'+
    '<button type="button" id="v6TravelWeather">☁ Prévisions détaillées</button>';
   body.appendChild(links);
@@ -168,6 +168,6 @@ doc.querySelectorAll('.sidebar [data-go]').forEach(function(btn){
 });
 /* V6.2: Hub banner stays on the Hub. The Digital cockpit already has its own GPS
    speedometer and widgets, so no duplicate banner is moved over it. */
-var footer=doc.querySelector('.footer span');if(footer)footer.textContent='Eric Tesla Hub • V6.2';
+var footer=doc.querySelector('.footer span');if(footer)footer.textContent='VELOM • V6.7';
 doc.body.classList.add('v6-ready');
 })();
