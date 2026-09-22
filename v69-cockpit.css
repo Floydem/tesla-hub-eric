@@ -452,3 +452,25 @@
     display:none!important;
   }
 }
+
+
+/* V6.9.1 · Fix the real map behind the instrument cluster.
+   CARTO returned "API KEY REQUIRED" images, not an HTTP tile error.
+   Restyle the standard, no-key OpenStreetMap raster map instead. */
+#immersiveCockpit[data-cockpit-style="J"].v69Ready #cockpitMap .leaflet-tile-pane{
+  opacity:.85!important;
+  filter:invert(.95) hue-rotate(180deg) grayscale(.30) brightness(.91) contrast(1.18)!important;
+  -webkit-mask-image:none!important;mask-image:none!important;
+}
+#immersiveCockpit[data-cockpit-style="J"].v69Ready .v53Landscape{
+  background:linear-gradient(180deg,rgba(4,5,8,.32),transparent 21%,rgba(2,3,5,.06) 57%,rgba(2,3,5,.43)),
+    radial-gradient(ellipse at 50% 59%,transparent 12%,rgba(2,3,7,.19) 80%)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"].v69Ready #cockpitMap .leaflet-control-attribution{
+  background:rgba(7,7,9,.91)!important;
+  color:#f0ebed!important;opacity:1!important;
+  font-size:10px!important;padding:2px 5px!important;
+}
+#immersiveCockpit[data-cockpit-style="J"].v69Ready #cockpitMap .leaflet-control-attribution a{
+  color:#fff!important;
+}
