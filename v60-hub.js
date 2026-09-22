@@ -166,25 +166,8 @@ doc.querySelectorAll('.sidebar [data-go]').forEach(function(btn){
   doc.querySelectorAll('.sidebar [data-go]').forEach(function(n){n.classList.toggle('active',n===btn);});
  });
 });
-/* One shared banner element, not two lookalikes: it moves into Digital cockpit
-   and returns to the Hub on close or when another existing cockpit theme is chosen. */
-var digitalRoot=byId('immersiveCockpit'),sharedBanner=byId('v6Banner');
-function placeSharedBanner(){
- if(!digitalRoot||!sharedBanner)return;
- var inDigital=digitalRoot.classList.contains('isOpen')&&digitalRoot.dataset.cockpitStyle==='J';
- if(inDigital){
-  if(sharedBanner.parentElement!==digitalRoot)digitalRoot.appendChild(sharedBanner);
-  if(!digitalRoot.classList.contains('v6SharedBannerOpen'))digitalRoot.classList.add('v6SharedBannerOpen');
- }else{
-  if(digitalRoot.classList.contains('v6SharedBannerOpen'))digitalRoot.classList.remove('v6SharedBannerOpen');
-  if(sharedBanner.parentElement!==dashboard)dashboard.insertBefore(sharedBanner,dashboard.firstChild);
- }
-}
-if(digitalRoot&&sharedBanner){
- new MutationObserver(placeSharedBanner).observe(digitalRoot,{attributes:true,attributeFilter:['class','data-cockpit-style']});
- digitalRoot.addEventListener('hub:cockpit-style',placeSharedBanner);
- placeSharedBanner();
-}
-var footer=doc.querySelector('.footer span');if(footer)footer.textContent='Eric Tesla Hub • V6.1';
+/* V6.2: Hub banner stays on the Hub. The Digital cockpit already has its own GPS
+   speedometer and widgets, so no duplicate banner is moved over it. */
+var footer=doc.querySelector('.footer span');if(footer)footer.textContent='Eric Tesla Hub • V6.2';
 doc.body.classList.add('v6-ready');
 })();
