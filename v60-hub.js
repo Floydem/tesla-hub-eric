@@ -29,8 +29,8 @@ dashboard.innerHTML=
  '<div class="v6BannerLeft"><strong id="v6Clock">--:--</strong><small id="v6Date">Date en attente</small>'+
  '<div class="v6BannerWeather"><span aria-hidden="true">☁</span><div><strong id="v6Weather">--°</strong><small id="v6Condition">Météo locale indisponible</small></div></div></div>'+
  '<div class="v6BannerCenter"><span>VITESSE GPS INDICATIVE</span><div><strong id="v6Speed">--</strong><small>km/h</small></div><small id="v6SpeedState">En attente du GPS</small></div>'+
- '<div class="v6BannerRight"><div class="v6Journey v7AgendaReminder"><small>PROCHAIN RENDEZ-VOUS</small><strong id="v7BannerAppointment">Aucun rendez-vous à venir</strong><span id="v7BannerAppointmentWhen">Mon agenda personnel</span></div><div class="v6Next"><small>PRÉVISION +1 H</small><strong id="v6NextWeather">En attente de la météo</strong></div></div>'+
- '<div class="v6BannerNote">Navigation et données du véhicule non accessibles au navigateur. Vitesse GPS indicative.</div>'+
+ '<div class="v6BannerRight"><div class="v6Journey v72Holiday"><small>PROCHAIN JOUR FÉRIÉ</small><strong id="v72Holiday">Recherche du calendrier…</strong><span id="v72HolidayPlace">France · Neuchâtel</span></div><div class="v6Next v72Gps"><small>POSITION GPS</small><strong id="v72GpsState">En attente de la localisation</strong></div></div>'+
+ '<div class="v6BannerNote">Vitesse GPS indicative du navigateur · ne remplace pas le compteur du véhicule.</div>'+
  '</header>'+
  '<div class="v6Titlebar"><div><div class="v6Eyebrow">AERION · HUB PERSONNEL</div><h1 class="velomBrand"><img src="assets/aerion-wordmark.svg?v=7.0" width="610" height="120" alt="AERION"></h1><p>Vos applications, contenus et outils. Pensé pour la route et les pauses.</p></div>'+
  '<div class="v6TitleActions"><button type="button" id="v6CockpitBtn">'+icon('shield')+' Cockpit digital</button><button type="button" id="v6AgendaBtn">'+icon('calendar')+' Agenda</button><button type="button" id="v6SettingsBtn">'+icon('tools')+' Paramètres</button></div></div>'+
@@ -111,16 +111,25 @@ function appointment(){
  .filter(function(x){return x.ms>=now-60000;}).sort(function(a,b){return a.ms-b.ms;})[0];
  byId('v6Appointment').textContent=next?String(next.a.title||'Rendez-vous').slice(0,90):'Aucun rendez-vous à venir';
  byId('v6AppointmentWhen').textContent=next?new Date(next.a.date+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'long'})+(next.a.time?' · '+next.a.time:' · Journée'):'Ajoutez vos rendez-vous dans l’agenda du Hub';
- var title=byId('v7BannerAppointment'),when=byId('v7BannerAppointmentWhen');
- if(title)title.textContent=next?String(next.a.title||'Rendez-vous').slice(0,52):'Aucun rendez-vous à venir';
- if(when)when.textContent=next?new Date(next.a.date+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'long'})+(next.a.time?' · '+next.a.time:' · Journée'):'Ajoute un rendez-vous dans l’agenda';
+
 }
 function refreshData(){
  field('#floatSpeed','v6Speed','--');
  field('#fcWxNow','v6Weather','--°');field('#fcWxNow','v6WeatherLarge','--°');
  field('#fcWxCond','v6Condition','Météo indisponible');field('#weatherLabel','v6WeatherDescription','Prévisions indisponibles');
- field('#fcWxNext','v6NextWeather','Prévision indisponible');field('#fcWxNext','v7NextHourWeather','Prévision indisponible');field('#miniRange','v6WeatherDetails','Mini / maxi indisponibles');
+field('#fcWxNext','v7NextHourWeather','Prévision indisponible');field('#miniRange','v6WeatherDetails','Mini / maxi indisponibles');
  byId('v6SpeedState').textContent=byId('gpsStateHero')?.textContent?.trim()||'GPS en attente';
+ var gps=byId('v72GpsState');if(gps){var g=byId('gpsStateHero')?.textContent?.trim();gps.textContent=g||'Localisation du navigateur en attente';}
+ var H=window.HUB_HOLIDAYS,upcoming=null,types=[];
+ if(H&&typeof H.fr==='function'&&typeof H.ch==='function'){
+  var n=new Date(),today=n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');
+  var holidays=[];for(var y of [n.getFullYear(),n.getFullYear()+1]){holidays.push(...H.fr(y),...H.ch(y));}
+  holidays.sort(function(a,b){return a.date.localeCompare(b.date);});upcoming=holidays.find(function(h){return h.date>=today;});
+  if(upcoming)types=[...new Set(holidays.filter(function(h){return h.date===upcoming.date;}).map(function(h){return h.type;}))];
+ }
+ var hlabel=byId('v72Holiday'),hplace=byId('v72HolidayPlace');
+ if(hlabel)hlabel.textContent=upcoming?new Date(upcoming.date+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short'})+' · '+String(upcoming.title||'Jour férié').replace(/\s*\(NE\)\s*/g,''):'Calendrier des jours fériés indisponible';
+ if(hplace)hplace.textContent=types.length?types.map(function(x){return x==='fr'?'France':x==='ch'?'Neuchâtel':x;}).join(' · '):'France · Neuchâtel';
  appointment();
 }
 refreshData();setInterval(refreshData,2500);doc.addEventListener('visibilitychange',function(){if(!doc.hidden)refreshData();});
