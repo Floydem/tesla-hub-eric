@@ -16,6 +16,8 @@ const legacy=dashboard.querySelector('.v6Intro');
 const agendaCard=legacy?.querySelector('.v6AgendaWidget');
 if(agendaCard&&right){
   agendaCard.classList.add('v72HeaderAgenda');
+  const caption=agendaCard.querySelector('.v6WidgetHead span');
+  if(caption)caption.textContent='PROCHAIN RENDEZ-VOUS';
   right.appendChild(agendaCard);
 }
 if(legacy){
