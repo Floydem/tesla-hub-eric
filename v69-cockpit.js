@@ -1,4 +1,4 @@
-/* VELOM V6.9: instrument-cluster presentation, using existing real GPS,
+/* AERION V7.0: instrument-cluster presentation, using existing real GPS,
    local calendar and Open-Meteo values. No invented navigation or vehicle data. */
 (()=>{
   'use strict';
@@ -11,7 +11,7 @@
   const speed=root?.querySelector('#cockpitSpeed');
   if(!root||!stage||!weather||!today||!agenda||!speed||root.classList.contains('v69Ready'))return;
   root.classList.add('v69Ready');
-  [weather,journey,today,agenda].filter(Boolean).forEach((item)=>{
+  [weather,today,agenda].filter(Boolean).forEach((item)=>{
     item.classList.add('v69Gauge');
     if(item===weather)item.dataset.gauge='weather';
     if(item===journey)item.dataset.gauge='journey';
@@ -22,9 +22,31 @@
   if(brand){
     const title=brand.querySelector('strong');
     const note=brand.querySelector('small');
-    if(title)title.textContent='VELOM';
+    if(title)title.textContent='AERION';
     if(note)note.textContent='Cockpit Digital · données GPS indicatives';
   }
+  root.classList.add('v70Aerion');
+  // Keep original data sources unchanged; remove broken journey readout.
+  if(journey)journey.hidden=true;
+  const ambient=document.createElement('div');
+  ambient.className='v70Ambient';
+  ambient.setAttribute('aria-hidden','true');
+  ambient.innerHTML='<span class="v70Wave v70WaveA"></span><span class="v70Wave v70WaveB"></span><span class="v70Wave v70WaveC"></span>';
+  root.prepend(ambient);
+  const risk=document.createElement('section');
+  risk.className='v52Card v70RiskCard';
+  risk.setAttribute('aria-label','Évolution météorologique locale');
+  risk.innerHTML='<header><span class="v70RiskSymbol" aria-hidden="true">✧</span><span class="v70RiskHeading">À surveiller</span></header><strong id="v70RiskTitle">Prévisions en attente</strong><span id="v70RiskText">Les informations météo seront affichées ici.</span>';
+  stage.appendChild(risk);
+  function updateRisk(){
+    const t=weather.querySelector('#v65AlertTitle')?.textContent?.trim();
+    const b=weather.querySelector('#v65AlertText')?.textContent?.trim();
+    risk.querySelector('#v70RiskTitle').textContent=t||'Prévisions en attente';
+    risk.querySelector('#v70RiskText').textContent=b||'Les informations météo seront affichées ici.';
+  }
+  const riskSource=weather.querySelector('#v65WeatherAlert');
+  if(riskSource)new MutationObserver(updateRisk).observe(riskSource,{attributes:true,childList:true,subtree:true,characterData:true});
+  updateRisk();
   const dial=root.querySelector('.cockpitDial');
   if(dial){
     dial.classList.add('v69SpeedDial');
@@ -84,10 +106,6 @@
     const valid=getText(speed)!=='--'&&Number.isFinite(value)&&value>=0;
     root.dataset.v69Gps=valid?'ready':'waiting';
     if(dial)dial.style.setProperty('--v69-speed',valid?String(Math.min(100,value/220*100))+'%':'0%');
-    if(journey){
-      const quiet=journey.querySelector('.v52Quiet');
-      if(quiet)quiet.textContent=valid?'Trajet GPS indicatif · depuis l’ouverture du cockpit':'Trajet GPS en attente de localisation';
-    }
   }
   const speedObserver=new MutationObserver(updateSpeed);
   speedObserver.observe(speed,{childList:true,subtree:true,characterData:true});
