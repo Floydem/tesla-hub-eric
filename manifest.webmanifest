@@ -11,7 +11,7 @@
   "theme_color": "#08090d",
   "icons": [
     {
-      "src": "assets/velom-icon.png",
+      "src": "assets/velom-icon.png?v=6.7.1",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
