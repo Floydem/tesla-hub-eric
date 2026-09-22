@@ -348,7 +348,7 @@ weather();
 setInterval(weather,15000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)weather()});
 const footer=document.querySelector('.footer span');
-if(footer)footer.textContent='Eric Tesla Hub • V5.2';
+if(footer)footer.textContent='AERION • V7.0';
 })();
 
 // The multistyle cockpit is the starting view, even on a phone.
