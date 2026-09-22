@@ -157,7 +157,7 @@
   setInterval(()=>refresh(),3*60*1000);
   refresh();
   const footer=document.querySelector('.footer span');
-  if(footer)footer.textContent='VELOM • V6.7';
+  if(footer)footer.textContent='AERION • V7.0';
   const edition=document.querySelector('#v6Dashboard .v6Eyebrow');
-  if(edition)edition.textContent='VELOM · HUB PERSONNEL';
+  if(edition)edition.textContent='AERION · HUB PERSONNEL';
 })();
