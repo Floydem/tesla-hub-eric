@@ -1,0 +1,44 @@
+/* Tesla Hub V6.6 - preserve approved Hub and Digital layouts. */
+
+/* A little less road/map contrast behind the GPS digits, while street labels
+   and actual OpenStreetMap geometry remain readable. */
+#immersiveCockpit[data-cockpit-style="J"] #cockpitMap .leaflet-tile-pane{
+  opacity:.60!important;
+  filter:grayscale(.60) saturate(.76) brightness(.87) contrast(1.09)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentNum{
+  text-shadow:0 3px 13px rgba(0,0,0,.92),0 0 27px rgba(2,9,19,.95)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentLabel,
+#immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentUnit{
+  text-shadow:0 2px 8px rgba(0,0,0,.95)!important;
+}
+
+/* Easy touch interaction on Tesla's landscape browser and on phones. */
+#agendaOverlay .agendaDay{touch-action:manipulation}
+#agendaOverlay .agendaDay:focus-visible{
+  outline:3px solid #9bd1ff;outline-offset:2px;
+}
+#agendaOverlay .agendaAddSelected{
+  width:100%;min-height:44px;margin:6px 0 12px;
+  background:linear-gradient(130deg,#17446c,#153652);
+  border-color:rgba(140,202,249,.40);color:#eef7ff;
+  font-weight:700;touch-action:manipulation;
+}
+#agendaOverlay .agendaAddSelected:active{background:#275a83}
+#agendaOverlay .agendaStorageNote{
+  display:block;color:#a9bdce;font-size:11px;line-height:1.4;
+  padding:4px 1px 0;
+}
+#agendaOverlay .agendaSaveMessage{
+  min-height:17px;color:#a5ebc4;font-size:12px;font-weight:650;
+}
+#agendaOverlay #apptTitle,#agendaOverlay #apptDate,#agendaOverlay #apptTime{
+  min-height:43px;font-size:16px;
+}
+#agendaOverlay .agendaFormActions .primary{min-height:45px}
+@media(max-width:1050px){
+  #agendaOverlay .agendaShell{max-height:94vh}
+  #agendaOverlay .agendaSide{scroll-margin-block:14px}
+  #agendaOverlay .agendaAddSelected{min-height:48px}
+}
