@@ -1,4 +1,4 @@
-/* Tesla Hub V6.0: new presentation around existing, untouched feature sections. */
+/* AERION V7: unchanged navigation and personal services, new visual identity. */
 (function(){
 'use strict';
 var doc=document, byId=function(id){return doc.getElementById(id);};
@@ -22,21 +22,21 @@ function icon(kind){
  return '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">'+(paths[kind]||paths.tools)+'</svg>';
 }
 function button(text,id,cls){var b=doc.createElement('button');b.type='button';b.textContent=text;if(id)b.id=id;if(cls)b.className=cls;return b;}
-var dashboard=doc.createElement('section');dashboard.id='v6Dashboard';dashboard.setAttribute('aria-label','VELOM');
+var dashboard=doc.createElement('section');dashboard.id='v6Dashboard';dashboard.setAttribute('aria-label','AERION');
 dashboard.innerHTML=
  '<header class="v6Banner" id="v6Banner">'+
  '<div class="v6Sky" aria-hidden="true"><i class="v6Mountains"></i><i class="v6Road"></i></div>'+
  '<div class="v6BannerLeft"><strong id="v6Clock">--:--</strong><small id="v6Date">Date en attente</small>'+
  '<div class="v6BannerWeather"><span aria-hidden="true">☁</span><div><strong id="v6Weather">--°</strong><small id="v6Condition">Météo locale indisponible</small></div></div></div>'+
  '<div class="v6BannerCenter"><span>VITESSE GPS INDICATIVE</span><div><strong id="v6Speed">--</strong><small>km/h</small></div><small id="v6SpeedState">En attente du GPS</small></div>'+
- '<div class="v6BannerRight"><div class="v6Journey"><small>TRAJET DEPUIS L’OUVERTURE</small><strong><span id="v6Distance">0,0</span> km</strong><span id="v6TripState">En attente du GPS</span></div><div class="v6Next"><small>PRÉVISION +1 H</small><strong id="v6NextWeather">En attente de la météo</strong></div></div>'+
- '<div class="v6BannerNote">Navigation et données du véhicule non accessibles au navigateur. Vitesse et distance GPS indicatives.</div>'+
+ '<div class="v6BannerRight"><div class="v6Journey v7AgendaReminder"><small>PROCHAIN RENDEZ-VOUS</small><strong id="v7BannerAppointment">Aucun rendez-vous à venir</strong><span id="v7BannerAppointmentWhen">Mon agenda personnel</span></div><div class="v6Next"><small>PRÉVISION +1 H</small><strong id="v6NextWeather">En attente de la météo</strong></div></div>'+
+ '<div class="v6BannerNote">Navigation et données du véhicule non accessibles au navigateur. Vitesse GPS indicative.</div>'+
  '</header>'+
- '<div class="v6Titlebar"><div><div class="v6Eyebrow">VELOM · HUB PERSONNEL</div><h1 class="velomBrand"><img src="assets/velom-wordmark.png?v=6.7.1" width="550" height="186" alt="VELOM"></h1><p>Vos applications, contenus et outils. Pensé pour la route et les pauses.</p></div>'+
+ '<div class="v6Titlebar"><div><div class="v6Eyebrow">AERION · HUB PERSONNEL</div><h1 class="velomBrand"><img src="assets/aerion-wordmark.svg?v=7.0" width="610" height="120" alt="AERION"></h1><p>Vos applications, contenus et outils. Pensé pour la route et les pauses.</p></div>'+
  '<div class="v6TitleActions"><button type="button" id="v6CockpitBtn">'+icon('shield')+' Cockpit digital</button><button type="button" id="v6AgendaBtn">'+icon('calendar')+' Agenda</button><button type="button" id="v6SettingsBtn">'+icon('tools')+' Paramètres</button></div></div>'+
  '<div class="v6Intro"><article class="v6Widget v6WeatherWidget"><div class="v6WidgetHead">'+icon('travel')+' <span>Météo locale</span><button type="button" id="v6RefreshWx" aria-label="Actualiser la météo">↻</button></div><div class="v6WidgetNumber" id="v6WeatherLarge">--°</div><span id="v6WeatherDescription">Prévisions indisponibles</span><div class="v6SmallLine" id="v6WeatherDetails">Mini / maxi : --</div></article>'+
  '<article class="v6Widget v6AgendaWidget"><div class="v6WidgetHead">'+icon('calendar')+' <span>Agenda</span><button type="button" id="v6CalendarOpen">Ouvrir ↗</button></div><div id="v6Appointment" class="v6Appointment">Aucun rendez-vous à venir</div><div id="v6AppointmentWhen" class="v6SmallLine">Mes rendez-vous enregistrés dans ce navigateur</div></article>'+
- '<article class="v6Widget v6TripWidget"><div class="v6WidgetHead">'+icon('bolt')+' <span>Mon trajet</span><button type="button" id="v6TripReset">Réinitialiser</button></div><div class="v6WidgetNumber"><span id="v6TripCard">0,0</span><small> km</small></div><span id="v6TripCardState">Distance GPS depuis l’ouverture</span><div class="v6SmallLine">Le navigateur n’accède pas directement à la batterie ni à l’autonomie du véhicule.</div></article></div>'+
+ '</div>'+
  '<div class="v6DrawerList" id="v6DrawerList"></div>'+
  '<p class="v6Safety">Vidéos et jeux sont réservés aux moments où le véhicule est à l’arrêt. Ce site ne commande pas les fonctions de sécurité du véhicule.</p>';
 main.insertBefore(dashboard,main.firstChild);
@@ -95,7 +95,6 @@ byId('v6SettingsBtn').onclick=function(){jump('tools','#tools')};
 byId('v6TravelAgenda').onclick=openAgenda;
 byId('v6TravelWeather').onclick=function(){byId('refreshWeather')?.click();jump('travel','#v6DrawerList');byId('v6WeatherLarge')?.scrollIntoView({behavior:'smooth'});};
 byId('v6RefreshWx').onclick=function(){byId('refreshWeather')?.click();};
-byId('v6TripReset').onclick=resetTrip;
 function displayClock(){
  var n=new Date();
  byId('v6Clock').textContent=n.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
@@ -111,6 +110,9 @@ function appointment(){
  .filter(function(x){return x.ms>=now-60000;}).sort(function(a,b){return a.ms-b.ms;})[0];
  byId('v6Appointment').textContent=next?String(next.a.title||'Rendez-vous').slice(0,90):'Aucun rendez-vous à venir';
  byId('v6AppointmentWhen').textContent=next?new Date(next.a.date+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'long'})+(next.a.time?' · '+next.a.time:' · Journée'):'Ajoutez vos rendez-vous dans l’agenda du Hub';
+ var title=byId('v7BannerAppointment'),when=byId('v7BannerAppointmentWhen');
+ if(title)title.textContent=next?String(next.a.title||'Rendez-vous').slice(0,52):'Aucun rendez-vous à venir';
+ if(when)when.textContent=next?new Date(next.a.date+'T12:00:00').toLocaleDateString('fr-FR',{weekday:'short',day:'numeric',month:'long'})+(next.a.time?' · '+next.a.time:' · Journée'):'Ajoute un rendez-vous dans l’agenda';
 }
 function refreshData(){
  field('#floatSpeed','v6Speed','--');
@@ -121,36 +123,6 @@ function refreshData(){
  appointment();
 }
 refreshData();setInterval(refreshData,2500);doc.addEventListener('visibilitychange',function(){if(!doc.hidden)refreshData();});
-/* Separate trip display, GPS only. Reject inaccurate fixes, stale fixes and implausible jumps. */
-var last=null,meters=0,fixAt=0,watch=null;
-function resetTrip(){last=null;meters=0;fixAt=0;drawTrip();}
-function drawTrip(){
- var km=(meters/1000).toLocaleString('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1});
- byId('v6Distance').textContent=km;byId('v6TripCard').textContent=km;
- var state=fixAt?Date.now()-fixAt>20000?'GPS interrompu':'Trajet GPS indicatif':'En attente du GPS';
- byId('v6TripState').textContent=state;byId('v6TripCardState').textContent=state;
-}
-function metres(a,b){
- var R=6371000,r=Math.PI/180,dp=(b.lat-a.lat)*r,dl=(b.lon-a.lon)*r;
- var v=Math.sin(dp/2)*Math.sin(dp/2)+Math.cos(a.lat*r)*Math.cos(b.lat*r)*Math.sin(dl/2)*Math.sin(dl/2);
- return 2*R*Math.asin(Math.min(1,Math.sqrt(v)));
-}
-function gps(p){
- var c=p.coords,now=Date.now();
- if(!Number.isFinite(c.latitude)||!Number.isFinite(c.longitude))return;
- var fix={lat:c.latitude,lon:c.longitude,t:p.timestamp||now,accuracy:c.accuracy||999};
- if(last){
-  var dt=(fix.t-last.t)/1000,dist=metres(last,fix);
-  if(dt>.5&&dt<30&&fix.accuracy<70&&last.accuracy<70&&dist>Math.max(7,(fix.accuracy+last.accuracy)*.32)&&dist/dt<55){meters+=dist;}
- }
- last=fix;fixAt=now;drawTrip();
-}
-if(navigator.geolocation){watch=navigator.geolocation.watchPosition(gps,function(e){
- byId('v6TripState').textContent=e.code===1?'Localisation non autorisée':'Signal GPS indisponible';
- byId('v6TripCardState').textContent=byId('v6TripState').textContent;
- },{enableHighAccuracy:true,maximumAge:2000,timeout:15000});}
-else {byId('v6TripState').textContent='GPS non disponible';byId('v6TripCardState').textContent='GPS non disponible';}
-setInterval(drawTrip,10000);
 /* Existing navigation remains wired to original sections; open their new drawer first. */
 doc.addEventListener('click',function(e){
  var el=e.target.closest('[data-go],[data-jump]');if(!el || !doc.contains(el))return;
@@ -168,6 +140,6 @@ doc.querySelectorAll('.sidebar [data-go]').forEach(function(btn){
 });
 /* V6.2: Hub banner stays on the Hub. The Digital cockpit already has its own GPS
    speedometer and widgets, so no duplicate banner is moved over it. */
-var footer=doc.querySelector('.footer span');if(footer)footer.textContent='VELOM • V6.7';
+var footer=doc.querySelector('.footer span');if(footer)footer.textContent='AERION • V7.0';
 doc.body.classList.add('v6-ready');
 })();
