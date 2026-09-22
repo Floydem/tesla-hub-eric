@@ -156,4 +156,8 @@
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh(true);});
   setInterval(()=>refresh(),3*60*1000);
   refresh();
+  const footer=document.querySelector('.footer span');
+  if(footer)footer.textContent='Eric Tesla Hub • V6.5';
+  const edition=document.querySelector('#v6Dashboard .v6Eyebrow');
+  if(edition)edition.textContent='FLOYDEM · ÉDITION V6.5';
 })();
