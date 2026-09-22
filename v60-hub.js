@@ -36,6 +36,7 @@ dashboard.innerHTML=
  '<div class="v6TitleActions"><button type="button" id="v6CockpitBtn">'+icon('shield')+' Cockpit digital</button><button type="button" id="v6AgendaBtn">'+icon('calendar')+' Agenda</button><button type="button" id="v6SettingsBtn">'+icon('tools')+' Paramètres</button></div></div>'+
  '<div class="v6Intro"><article class="v6Widget v6WeatherWidget"><div class="v6WidgetHead">'+icon('travel')+' <span>Météo locale</span><button type="button" id="v6RefreshWx" aria-label="Actualiser la météo">↻</button></div><div class="v6WidgetNumber" id="v6WeatherLarge">--°</div><span id="v6WeatherDescription">Prévisions indisponibles</span><div class="v6SmallLine" id="v6WeatherDetails">Mini / maxi : --</div></article>'+
  '<article class="v6Widget v6AgendaWidget"><div class="v6WidgetHead">'+icon('calendar')+' <span>Agenda</span><button type="button" id="v6CalendarOpen">Ouvrir ↗</button></div><div id="v6Appointment" class="v6Appointment">Aucun rendez-vous à venir</div><div id="v6AppointmentWhen" class="v6SmallLine">Mes rendez-vous enregistrés dans ce navigateur</div></article>'+
+ '<article class="v6Widget v7NextHourWidget"><div class="v6WidgetHead">'+icon('travel')+' <span>Dans une heure</span></div><div class="v6WidgetNumber" id="v7NextHourWeather">Prévisions en attente</div><span class="v6SmallLine">Prévisions météo locales · actualisées automatiquement</span></article>'+
  '</div>'+
  '<div class="v6DrawerList" id="v6DrawerList"></div>'+
  '<p class="v6Safety">Vidéos et jeux sont réservés aux moments où le véhicule est à l’arrêt. Ce site ne commande pas les fonctions de sécurité du véhicule.</p>';
@@ -118,7 +119,7 @@ function refreshData(){
  field('#floatSpeed','v6Speed','--');
  field('#fcWxNow','v6Weather','--°');field('#fcWxNow','v6WeatherLarge','--°');
  field('#fcWxCond','v6Condition','Météo indisponible');field('#weatherLabel','v6WeatherDescription','Prévisions indisponibles');
- field('#fcWxNext','v6NextWeather','Prévision indisponible');field('#miniRange','v6WeatherDetails','Mini / maxi indisponibles');
+ field('#fcWxNext','v6NextWeather','Prévision indisponible');field('#fcWxNext','v7NextHourWeather','Prévision indisponible');field('#miniRange','v6WeatherDetails','Mini / maxi indisponibles');
  byId('v6SpeedState').textContent=byId('gpsStateHero')?.textContent?.trim()||'GPS en attente';
  appointment();
 }
