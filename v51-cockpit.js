@@ -195,24 +195,15 @@ const root=document.getElementById('immersiveCockpit');
 if(!root)return;
 const $=s=>root.querySelector(s);
 const styles=[
-  ['A','ÉPURE','Minimalisme · anthracite et rouge'],
-  ['B','NÉON','Technologie · cyan et carte'],
-  ['C','PISTE','Sport · rouge et acier'],
-  ['D','GLACIER','Élégance · argent et bleu glacier'],
-  ['E','VORTEX','Performance · noir et rouge intense'],
-  ['F','HORIZON','Futuriste · bleu panoramique'],
-  ['G','PANORAMA','Paysage · cartes premium et cadran central'],
-  ['H','ION','Technologie · HUD bleu et panneaux lumineux'],
-  ['I','ATELIER','Modulaire · grand compteur et widgets pratiques'],
-  ['J','DIGITAL','Interface Tesla épurée · grand compteur entièrement numérique']
+  ['J','DIGITAL','Compteur GPS numérique et carte de localisation en transparence']
 ];
 const KEY='ericTeslaHubCockpitStyleV2';
-function saved(){try{return localStorage.getItem(KEY)||'A'}catch(e){return 'A'}}
+function saved(){try{return localStorage.getItem(KEY)||'J'}catch(e){return 'J'}}
 function keep(value){try{localStorage.setItem(KEY,value)}catch(e){}}
 const titles=new Map(styles.map(([id,name,description])=>[id,{name,description}]));
-let current=titles.has(saved())?saved():'A';
+let current='J';
 const brand=$('.cockpitBrand');
-if(brand)brand.innerHTML='<strong>COCKPIT</strong><small id="cockpitStyleCaption">Dix univers • affichage GPS indicatif</small>';
+if(brand)brand.innerHTML='<strong>COCKPIT</strong><small id="cockpitStyleCaption">Compteur digital • vitesse GPS indicative</small>';
 const title=document.createElement('div');
 title.className='cockpitThemeTitle';title.innerHTML='<span id="cockpitThemeHeading"></span><i></i>';
 root.appendChild(title);
