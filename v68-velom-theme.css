@@ -1,0 +1,314 @@
+/* VELOM V6.8 · Unified red / black / graphite / white design.
+   Presentation-only overrides: do not alter any layout, controls, weather,
+   agenda storage, map positioning or Tesla/browser capabilities. */
+:root{
+  color-scheme:dark;
+  --bg:#080809;--bg2:#141113;
+  --panel:rgba(18,16,18,.87);--panel-strong:rgba(20,18,20,.96);
+  --line:rgba(239,228,230,.15);--line-strong:rgba(251,237,239,.25);
+  --text:#fff;--muted:#bfb9bc;--accent:#fa2841;
+  --accent-2:#fff;--green:#f2f2f2;
+  --velom-red:#fb2942;--velom-red-hot:#ff445a;--velom-red-soft:rgba(251,41,66,.21);
+  --velom-graphite:#151316;--velom-white:#f7f6f6;
+}
+html,body{background-color:#090809;color:#f8f7f8}
+body.v6-ready{
+  --v6-line:rgba(245,213,217,.18);--v6-panel:rgba(21,16,19,.94);
+  --ui-accent:#ff3046;--ui-glow:rgba(250,40,62,.32);
+  background:radial-gradient(ellipse 70% 36% at 57% -11%,rgba(137,18,37,.29),transparent 78%),
+    linear-gradient(180deg,#100b0d 0%,#09090a 50%,#080809 100%)!important;
+  color:#f8f7f8;
+}
+body.v6-ready .ambient{opacity:.47!important}
+.orb-a{background:radial-gradient(circle,rgba(224,23,51,.34),transparent 68%)!important}
+.orb-b{background:radial-gradient(circle,rgba(234,35,58,.29),transparent 68%)!important}
+.orb-c{background:radial-gradient(circle,rgba(145,132,136,.17),transparent 68%)!important}
+body.v6-ready .sidebar{
+  background:linear-gradient(180deg,rgba(21,15,18,.98),rgba(11,10,11,.97))!important;
+  border-color:rgba(246,197,203,.2)!important;
+}
+body.v6-ready .sidebar .nav,
+body.v6-ready .dock .dockBtn{color:#dad6d8}
+body.v6-ready .sidebar .nav.active,
+body.v6-ready .sidebar .nav:hover{
+  background:linear-gradient(150deg,rgba(107,22,36,.54),rgba(26,19,23,.97))!important;
+  border-color:rgba(255,91,107,.62)!important;
+  color:#fff!important;
+  box-shadow:inset 3px 0 #ff334c,0 0 16px rgba(236,38,63,.19)!important;
+}
+body.v6-ready .dock{
+  background:linear-gradient(160deg,rgba(23,18,20,.98),rgba(10,9,10,.97))!important;
+  border-color:rgba(249,173,183,.35)!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.48),0 0 16px rgba(229,35,59,.08)!important;
+}
+body.v6-ready .dock .dockBtn.active,
+body.v6-ready .dock .dockBtn[aria-current="page"]{
+  color:#fff!important;border:1px solid rgba(255,96,110,.62)!important;
+  background:linear-gradient(135deg,rgba(132,26,41,.52),rgba(29,20,23,.95))!important;
+  box-shadow:inset 3px 0 #ff344c,0 0 15px rgba(242,34,63,.23)!important;
+}
+body.v6-ready .dock .dockBtn:hover{color:#fff;background:rgba(185,38,56,.19)!important}
+body.v6-ready .v6Banner{
+  border-color:rgba(248,61,82,.62)!important;
+  background:linear-gradient(125deg,rgba(30,14,19,.94),rgba(9,9,10,.97) 72%)!important;
+  box-shadow:0 12px 42px rgba(0,0,0,.48),inset 0 1px rgba(255,137,150,.12),
+    0 0 16px rgba(239,35,58,.13)!important;
+}
+body.v6-ready .v6Sky{
+  background:radial-gradient(ellipse 59% 50% at 52% 74%,rgba(216,30,53,.46),transparent 75%),
+    linear-gradient(180deg,#1a0d12,#220e15 55%,#080709)!important;
+}
+body.v6-ready .v6Sky:before{background:#221116!important}
+body.v6-ready .v6Sky:after{background:#090809!important}
+body.v6-ready .v6Mountains{
+  background:radial-gradient(ellipse at 51% 82%,rgba(245,48,72,.29),transparent 45%)!important;
+}
+body.v6-ready .v6Road{background:linear-gradient(90deg,transparent,rgba(5,3,5,.95) 22% 78%,transparent)!important}
+body.v6-ready .v6Road:before,
+body.v6-ready .v6Road:after{background:linear-gradient(transparent,rgba(255,59,80,.84))!important}
+body.v6-ready .v6BannerLeft>small,
+body.v6-ready .v6BannerWeather small,
+body.v6-ready .v6BannerCenter>span,
+body.v6-ready .v6BannerCenter>small,
+body.v6-ready .v6Journey>small,
+body.v6-ready .v6Next>small,
+body.v6-ready .v6Journey>span,
+body.v6-ready .v6BannerNote{color:#d1c8cb!important}
+body.v6-ready .v6Eyebrow{color:#f4e1e4!important}
+body.v6-ready .v6Titlebar p{color:#c6c0c2!important}
+body.v6-ready .v6TitleActions button,
+body.v6-ready .v6TravelLinks > *{
+  border-color:rgba(253,122,135,.46)!important;
+  background:linear-gradient(145deg,rgba(72,23,34,.64),rgba(17,15,17,.96))!important;
+  color:#fafafa!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.05)!important;
+}
+body.v6-ready .v6TitleActions svg,
+body.v6-ready .v6WidgetHead svg,
+body.v6-ready .v6DrawerIcon svg{color:#ff3850!important;stroke:#ff3850!important}
+body.v6-ready .v6Widget{
+  border-color:rgba(245,180,190,.25)!important;
+  background:linear-gradient(145deg,rgba(31,22,26,.97),rgba(13,12,13,.98))!important;
+  box-shadow:inset 0 1px rgba(255,229,231,.05),0 7px 21px rgba(0,0,0,.2)!important;
+}
+body.v6-ready .v6WeatherWidget{
+  background:radial-gradient(circle at 100% 100%,rgba(165,23,45,.27),transparent 62%),
+    linear-gradient(135deg,#28151b,#111013 69%)!important;
+}
+body.v6-ready .v6AgendaWidget{background:linear-gradient(125deg,#24191d,#101012)!important}
+body.v6-ready .v6TripWidget{background:linear-gradient(125deg,#1c1a1c,#100e10)!important}
+body.v6-ready .v6WidgetHead{color:#f5f1f2!important}
+body.v6-ready .v6WidgetHead button{
+  color:#f5f3f4!important;border-color:rgba(246,209,214,.25)!important;
+  background:rgba(255,255,255,.045)!important;
+}
+body.v6-ready .v6WidgetNumber small,
+body.v6-ready .v6WeatherWidget>span,
+body.v6-ready .v6TripWidget>span,
+body.v6-ready .v6SmallLine{color:#c8bec1!important}
+body.v6-ready .v6Drawer{
+  background:linear-gradient(120deg,#1a1518,#0e0d0f)!important;
+  border-color:rgba(250,190,197,.22)!important;
+}
+body.v6-ready .v6Drawer.is-open{
+  background:linear-gradient(125deg,#29171d,#100f11)!important;
+  border-color:rgba(252,75,94,.57)!important;
+  box-shadow:inset 4px 0 #ff324b,0 9px 34px rgba(0,0,0,.25)!important;
+}
+body.v6-ready .v6Drawer[data-drawer].is-open{
+  box-shadow:inset 4px 0 #ff324b,0 9px 34px rgba(0,0,0,.25)!important;
+}
+body.v6-ready .v6DrawerIcon{color:#ff3b53!important}
+body.v6-ready .v6DrawerLabel small,
+body.v6-ready .v6DrawerFlag,
+body.v6-ready .v6Chevron,
+body.v6-ready .v6DrawerContent .section>.head p,
+body.v6-ready .v6DrawerContent .tile small{color:#c7bcc0!important}
+body.v6-ready .v6DrawerContent .card,
+body.v6-ready .v6DrawerContent .tile,
+body.v6-ready .v6DrawerContent .quickTile,
+body.v6-ready .v6DrawerContent .driveCard{
+  border-color:rgba(238,204,210,.18)!important;
+  background:linear-gradient(145deg,rgba(36,26,30,.96),rgba(13,12,14,.97))!important;
+}
+body.v6-ready .v6DrawerContent .tile:hover,
+body.v6-ready .v6DrawerContent .quickTile:hover{
+  border-color:rgba(255,77,99,.64)!important;
+  background:linear-gradient(135deg,rgba(73,26,36,.83),rgba(24,19,22,.94))!important;
+}
+body.v6-ready .v6DrawerContent .quickTile svg,
+body.v6-ready .v6DrawerContent .tile svg,
+body.v6-ready .v6TravelLinks svg{color:#ff4058!important;stroke:#ff4058!important}
+/* Existing red-coded holiday and incident badges become neutral white: red
+   is reserved for primary interaction and navigation rather than warnings. */
+body.v6-ready .v52Holiday strong,
+body.v6-ready .v65WeatherAlert.is-serious strong,
+body.v6-ready .v65WeatherAlert.is-event strong{color:#f5f3f3!important}
+body.v6-ready .v65WeatherAlert.is-serious,
+body.v6-ready .v65WeatherAlert.is-event{
+  border-color:rgba(255,255,255,.48)!important;
+  background:rgba(63,58,60,.67)!important;
+}
+body.v6-ready .v65WeatherAlert.is-serious span,
+body.v6-ready .v65WeatherAlert.is-event span{color:#e5dfe1!important}
+body.v6-ready .v65WeatherAlert.is-calm{
+  border-color:rgba(232,228,228,.26)!important;background:rgba(40,38,40,.48)!important;
+}
+body.v6-ready .v65WeatherAlert.is-calm strong{color:#f1eeee!important}
+body.v6-ready .v6Safety,
+body.v6-ready .footer{color:#bfb4b8!important}
+body.v6-ready .dot{background:#eee!important;box-shadow:0 0 8px rgba(255,255,255,.38)!important}
+/* Legacy cards, controls, weather and gaming drawer contents. */
+body.v6-ready .card,
+body.v6-ready .driveCard,
+body.v6-ready .soundMenu,
+body.v6-ready .weatherTimeline,
+body.v6-ready .clockWeatherWidget{
+  border-color:rgba(249,200,207,.2)!important;
+  background:linear-gradient(135deg,rgba(32,23,27,.94),rgba(13,12,14,.98))!important;
+}
+body.v6-ready .weatherTimeline .wtLabel,
+body.v6-ready .richHour .rhRain,
+body.v6-ready .eyebrow{color:#eee9eb!important}
+body.v6-ready .hubOrderTools [data-move]{
+  background:#32282d!important;color:#fff!important;border-color:rgba(255,255,255,.3)!important;
+}
+body.v6-ready .hubTileEdit .hubArrangeHint{color:#ddd8da!important}
+body.v6-ready .v6DrawerContent .tile:focus-visible,
+body.v6-ready .nav:focus-visible,
+body.v6-ready .dockBtn:focus-visible,
+body.v6-ready .v6TitleActions button:focus-visible{
+  outline:2px solid #ff4962!important;outline-offset:3px!important;
+}
+/* The same theme extends to the Digital cockpit without touching Leaflet map
+   tile opacity, map positioning, GPS speed or the three-card responsive grid. */
+#immersiveCockpit[data-cockpit-style="J"]{
+  --ui-accent:#ff3049!important;--ui-glow:rgba(255,48,73,.25)!important;
+  --v53-accent:#ff3049!important;--v53-sky:#100b0f!important;
+  --v53-tint:rgba(154,26,47,.12)!important;
+  --v53-card:rgba(23,17,20,.92)!important;
+  background:#100b0f!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v53Landscape{
+  background:radial-gradient(ellipse at 50% 48%,rgba(113,26,45,.19),rgba(16,12,16,.28) 54%,rgba(6,5,7,.37))!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v53Landscape:before{
+  background:linear-gradient(170deg,transparent 49.5%,rgba(250,55,77,.10) 50%,transparent 50.5%) 0 0/90px 90px!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v53Light{
+  background:radial-gradient(ellipse,rgba(189,38,58,.11),transparent 69%)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitTop .cockpitBtn{
+  color:#fafafa!important;
+  border-color:rgba(246,173,183,.43)!important;
+  background:rgba(40,22,29,.87)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitTop .cockpitBtn:active{
+  background:rgba(138,30,48,.77)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentNum{
+  color:#fff!important;
+  text-shadow:0 3px 15px rgba(0,0,0,.95),0 0 32px rgba(0,0,0,.92)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentLabel,
+#immersiveCockpit[data-cockpit-style="J"] .cockpitCurrentUnit{
+  color:#f3ebed!important;text-shadow:0 2px 8px #030203!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Card{
+  color:#f8f5f5!important;
+  border-color:rgba(245,192,198,.25)!important;
+  background:rgba(20,16,19,.91)!important;
+  box-shadow:inset 0 1px rgba(255,231,234,.05)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage > .v65Weather{
+  border-color:rgba(255,88,109,.45)!important;
+  background:linear-gradient(135deg,rgba(45,22,30,.95),rgba(13,12,15,.95))!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v52MiniIcon{
+  color:#ff4058!important;background:rgba(249,62,81,.13)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherHead strong,
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherCondition,
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherMinMax b,
+#immersiveCockpit[data-cockpit-style="J"] .v65Hour b{
+  color:#fff!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherHead small,
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherMinMax,
+#immersiveCockpit[data-cockpit-style="J"] .v65HourlyLabel,
+#immersiveCockpit[data-cockpit-style="J"] .v65HourlyLabel small,
+#immersiveCockpit[data-cockpit-style="J"] .v65Hour strong,
+#immersiveCockpit[data-cockpit-style="J"] .v65Hour small,
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherFoot,
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Date{
+  color:#ddd4d7!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v65HourlyLabel{
+  border-top-color:rgba(255,218,223,.22)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v65Hour{
+  border-color:rgba(247,194,201,.19)!important;
+  background:rgba(255,255,255,.043)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v65Hours{
+  scrollbar-color:rgba(239,70,91,.58) transparent!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherAlert{
+  color:#f5f3f3!important;background:rgba(50,41,45,.77)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherAlert strong,
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherAlert span{
+  color:#f4f0f0!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherAlert.is-serious,
+#immersiveCockpit[data-cockpit-style="J"] .v65WeatherAlert.is-event{
+  border-color:rgba(245,244,244,.53)!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Action{
+  color:#fff!important;
+  border-color:rgba(248,101,119,.46)!important;
+  background:linear-gradient(135deg,rgba(108,28,43,.55),rgba(32,22,28,.86))!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v52Stage .v52Action:active{
+  background:#ad2940!important;color:#fff!important;
+}
+#immersiveCockpit[data-cockpit-style="J"] .v52Holiday strong{
+  color:#fff!important;
+}
+/* Calendar colours: current day red, selected white, holiday France gray,
+   school holidays graphite and personal events neutral white. */
+.agendaOverlay{background:rgba(6,5,6,.88)!important}
+.agendaShell{
+  background:linear-gradient(140deg,#1b1418,#0c0b0e 66%)!important;
+  border-color:rgba(246,171,181,.29)!important;color:#f9f6f6!important;
+}
+.agendaDay{
+  background:rgba(255,255,255,.035)!important;
+  border-color:rgba(241,218,222,.15)!important;
+}
+.agendaDay.today{outline-color:#ff4059!important}
+.agendaDay.selected{outline-color:#fff!important;background:rgba(185,35,59,.19)!important}
+.legend-fr,.dayChip.fr{background:rgba(215,207,209,.25)!important;color:#fff!important;border-color:rgba(252,251,251,.30)!important}
+.legend-vac,.dayChip.vac{background:rgba(99,91,95,.34)!important;color:#eee9ea!important;border-color:rgba(222,214,217,.20)!important}
+.legend-ch,.dayChip.ch{background:rgba(255,255,255,.22)!important;color:#fff!important}
+.legend-me,.dayChip.me{background:rgba(251,54,77,.22)!important;color:#fff!important;border-color:rgba(255,116,132,.36)!important}
+.agendaSide,.agendaItem{
+  background:rgba(255,255,255,.045)!important;border-color:rgba(255,255,255,.12)!important;
+}
+.agendaBtn.primary{background:linear-gradient(135deg,#d41f3b,#a3182d)!important;color:#fff!important}
+.agendaBtn,.agendaClose{color:#fff!important;border-color:rgba(246,215,219,.3)!important}
+.agendaAddSelected{
+  background:linear-gradient(130deg,#61202e,#33181f)!important;
+  border-color:rgba(255,88,112,.53)!important;
+}
+.agendaForm input,.agendaForm textarea{
+  background:#161315!important;border-color:rgba(242,192,198,.24)!important;
+  color:#fff!important;
+}
+.agendaDay:focus-visible,.agendaAddSelected:focus-visible{
+  outline-color:#ff536b!important;
+}
+.agendaSaveMessage{color:#fff!important}
+@media (prefers-reduced-motion:reduce){
+  .ambient .orb,.ambient .grid-glow{animation:none!important}
+}
