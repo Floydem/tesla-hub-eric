@@ -1,18 +1,18 @@
 {
-  "name": "VELOM",
-  "short_name": "VELOM",
+  "name": "AERION",
+  "short_name": "AERION",
   "description": "Cockpit, météo, agenda et raccourcis personnels",
   "lang": "fr",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#090809",
-  "theme_color": "#100b0e",
+  "background_color": "#080f20",
+  "theme_color": "#0b1730",
   "icons": [
     {
-      "src": "assets/velom-icon-original.png?v=6.8",
-      "sizes": "128x128",
+      "src": "assets/aerion-icon.png?v=7.0",
+      "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
     }
