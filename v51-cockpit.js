@@ -133,7 +133,7 @@ function setupMap(){
     setTimeout(()=>{if(opened&&!mainLoaded)alternative();},9000);
     byId('cockpitFallback').style.display='none';
     setTimeout(()=>{if(map){map.invalidateSize(false);if(lastFix)showPosition(lastFix.lat,lastFix.lon,lastFix.heading)}},120);
-  }catch(e){mapFailed=true;status.textContent='Carte indisponible • compteur GPS toujours actif'}
+  }catch(e){mapFailed=true;byId('cockpitMap').dataset.mapState='unavailable';status.textContent='Carte indisponible • compteur GPS toujours actif'}
 }
 function loadMap(){
   if(map||mapFailed)return;
@@ -144,7 +144,7 @@ function loadMap(){
       const js=document.createElement('script');js.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';js.onload=resolve;js.onerror=()=>reject(new Error('Carte indisponible'));document.head.appendChild(js);
     });
   }
-  mapPromise.then(()=>{if(opened)setupMap()}).catch(()=>{mapFailed=true;if(opened)status.textContent='Carte non chargée • compteur GPS actif'});
+  mapPromise.then(()=>{if(opened)setupMap()}).catch(()=>{mapFailed=true;byId('cockpitMap').dataset.mapState='unavailable';if(opened)status.textContent='Carte non chargée • compteur GPS actif'});
 }
 function onFix(p){
   if(!opened)return;
