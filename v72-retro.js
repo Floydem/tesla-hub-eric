@@ -11,6 +11,13 @@ const weather=banner?.querySelector('.v6BannerWeather');
 const right=banner?.querySelector('.v6BannerRight');
 if(weather&&right)right.insertBefore(weather,right.firstChild);
 const legacy=dashboard.querySelector('.v6Intro');
+// The legacy source still updates the actual next appointment. Relocate that
+// exact widget into the banner so there is ONE visible agenda, not a copy.
+const agendaCard=legacy?.querySelector('.v6AgendaWidget');
+if(agendaCard&&right){
+  agendaCard.classList.add('v72HeaderAgenda');
+  right.appendChild(agendaCard);
+}
 if(legacy){
   // Keep all legacy IDs and event handlers alive but display no repeated data.
   legacy.classList.add('v72LegacyIntro');
