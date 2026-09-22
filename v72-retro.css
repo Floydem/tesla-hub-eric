@@ -1,0 +1,402 @@
+/* AERION 7.2 · Retro-futurist neon HUD inspired by the supplied reference.
+   Same AERION name and icon. Decorative artwork is original, no fabricated
+   battery, energy consumption, tire pressure, routes, speed limits or media. */
+:root{--a72-pink:#ff65da;--a72-cyan:#55dfff;--a72-purple:#a46fff;--a72-night:#080b21}
+body.v6-ready{
+  background:radial-gradient(ellipse at 78% -8%,rgba(139,41,171,.23),transparent 66%),
+             radial-gradient(ellipse at 3% 12%,rgba(22,101,193,.20),transparent 56%),#070b1d!important;
+}
+body.v6-ready .ambient{opacity:.24!important}
+body.v6-ready .sidebar{
+  background:linear-gradient(180deg,#080b21,#0a0d23 64%,#070b1b)!important;
+  border-right:1px solid rgba(141,132,255,.20)!important;
+  box-shadow:inset -1px 0 rgba(118,63,242,.16)!important;
+}
+body.v6-ready .sidebar .nav.active,body.v6-ready .sidebar .nav:hover{
+  background:linear-gradient(120deg,rgba(156,54,201,.30),rgba(34,64,139,.28))!important;
+  border-color:rgba(241,91,220,.65)!important;
+  box-shadow:inset 3px 0 var(--a72-pink),0 0 16px rgba(217,48,217,.2)!important;
+}
+body.v6-ready .dock{
+  background:linear-gradient(103deg,rgba(14,18,43,.97),rgba(21,17,52,.98),rgba(12,22,44,.97))!important;
+  border-color:rgba(130,142,253,.44)!important;
+  box-shadow:0 8px 25px rgba(0,0,0,.44),0 0 18px rgba(145,67,244,.08)!important;
+}
+body.v6-ready .dock .dockBtn.active{
+  color:#e8fcff!important;border-color:rgba(255,111,226,.75)!important;
+  background:linear-gradient(120deg,rgba(96,54,172,.48),rgba(25,88,134,.38))!important;
+  box-shadow:inset 3px 0 #ff67de,0 0 16px rgba(202,69,230,.25)!important;
+}
+/* Main HUD art: one speed readout, one live weather card, one next appointment,
+   and one +1h forecast. Old intro widgets stay hidden but maintain their IDs
+   and data bindings so previously wired handlers continue to work. */
+body.v6-ready #v6Dashboard.v72Retro .v6Banner{
+  position:relative!important;top:auto!important;z-index:20!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.64fr) minmax(260px,1fr)!important;
+  grid-template-rows:56px minmax(205px,1fr)!important;
+  gap:4px 15px!important;
+  min-height:clamp(315px,43vh,452px)!important;
+  margin-bottom:16px!important;padding:15px clamp(15px,1.5vw,26px) 23px!important;
+  border-radius:20px!important;overflow:hidden!important;
+  border:1px solid rgba(155,92,255,.46)!important;
+  background:#080b22!important;
+  box-shadow:0 10px 39px rgba(2,2,15,.55),0 0 22px rgba(116,68,204,.14)!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6Sky{
+  inset:0!important;z-index:0!important;opacity:1!important;
+  background:linear-gradient(90deg,rgba(5,7,21,.12),rgba(6,7,24,.12) 45%,rgba(7,10,27,.64) 64%,rgba(7,9,28,.92) 100%),
+  url('assets/aerion-synthwave.svg?v=7.2') center 57%/cover no-repeat,#090c29!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6Sky::before,
+body.v6-ready #v6Dashboard.v72Retro .v6Sky::after,
+body.v6-ready #v6Dashboard.v72Retro .v6Mountains,
+body.v6-ready #v6Dashboard.v72Retro .v6Road{display:none!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerLeft{
+  grid-column:1!important;grid-row:1!important;
+  display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:8px 16px!important;
+  padding:2px 5px!important;text-align:left!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerLeft>strong{
+  font-size:clamp(22px,2.35vw,35px)!important;line-height:1!important;color:#fff!important;
+  text-shadow:0 0 15px rgba(255,95,209,.18)!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerLeft>small{
+  grid-column:auto!important;font-size:clamp(10px,.85vw,13px)!important;
+  color:#d2d6f0!important;white-space:normal!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter{
+  grid-column:1!important;grid-row:2!important;align-self:center!important;justify-self:center!important;
+  text-align:center!important;width:100%!important;
+  padding:0 10px 42px!important;z-index:3!important;
+  text-shadow:0 4px 29px rgba(1,1,16,.9)!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter>span{
+  display:block!important;font-size:clamp(9px,1vw,13px)!important;
+  letter-spacing:.29em!important;color:#e7daff!important;
+  text-shadow:0 0 12px rgba(150,84,252,.35)!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter>div{
+  display:flex!important;flex-direction:column!important;align-items:center!important;gap:2px!important;
+  margin:4px 0 0!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter strong{
+  font-size:clamp(75px,11vw,160px)!important;line-height:.93!important;
+  font-weight:680!important;letter-spacing:-.075em!important;font-variant-numeric:tabular-nums!important;
+  color:#fff!important;text-shadow:0 0 17px rgba(255,125,226,.66),0 2px 18px #050414!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter div small{
+  font-size:clamp(15px,1.45vw,22px)!important;color:#f5f1ff!important;font-weight:700!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter>small{
+  font-size:clamp(9px,.82vw,11px)!important;color:#d6d3e9!important;margin-top:5px!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerRight{
+  grid-column:2!important;grid-row:1/3!important;justify-self:stretch!important;
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:1fr 1.18fr .82fr!important;
+  justify-items:stretch!important;align-content:stretch!important;gap:8px!important;
+  text-align:left!important;min-width:0!important;max-height:none!important;
+  padding:0 0 2px!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerRight > :is(.v6BannerWeather,.v6Journey,.v6Next){
+  display:flex!important;flex-direction:column!important;gap:3px!important;
+  justify-content:center!important;min-width:0!important;
+  width:100%!important;min-height:0!important;max-width:none!important;
+  padding:clamp(8px,.8vw,13px) clamp(9px,1vw,16px)!important;
+  border:1px solid rgba(119,105,205,.43)!important;border-radius:14px!important;
+  background:linear-gradient(126deg,rgba(12,17,44,.85),rgba(27,16,54,.76))!important;
+  box-shadow:inset 0 1px rgba(206,180,255,.08)!important;
+  backdrop-filter:blur(9px)!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerRight > .v6BannerWeather{
+  flex-direction:row!important;justify-content:flex-start!important;align-items:center!important;
+  grid-column:auto!important;grid-row:1!important;gap:12px!important;
+  background:linear-gradient(125deg,rgba(18,23,65,.85),rgba(39,20,76,.8))!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerWeather>span{font-size:clamp(20px,2.3vw,33px)!important;color:#ead9ff!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerWeather strong{font-size:clamp(24px,2.8vw,42px)!important;color:#fff!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerWeather small{font-size:clamp(9px,1vw,12px)!important;color:#d3c9ed!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Journey{grid-row:2!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Journey strong{
+  font-size:clamp(13px,1.33vw,19px)!important;line-height:1.2!important;
+  overflow-wrap:anywhere!important;color:#fff!important;white-space:normal!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6Journey>span{display:block!important;line-height:1.25!important;color:#c6c7e5!important;font-size:clamp(9px,.83vw,12px)!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Next{grid-row:3!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Next strong{font-size:clamp(12px,1.28vw,17px)!important;color:#fff!important;line-height:1.2!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Journey>small,
+body.v6-ready #v6Dashboard.v72Retro .v6Next>small{
+  font-size:clamp(9px,.84vw,12px)!important;letter-spacing:.14em!important;color:#9eeaff!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerNote{
+  position:absolute!important;left:19px!important;right:auto!important;
+  bottom:9px!important;max-width:58%!important;text-align:left!important;
+  font-size:9px!important;color:rgba(225,213,244,.83)!important;line-height:1.2!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6Titlebar{
+  margin:10px 3px 14px!important;align-items:center!important;justify-content:space-between!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6Eyebrow{color:#adeeff!important}
+body.v6-ready #v6Dashboard.v72Retro .velomBrand img{
+  filter:drop-shadow(0 0 12px rgba(148,76,246,.32))!important;
+  width:100%!important;max-height:100%!important;object-fit:contain!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6TitleActions button{
+  border-color:rgba(157,111,245,.48)!important;
+  background:linear-gradient(115deg,rgba(21,30,72,.98),rgba(40,21,77,.95))!important;
+  box-shadow:inset 0 1px rgba(182,177,255,.08),0 0 12px rgba(67,123,232,.10)!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6TitleActions button svg{color:#67ddff!important;stroke:#67ddff!important}
+/* Keep old cards in DOM for existing v60-hub.js data mirrors and open-calendar
+   button, while presenting three NEW non-duplicate cards to the user. */
+body.v6-ready #v6Dashboard.v72Retro .v72LegacyIntro{display:none!important}
+body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras{
+  display:grid!important;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr) minmax(0,.9fr)!important;
+  gap:12px!important;margin:0 0 15px!important;align-items:stretch!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72Panel{
+  position:relative;min-width:0;min-height:clamp(150px,21vh,216px);
+  display:flex;flex-direction:column;gap:10px;padding:16px!important;
+  border:1px solid rgba(128,105,211,.46)!important;border-radius:17px!important;
+  background:linear-gradient(126deg,rgba(14,18,51,.96),rgba(26,17,58,.95))!important;
+  box-shadow:inset 0 1px rgba(205,189,255,.05),0 8px 27px rgba(0,0,0,.16)!important;
+  overflow:hidden;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72HourlyPanel{
+  background:linear-gradient(97deg,rgba(7,15,43,.89),rgba(20,16,58,.88)),url('assets/aerion-synthwave.svg?v=7.2') center 50%/cover no-repeat!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72WatchPanel{
+  background:radial-gradient(ellipse at 90% 95%,rgba(150,45,166,.23),transparent 62%),linear-gradient(126deg,#111737,#231540)!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72Panel header{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  font-size:clamp(12px,1.04vw,16px);color:#f9f7ff;line-height:1.1;font-weight:700;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72Panel header small{
+  margin-left:auto;font-size:10px;color:#c3b7e7;font-weight:500;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72PanelGlyph{color:#76e6ff;font-size:22px;line-height:1}
+body.v6-ready #v6Dashboard.v72Retro .v72HourlyItems{
+  display:flex;flex:1;align-items:stretch;gap:4px;min-width:0;overflow-x:auto;
+  color:#d5d3ed;font-size:12px;padding:4px 0;scrollbar-width:thin;scrollbar-color:#8452cd transparent;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72Hour{
+  flex:1 0 51px;min-width:51px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  padding:4px 2px;border-right:1px solid rgba(174,139,241,.28);white-space:nowrap;
+  text-align:center;font-variant-numeric:tabular-nums;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72Hour:last-child{border-right:0}
+body.v6-ready #v6Dashboard.v72Retro .v72Hour b{font-size:11px;color:#d4dbf3}
+body.v6-ready #v6Dashboard.v72Retro .v72Hour>span{font-size:19px}
+body.v6-ready #v6Dashboard.v72Retro .v72Hour strong{font-size:clamp(16px,1.3vw,22px);color:#fff}
+body.v6-ready #v6Dashboard.v72Retro .v72Hour small{font-size:10px;color:#d7c3f4}
+body.v6-ready #v6Dashboard.v72Retro .v72WatchTitle{
+  font-size:clamp(15px,1.32vw,20px);line-height:1.15;color:#fff;margin-top:6px;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72WatchText{
+  font-size:clamp(10px,.88vw,13px);color:#d9d1ef;line-height:1.37;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72Source{
+  display:block;margin-top:auto;font-size:9px;color:#bdb8dd;line-height:1.25;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72QuickButtons{display:flex;flex-wrap:wrap;gap:9px;align-content:center;flex:1}
+body.v6-ready #v6Dashboard.v72Retro .v72QuickButtons>*{
+  border:1px solid rgba(155,127,238,.50);border-radius:11px;
+  color:#fff!important;background:linear-gradient(133deg,rgba(33,51,108,.87),rgba(74,29,112,.88));
+  padding:10px 13px;font-size:12px;line-height:1.1;text-decoration:none;cursor:pointer;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72QuickButtons>*:hover,
+body.v6-ready #v6Dashboard.v72Retro .v72QuickButtons>*:focus-visible{
+  outline:1px solid #e173ff;outline-offset:1px;border-color:#ff79df;
+  background:linear-gradient(133deg,rgba(48,83,164,.89),rgba(112,39,146,.90));
+}
+/* Immersive cockpit: same retro sunset art and color code. Existing J speed
+   and the four live source widgets are rearranged, not replaced by fake data. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro{
+ --a72-dial:min(31vw,45vh,293px);
+ background:#060a23!important;overflow:hidden!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v70Ambient{
+ display:block!important;position:absolute!important;inset:0!important;z-index:8!important;opacity:1!important;
+ background:linear-gradient(180deg,rgba(4,5,22,.41),rgba(6,7,26,.28) 34%,rgba(7,7,23,.17) 63%,rgba(4,6,24,.54) 100%),
+ url('assets/aerion-synthwave.svg?v=7.2') center 53%/cover no-repeat,#0a0d32!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v70Ambient::before{
+ background:radial-gradient(ellipse 32% 30% at 17% 43%,rgba(54,120,247,.27),transparent 80%),
+ radial-gradient(ellipse 36% 44% at 88% 56%,rgba(185,45,222,.20),transparent 81%)!important;
+ filter:blur(11px)!important;opacity:.43!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v70Ambient::after{opacity:.12!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v70Wave{
+ opacity:.40!important;border-top-color:rgba(218,78,255,.47)!important;filter:drop-shadow(0 0 5px rgba(234,65,226,.30))!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .cockpitMain{
+ position:absolute!important;inset:auto!important;top:41%!important;left:50%!important;
+ width:var(--a72-dial)!important;height:var(--a72-dial)!important;min-width:0!important;min-height:0!important;
+ aspect-ratio:1/1!important;transform:translate(-50%,-50%)!important;
+ z-index:57!important;margin:0!important;padding:0!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .cockpitDial.v69SpeedDial{
+ width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;
+ border-color:rgba(235,92,255,.77)!important;
+ background:radial-gradient(circle,rgba(13,15,45,.95),rgba(11,14,40,.92) 55%,rgba(32,16,62,.93) 100%)!important;
+ box-shadow:0 0 0 5px rgba(7,9,28,.68),0 0 0 7px rgba(80,152,255,.40),
+ 0 0 36px rgba(142,58,250,.42),inset 0 0 30px rgba(247,70,215,.08)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v69SpeedDial:before{
+ background:conic-gradient(from 225deg,#68d9ff 0%,#697fff 28%,#ff65d8 var(--v69-speed,0%),rgba(177,167,230,.23) var(--v69-speed,0%) 100%)!important;
+ filter:drop-shadow(0 0 5px rgba(223,90,255,.52))!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .cockpitCurrentNum{
+ font-size:clamp(73px,calc(var(--a72-dial)*.40),140px)!important;
+ color:#fff!important;text-shadow:0 0 18px rgba(255,91,220,.57),0 3px 16px rgba(0,0,0,.9)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .cockpitTop{
+ z-index:80!important;left:2%!important;right:2%!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .cockpitBrand strong{
+ color:#e9daff!important;text-shadow:0 0 11px rgba(207,88,250,.5)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage{
+ position:absolute!important;inset:0!important;top:0!important;bottom:0!important;left:0!important;right:0!important;
+ width:100%!important;height:100%!important;display:block!important;
+ grid-template-columns:none!important;grid-template-rows:none!important;z-index:48!important;
+ overflow:visible!important;margin:0!important;padding:0!important;pointer-events:none!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v52Journey{
+ display:none!important;visibility:hidden!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > :is(.v52Today,.v65Weather,.v52Agenda,.v70RiskCard){
+ position:absolute!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+ transform:translate(-50%,-50%)!important;
+ aspect-ratio:auto!important;width:min(23vw,270px)!important;height:auto!important;
+ max-height:none!important;min-height:0!important;max-width:none!important;min-width:0!important;
+ border-radius:15px!important;padding:clamp(7px,.92vw,14px)!important;
+ border:1px solid rgba(147,91,237,.52)!important;
+ background:linear-gradient(126deg,rgba(12,15,47,.90),rgba(29,17,64,.86))!important;
+ box-shadow:inset 0 1px rgba(225,179,255,.06),0 0 19px rgba(139,75,228,.17)!important;
+ flex-direction:column!important;gap:3px!important;justify-content:center!important;align-items:center!important;
+ pointer-events:auto!important;backdrop-filter:blur(7px)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > :is(.v52Today,.v65Weather,.v52Agenda,.v70RiskCard)::before{
+ content:none!important;display:none!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v52Today{
+ left:15%!important;top:27%!important;z-index:43!important;
+ border:0!important;background:linear-gradient(100deg,rgba(6,9,29,.51),rgba(15,13,45,.40))!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v65Weather{
+ left:85%!important;top:27%!important;z-index:43!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v70RiskCard{
+ left:16%!important;top:75%!important;z-index:43!important;
+ width:min(23vw,230px)!important;height:min(23vw,28vh,150px)!important;aspect-ratio:auto!important;
+ border-radius:30px!important;overflow:hidden!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v52Agenda{
+ left:84%!important;top:75%!important;z-index:43!important;
+ width:min(23vw,230px)!important;height:min(23vw,28vh,150px)!important;aspect-ratio:auto!important;
+ border-radius:30px!important;overflow:hidden!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Today .v52Time{
+ font-size:clamp(26px,3vw,45px)!important;color:#fff!important;text-shadow:0 0 10px rgba(219,92,243,.32)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v65Weather .v65WeatherTemp{
+ font-size:clamp(26px,3vw,45px)!important;color:#fff!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Agenda .v52Appointment{
+ font-size:clamp(10px,1.13vw,16px)!important;max-height:3em!important;line-height:1.15!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v70RiskCard #v70RiskTitle{
+ font-size:clamp(10px,1.2vw,16px)!important;max-width:95%!important;line-height:1.12!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v70RiskCard #v70RiskText{
+ font-size:clamp(8px,.9vw,12px)!important;max-height:3em!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v69ForecastBar{
+ z-index:62!important;position:absolute!important;left:2.5%!important;right:2.5%!important;bottom:clamp(19px,3vh,28px)!important;
+ width:95%!important;height:auto!important;min-height:32px!important;max-height:46px!important;
+ margin:0!important;padding:5px 10px!important;
+ border:1px solid rgba(185,90,242,.54)!important;
+ background:linear-gradient(100deg,rgba(7,13,37,.95),rgba(35,14,64,.92))!important;
+ box-shadow:0 0 18px rgba(141,63,221,.2)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v69ForecastSummary{display:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v69ForecastHours{flex:1 1 100%!important;scrollbar-color:#d168f7 transparent!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .cockpitFooter{z-index:66!important}
+/* Compact real Tesla browser: native browser and car chrome remain visible. */
+@media (orientation:landscape) and (max-height:580px){
+ body.v6-ready #v6Dashboard.v72Retro .v6Banner{min-height:325px!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro{--a72-dial:min(29vw,43vh,250px)}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v52Today,
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v65Weather{top:29%!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v52Agenda,
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v70RiskCard{top:73%!important;height:min(22vh,110px)!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v70RiskCard #v70RiskText{display:none!important}
+}
+@media (max-width:1040px) and (orientation:landscape){
+ body.v6-ready #v6Dashboard.v72Retro .v6Banner{grid-template-columns:minmax(0,1.38fr) minmax(210px,1fr)!important}
+ body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras{grid-template-columns:1.15fr 1fr!important}
+ body.v6-ready #v6Dashboard.v72Retro .v72LinksPanel{grid-column:1/-1!important;min-height:105px!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > :is(.v52Today,.v65Weather,.v52Agenda,.v70RiskCard){width:min(24vw,190px)!important}
+}
+@media (orientation:portrait) and (max-width:850px){
+ body.v6-ready #v6Dashboard.v72Retro .v6Banner{
+  position:relative!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto auto auto!important;
+  min-height:430px!important;padding:12px 12px 22px!important;gap:5px!important;
+ }
+ body.v6-ready #v6Dashboard.v72Retro .v6Sky{background-position:50% 52%!important}
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerLeft{grid-column:1!important;grid-row:1!important}
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter{grid-column:1!important;grid-row:2!important;min-height:178px!important;padding:6px!important}
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter strong{font-size:clamp(78px,21vw,136px)!important}
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerRight{
+  grid-column:1!important;grid-row:3!important;display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:auto auto!important;gap:6px!important;
+  justify-items:stretch!important;
+ }
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerRight > .v6BannerWeather{grid-column:1!important;grid-row:1!important}
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerRight > .v6Journey{grid-column:2!important;grid-row:1!important}
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerRight > .v6Next{grid-column:1/-1!important;grid-row:2!important}
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerRight > :is(.v6BannerWeather,.v6Journey,.v6Next){padding:8px!important;min-height:61px!important}
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerNote{display:none!important}
+ body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras{grid-template-columns:minmax(0,1fr)!important}
+ body.v6-ready #v6Dashboard.v72Retro .v72Panel{min-height:160px!important}
+ body.v6-ready #v6Dashboard.v72Retro .v72LinksPanel{grid-column:auto!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro{--a72-dial:min(60vw,29vh,270px);overflow-x:hidden!important;overflow-y:auto!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .cockpitTop{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+  width:100%!important;margin:0!important;padding:8px!important;z-index:80!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .cockpitMain{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+  width:var(--a72-dial)!important;height:var(--a72-dial)!important;
+  transform:none!important;margin:12px auto 14px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage{
+  position:relative!important;inset:auto!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;
+  width:calc(100% - 16px)!important;height:auto!important;margin:0 8px!important;padding:0!important;
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-template-rows:repeat(2,auto)!important;gap:8px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > :is(.v52Today,.v65Weather,.v52Agenda,.v70RiskCard){
+  position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+  grid-column:auto!important;grid-row:auto!important;translate:none!important;
+  transform:none!important;width:100%!important;max-width:none!important;min-width:0!important;
+  min-height:clamp(136px,37vw,190px)!important;height:auto!important;
+  border-radius:16px!important;padding:8px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v52Today{grid-column:1!important;grid-row:1!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v65Weather{grid-column:2!important;grid-row:1!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v70RiskCard{grid-column:1!important;grid-row:2!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v52Stage > .v52Agenda{grid-column:2!important;grid-row:2!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v69ForecastBar{
+  position:relative!important;inset:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+  width:calc(100% - 16px)!important;max-height:none!important;height:auto!important;min-height:47px!important;
+  margin:10px 8px 30px!important;padding:8px!important;border-radius:14px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .cockpitFooter{position:relative!important;bottom:auto!important;margin:0 8px 23px!important}
+}
+@media (prefers-reduced-motion:reduce){
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v70Wave{animation:none!important}
+}
