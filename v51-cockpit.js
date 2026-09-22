@@ -109,21 +109,20 @@ function setupMap(){
     if(!lastFix&&!(saved&&Number.isFinite(+saved.lat)&&Number.isFinite(+saved.lon)))return;
     const center=lastFix?[lastFix.lat,lastFix.lon]:[+saved.lat,+saved.lon];
     map=L.map('cockpitMap',{zoomControl:false,attributionControl:true,dragging:false,scrollWheelZoom:false,doubleClickZoom:false,touchZoom:false,keyboard:false,boxZoom:false,preferCanvas:true}).setView(center,15);
-    // V6.5: require actual raster tiles, not just the Leaflet attribution.
+    // V6.9: dark real-world map tiles, with OpenStreetMap fallback if unavailable.
     // If the original OSM tile host is unreachable in the Tesla browser,
     // try a second OSM-based tile service; never draw a fictitious map.
     const mapHost=byId('cockpitMap');
     const osmattribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
     const options={minZoom:4,maxZoom:19,attribution:osmattribution,updateWhenIdle:true,keepBuffer:1};
     let mainLoaded=false,alternativeLoaded=false,switched=false,mainErrors=0,alternativeErrors=0;
-    const original=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',options).addTo(map);
+    const original=L.tileLayer('https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{...options,attribution:osmattribution+' · &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
     original.on('tileload',()=>{mainLoaded=true;mapHost.removeAttribute('data-map-state');});
     function alternative(){
       if(switched||mainLoaded||!opened||!map)return;
       switched=true;
       map.removeLayer(original);
-      const secondary=L.tileLayer('https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-        {...options,attribution:osmattribution+' · &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'});
+      const secondary=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',options);
       secondary.on('tileload',()=>{alternativeLoaded=true;mapHost.removeAttribute('data-map-state');});
       secondary.on('tileerror',()=>{if(++alternativeErrors>=2&&!alternativeLoaded)mapHost.dataset.mapState='unavailable';});
       secondary.addTo(map);
