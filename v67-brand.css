@@ -16,7 +16,7 @@
   height:auto;
   max-width:100%;
   display:block;
-  filter:brightness(1.7) saturate(1.2) drop-shadow(0 0 8px rgba(235,22,49,.19));
+  filter:brightness(4.5) saturate(1.15) drop-shadow(0 0 8px rgba(235,22,49,.17));
 }
 .v6Titlebar .velomBrand img{transform:translateY(-2%);}
 #home .topbar .velomBrand img{transform:translateY(-2%);}
