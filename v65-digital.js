@@ -157,7 +157,7 @@
   setInterval(()=>refresh(),3*60*1000);
   refresh();
   const footer=document.querySelector('.footer span');
-  if(footer)footer.textContent='Eric Tesla Hub • V6.5';
+  if(footer)footer.textContent='VELOM • V6.7';
   const edition=document.querySelector('#v6Dashboard .v6Eyebrow');
-  if(edition)edition.textContent='FLOYDEM · ÉDITION V6.5';
+  if(edition)edition.textContent='VELOM · HUB PERSONNEL';
 })();
