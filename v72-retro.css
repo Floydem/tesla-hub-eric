@@ -400,3 +400,70 @@ body.v6-ready #v6Dashboard.v72Retro .v72QuickButtons>*:focus-visible{
 @media (prefers-reduced-motion:reduce){
  #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v71Cluster.v72Retro .v70Wave{animation:none!important}
 }
+
+/* V7.2 reconciliation: the holiday panel and the original, live personal
+   calendar are distinct. Hide redundant GPS status here (the speedometer
+   already reports GPS), and put the ONE visible calendar in that slot. */
+body.v6-ready #v6Dashboard.v72Retro .v6BannerRight > .v72Gps{display:none!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerRight > .v72HeaderAgenda{
+ display:flex!important;visibility:visible!important;grid-column:1!important;grid-row:3!important;
+ flex-direction:column!important;align-items:stretch!important;justify-content:center!important;
+ width:100%!important;min-width:0!important;min-height:0!important;max-height:none!important;
+ padding:clamp(8px,.8vw,13px) clamp(9px,1vw,16px)!important;margin:0!important;gap:5px!important;
+ border-radius:14px!important;border:1px solid rgba(127,108,218,.51)!important;
+ background:linear-gradient(130deg,rgba(13,18,45,.87),rgba(38,18,64,.87))!important;
+ box-shadow:inset 0 1px rgba(212,179,255,.08)!important;
+ text-align:left!important;overflow:hidden!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72HeaderAgenda .v6WidgetHead{
+ display:flex!important;align-items:center!important;gap:6px!important;
+ font-size:clamp(9px,.8vw,12px)!important;line-height:1.1!important;
+ letter-spacing:.09em!important;color:#9ceeff!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72HeaderAgenda .v6WidgetHead svg{
+ width:15px!important;height:15px!important;stroke:#d48cff!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72HeaderAgenda .v6WidgetHead button{
+ margin-left:auto!important;padding:3px 7px!important;min-height:24px!important;
+ font-size:10px!important;color:#fff!important;
+ background:rgba(61,37,101,.8)!important;border-color:rgba(174,117,243,.45)!important;
+ cursor:pointer!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72HeaderAgenda .v6Appointment{
+ margin:0!important;max-height:2.3em!important;overflow:hidden!important;
+ font-size:clamp(12px,1.12vw,17px)!important;line-height:1.15!important;
+ color:#fff!important;text-align:left!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v72HeaderAgenda .v6SmallLine{
+ margin:0!important;font-size:clamp(9px,.79vw,11px)!important;
+ color:#c9c8ea!important;line-height:1.15!important;
+}
+/* Previous stylesheet drew a circular speed dial on the home dashboard.
+   The reference uses a bold open numeric HUD on the illustration instead;
+   the true ring is retained in the immersive cockpit. */
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter>div{
+ position:relative!important;width:auto!important;height:auto!important;
+ min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;
+ aspect-ratio:auto!important;border:0!important;border-radius:0!important;
+ background:none!important;box-shadow:none!important;padding:0!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter>div::before,
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter>div::after{
+ content:none!important;display:none!important;
+}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter>small{display:block!important}
+@media (orientation:portrait) and (max-width:850px){
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerRight{
+  grid-template-rows:auto auto!important;
+ }
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerRight>.v72HeaderAgenda{
+  grid-column:2!important;grid-row:1/3!important;
+  padding:8px!important;
+ }
+ body.v6-ready #v6Dashboard.v72Retro .v6BannerRight>.v6Journey.v72Holiday{
+  grid-column:1!important;grid-row:2!important;padding:7px!important;
+ }
+ body.v6-ready #v6Dashboard.v72Retro .v72HeaderAgenda .v6Appointment{
+  font-size:12px!important;
+ }
+}
