@@ -1,0 +1,342 @@
+/* AERION V7.3 · Reposition ONLY the Digital cockpit according to the real
+   September screen photograph. Retains the approved colors and art, and all
+   existing data bindings. No Telegram message access without authorization. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v69Ready.v71Cluster.v72Retro.v73Layout{
+  --v73-side:min(29%,285px);
+  --v73-bottom:clamp(80px,14vh,133px);
+  --v73-height:clamp(116px,23vh,174px);
+}
+/* Left on the same top row as centered time and right weather. Keep the real
+   cockpitClose click handler; no duplicate "return home" control. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitTop{
+  position:absolute!important;top:clamp(17px,3.8vh,42px)!important;
+  left:2.7%!important;right:auto!important;bottom:auto!important;
+  width:var(--v73-side)!important;max-width:285px!important;
+  z-index:87!important;display:flex!important;flex-direction:column!important;
+  align-items:flex-start!important;justify-content:flex-start!important;
+  flex-wrap:nowrap!important;gap:clamp(7px,1.25vh,12px)!important;
+  padding:0!important;margin:0!important;border:0!important;
+  background:transparent!important;box-shadow:none!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitBrand{
+  display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+  gap:3px!important;max-width:100%!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitBrand strong{
+  font-size:clamp(20px,2.25vw,30px)!important;line-height:1!important;
+  color:#d4f7ff!important;letter-spacing:.22em!important;
+  text-shadow:0 0 14px rgba(127,110,252,.48)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitBrand small{
+  font-size:clamp(9px,.82vw,12px)!important;color:#e0dbff!important;
+  line-height:1.25!important;max-width:100%!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitTopBtns{
+  display:flex!important;justify-content:flex-start!important;width:auto!important;
+  flex-wrap:nowrap!important;gap:0!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout #cockpitReset{
+  display:none!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout #cockpitClose{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  white-space:normal!important;text-align:left!important;cursor:pointer!important;
+  min-height:37px!important;padding:7px 12px!important;
+  max-width:100%!important;border-radius:13px!important;
+  color:#fff!important;font-weight:700!important;
+  font-size:clamp(10px,.95vw,13px)!important;
+  border:1px solid rgba(161,136,255,.66)!important;
+  background:linear-gradient(112deg,rgba(27,60,116,.94),rgba(81,32,115,.93))!important;
+  box-shadow:0 0 13px rgba(132,71,247,.2)!important;
+}
+/* Existing clock is moved, not replicated. Date leaves the top and is
+   mirrored as plain text in the only agenda tile at bottom-left. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v52Today{
+  position:absolute!important;z-index:72!important;
+  top:clamp(22px,4.5vh,50px)!important;left:50%!important;right:auto!important;bottom:auto!important;
+  width:min(28%,290px)!important;max-width:290px!important;height:auto!important;
+  max-height:none!important;min-height:0!important;aspect-ratio:auto!important;
+  display:flex!important;visibility:visible!important;
+  flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;
+  gap:0!important;transform:translateX(-50%)!important;translate:none!important;
+  margin:0!important;padding:0!important;box-sizing:border-box!important;
+  border:0!important;border-radius:0!important;background:none!important;
+  box-shadow:none!important;backdrop-filter:none!important;
+  grid-column:auto!important;grid-row:auto!important;pointer-events:none!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Today header,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Today .v52Date,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Today .v52Holiday{
+  display:none!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Today .v52Time{
+  display:block!important;color:#fff!important;white-space:nowrap!important;
+  font-size:clamp(31px,4.1vw,53px)!important;font-weight:670!important;
+  line-height:1.05!important;letter-spacing:.02em!important;text-align:center!important;
+  text-shadow:0 0 15px rgba(93,185,255,.35)!important;
+}
+/* A little more space between upper centered time and speed; true circle. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitMain{
+  top:44%!important;left:50%!important;width:var(--a72-dial)!important;
+  height:var(--a72-dial)!important;aspect-ratio:1/1!important;
+  min-width:0!important;min-height:0!important;
+  transform:translate(-50%,-50%)!important;z-index:63!important;
+}
+/* Upper right: existing real-time weather. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v65Weather{
+  position:absolute!important;display:flex!important;visibility:visible!important;
+  top:clamp(22px,4.5vh,50px)!important;right:2.7%!important;left:auto!important;bottom:auto!important;
+  transform:none!important;translate:none!important;grid-column:auto!important;grid-row:auto!important;
+  width:var(--v73-side)!important;max-width:285px!important;
+  min-height:clamp(116px,19vh,149px)!important;max-height:180px!important;height:auto!important;
+  padding:clamp(10px,1.15vw,15px)!important;border-radius:17px!important;
+  border:1px solid rgba(162,107,255,.56)!important;
+  background:linear-gradient(120deg,rgba(14,22,54,.92),rgba(44,21,82,.84))!important;
+  box-shadow:inset 0 1px rgba(255,228,255,.09),0 0 19px rgba(137,70,216,.16)!important;
+  align-items:flex-start!important;justify-content:center!important;gap:5px!important;
+  overflow:hidden!important;z-index:58!important;pointer-events:auto!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v65WeatherHead{
+  justify-content:flex-start!important;align-items:center!important;gap:7px!important;
+  width:100%!important;text-align:left!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v65WeatherSummary{
+  width:100%!important;justify-content:flex-start!important;align-items:center!important;
+  text-align:left!important;gap:3px 7px!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v65WeatherTemp{
+  font-size:clamp(31px,3.1vw,44px)!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v65WeatherCondition,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v65WeatherMinMax{
+  text-align:left!important;flex:0 0 100%!important;
+  font-size:clamp(9px,.92vw,13px)!important;
+}
+/* Bottom left: one local agenda, current date plus the actual next event. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v52Agenda{
+  position:absolute!important;z-index:61!important;display:flex!important;visibility:visible!important;
+  left:2.7%!important;right:auto!important;top:auto!important;bottom:var(--v73-bottom)!important;
+  transform:none!important;translate:none!important;grid-column:auto!important;grid-row:auto!important;
+  width:var(--v73-side)!important;height:var(--v73-height)!important;
+  min-width:0!important;min-height:0!important;max-width:285px!important;max-height:none!important;
+  margin:0!important;padding:clamp(10px,1.2vw,15px)!important;
+  overflow:hidden!important;flex-direction:column!important;align-items:flex-start!important;
+  justify-content:flex-start!important;gap:clamp(3px,.7vh,8px)!important;
+  border:1px solid rgba(145,111,239,.59)!important;border-radius:17px!important;
+  background:linear-gradient(126deg,rgba(16,18,57,.94),rgba(43,18,75,.90))!important;
+  box-shadow:0 0 21px rgba(133,53,221,.19),inset 0 1px rgba(244,215,255,.1)!important;
+  pointer-events:auto!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Agenda header{
+  justify-content:flex-start!important;width:100%!important;text-align:left!important;
+  margin:0!important;gap:7px!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v73AgendaToday{
+  display:block!important;color:#b8e8ff!important;font-size:clamp(10px,.98vw,14px)!important;
+  line-height:1.2!important;font-weight:620!important;flex:none!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Agenda .v52Appointment{
+  margin:0!important;max-width:100%!important;max-height:2.5em!important;overflow:hidden!important;
+  font-size:clamp(12px,1.35vw,18px)!important;line-height:1.18!important;
+  text-align:left!important;overflow-wrap:anywhere!important;color:#fff!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Agenda .v52AgendaDate{
+  max-width:100%!important;white-space:normal!important;overflow:hidden!important;
+  font-size:clamp(9px,.91vw,12px)!important;line-height:1.12!important;
+  text-align:left!important;color:#e1d5f3!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Agenda #v52AgendaBtn{
+  align-self:flex-end!important;display:inline-flex!important;flex:none!important;
+  margin:auto 0 0!important;padding:3px 9px!important;min-height:26px!important;
+  border-color:rgba(147,134,255,.55)!important;
+}
+/* Bottom right: put the live 24h forecast/evolution card directly beneath
+   current weather; this is NOT an official Météo-France vigilance message. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v70RiskCard{
+  position:absolute!important;z-index:61!important;display:flex!important;visibility:visible!important;
+  right:2.7%!important;left:auto!important;top:auto!important;bottom:var(--v73-bottom)!important;
+  transform:none!important;translate:none!important;grid-column:auto!important;grid-row:auto!important;
+  width:var(--v73-side)!important;height:var(--v73-height)!important;
+  min-width:0!important;min-height:0!important;max-width:285px!important;max-height:none!important;
+  margin:0!important;padding:clamp(10px,1.2vw,15px)!important;
+  overflow:hidden!important;flex-direction:column!important;align-items:flex-start!important;
+  justify-content:center!important;gap:clamp(5px,.85vh,9px)!important;
+  border:1px solid rgba(163,89,253,.58)!important;border-radius:17px!important;
+  background:linear-gradient(124deg,rgba(22,16,60,.94),rgba(56,21,91,.91))!important;
+  box-shadow:0 0 21px rgba(171,59,224,.19),inset 0 1px rgba(239,218,255,.09)!important;
+  pointer-events:none!important;text-align:left!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v70RiskCard header{
+  justify-content:flex-start!important;width:100%!important;text-align:left!important;
+  color:#d5b6ff!important;font-size:clamp(9px,.95vw,12px)!important;line-height:1.1!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v70RiskCard #v70RiskTitle{
+  text-align:left!important;max-width:100%!important;max-height:2.5em!important;
+  font-size:clamp(11px,1.18vw,16px)!important;line-height:1.18!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v70RiskCard #v70RiskText{
+  text-align:left!important;max-width:100%!important;max-height:3.4em!important;
+  font-size:clamp(9px,.88vw,12px)!important;line-height:1.2!important;
+}
+/* Bottom center: lightweight Telegram Web LINK only. Displaying a private
+   latest message would require account/bot authorization and a server API. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v73Telegram{
+  position:absolute!important;z-index:65!important;
+  left:50%!important;right:auto!important;top:auto!important;
+  bottom:calc(var(--v73-bottom) + clamp(14px,3vh,23px))!important;
+  width:min(24%,226px)!important;min-width:134px!important;max-width:226px!important;
+  min-height:clamp(65px,12vh,93px)!important;max-height:110px!important;
+  transform:translateX(-50%)!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  gap:clamp(5px,.8vw,11px)!important;
+  padding:clamp(7px,1.2vw,13px)!important;border-radius:18px!important;
+  color:#fff!important;text-decoration:none!important;
+  border:1px solid rgba(126,199,255,.75)!important;
+  background:linear-gradient(125deg,rgba(15,43,83,.96),rgba(33,23,78,.95))!important;
+  box-shadow:0 0 18px rgba(61,175,255,.2),inset 0 1px rgba(211,241,255,.12)!important;
+  pointer-events:auto!important;cursor:pointer!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v73Telegram:focus-visible{
+  outline:2px solid #b2f0ff!important;outline-offset:4px!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v73TelegramIcon{
+  display:grid;place-items:center;flex:none;
+  width:clamp(32px,4vw,47px);height:clamp(32px,4vw,47px);
+  border-radius:50%;background:linear-gradient(135deg,#29c9fd,#3f67dc);
+  font-size:clamp(16px,1.75vw,23px);color:white;
+  box-shadow:0 0 12px rgba(34,177,249,.38);
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v73TelegramBody{
+  display:flex;flex-direction:column;min-width:0;gap:3px;line-height:1.12;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v73TelegramBody strong{
+  font-size:clamp(12px,1.35vw,18px);font-weight:700;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v73TelegramBody small{
+  font-size:clamp(9px,.9vw,12px);color:#badfff;
+}
+/* Keep the old real hourly forecast available in a small strip ALIGNED ON THE
+   WEATHER SIDE, not in the user's intentionally vacant lower center. */
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v69ForecastBar{
+  position:absolute!important;left:auto!important;right:2.7%!important;top:auto!important;
+  bottom:clamp(26px,4.6vh,41px)!important;width:var(--v73-side)!important;
+  min-height:30px!important;height:clamp(31px,5vh,39px)!important;max-height:42px!important;
+  margin:0!important;padding:4px 9px!important;overflow:hidden!important;
+  border-radius:12px!important;z-index:63!important;
+  display:flex!important;flex-direction:row!important;align-items:center!important;gap:5px!important;
+  background:linear-gradient(108deg,rgba(9,23,57,.96),rgba(29,14,63,.95))!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v69ForecastSummary,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v72ForecastTitle{
+  display:none!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v69ForecastHours{
+  display:flex!important;flex:1 1 100%!important;align-items:center!important;
+  flex-direction:row!important;gap:7px!important;max-width:100%!important;
+  overflow-x:auto!important;overflow-y:hidden!important;white-space:nowrap!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v69ForecastHour{
+  flex:none!important;border:0!important;border-left:1px solid rgba(183,132,245,.33)!important;
+  padding:2px 8px!important;font-size:clamp(9px,.85vw,11px)!important;
+  white-space:nowrap!important;line-height:1.2!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitFooter{
+  position:absolute!important;left:2.7%!important;right:auto!important;bottom:0!important;
+  width:62%!important;max-height:23px!important;z-index:67!important;
+  padding:0!important;margin:0!important;overflow:hidden!important;
+}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v53Caption{display:none!important}
+/* Short Tesla landscape browsers: avoid control/circle collision and keep all
+   interactive targets visible within the actual web viewport. */
+@media(orientation:landscape) and (max-height:590px){
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout{
+   --a72-dial:min(29vw,40vh,230px);
+   --v73-bottom:clamp(62px,11vh,82px);
+   --v73-height:clamp(96px,24vh,128px);
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitMain{top:43%!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitTop{top:12px!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v52Today,
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v65Weather{top:15px!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Agenda .v52Appointment,
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v70RiskCard #v70RiskTitle{max-height:2em!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v73Telegram{
+   bottom:calc(var(--v73-bottom) + 12px)!important;min-height:64px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v69ForecastBar{
+   bottom:clamp(19px,3.5vh,26px)!important;min-height:26px!important;height:28px!important;
+ }
+}
+/* Narrow landscape: protect calendar text and Telegram from visual overlap. */
+@media(orientation:landscape) and (max-width:900px){
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout{
+   --v73-side:29.5%;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v73Telegram{
+   width:22%!important;min-width:111px!important;gap:5px!important;padding:6px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v73TelegramIcon{width:29px;height:29px}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v73TelegramBody small{font-size:9px}
+}
+/* On iPhone portrait, stack controls + time + speed + the 3 functional cards.
+   This is a page layout, unlike the fixed-screen Tesla cockpit. */
+@media(orientation:portrait) and (max-width:850px){
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout{
+   overflow-y:auto!important;overflow-x:hidden!important;--v73-side:100%;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitTop{
+   position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;
+   width:calc(100% - 16px)!important;max-width:none!important;margin:8px!important;padding:4px!important;
+   flex-direction:row!important;align-items:center!important;justify-content:space-between!important;
+   background:rgba(9,12,34,.72)!important;border-radius:12px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitBrand{display:flex!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitBrand strong{font-size:18px!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitBrand small{font-size:9px!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout #cockpitClose{font-size:10px!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage{
+   position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+   width:calc(100% - 16px)!important;height:auto!important;
+   margin:0 8px!important;padding:0!important;display:grid!important;
+   grid-template-columns:repeat(2,minmax(0,1fr))!important;
+   grid-template-rows:auto auto auto!important;gap:9px!important;justify-items:stretch!important;align-items:stretch!important;
+   overflow:visible!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v52Today{
+   position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+   width:100%!important;max-width:none!important;transform:none!important;
+   grid-column:1/-1!important;grid-row:1!important;min-height:50px!important;
+   justify-content:center!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitMain{
+   position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;
+   width:var(--a72-dial)!important;height:var(--a72-dial)!important;
+   transform:none!important;margin:8px auto 16px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > :is(.v65Weather,.v52Agenda,.v70RiskCard,.v73Telegram){
+   position:relative!important;inset:auto!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+   width:100%!important;max-width:none!important;min-height:125px!important;max-height:none!important;
+   height:auto!important;transform:none!important;translate:none!important;
+   grid-column:auto!important;grid-row:auto!important;align-self:stretch!important;
+   padding:9px!important;margin:0!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v65Weather{grid-column:1/-1!important;grid-row:2!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v52Agenda{grid-column:1!important;grid-row:3!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v70RiskCard{grid-column:2!important;grid-row:3!important}
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v52Stage > .v73Telegram{
+   grid-column:1/-1!important;grid-row:4!important;min-height:67px!important;
+   justify-self:center!important;width:min(100%,340px)!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v69ForecastBar{
+   position:relative!important;inset:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+   width:calc(100% - 16px)!important;max-width:none!important;height:48px!important;
+   margin:9px 8px 12px!important;
+ }
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .cockpitFooter{
+   position:relative!important;inset:auto!important;left:auto!important;right:auto!important;
+   width:calc(100% - 16px)!important;max-height:none!important;margin:0 8px 16px!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ #immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v73Layout .v70Wave{animation:none!important}
+}
