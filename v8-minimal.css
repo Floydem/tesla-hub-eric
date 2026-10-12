@@ -1,0 +1,35 @@
+/* AERION V8 · Minimal Luxe, dark graphite and warm champagne. Existing services retained. */
+body.v6-ready{background:#090b0e!important;color:#f4f1ed!important}
+body.v6-ready .ambient{opacity:.07!important}
+body.v6-ready .sidebar{background:linear-gradient(180deg,#111316,#080a0c)!important;border-right:1px solid #34302d!important}
+body.v6-ready .sidebar .nav.active,body.v6-ready .sidebar .nav:hover{background:#332b25!important;border-color:#c7a77f!important;box-shadow:inset 3px 0 #d6b38b!important}
+body.v6-ready .dock{background:rgba(17,19,22,.97)!important;border:1px solid #5b5045!important;box-shadow:0 15px 30px #0008!important}
+body.v6-ready .dock .dockBtn.active{background:#312a25!important;border-color:#d6b38b!important;color:#f7e4ce!important;box-shadow:inset 3px 0 #d6b38b!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Banner{background:#121416!important;border:1px solid #665445!important;border-radius:19px!important;min-height:clamp(265px,36vh,370px)!important;grid-template-rows:58px minmax(170px,1fr)!important;box-shadow:0 22px 46px #0008!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Sky{background:linear-gradient(90deg,rgba(12,12,13,.24),rgba(12,12,13,.1) 43%,rgba(10,11,12,.87) 67%,#0c0e10 100%),url('assets/aerion-minimal-luxe.svg?v=8') center 58%/cover no-repeat,#151719!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter{align-items:center!important;justify-content:center!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter strong{color:#fffaf3!important;text-shadow:0 0 12px #0008!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerLeft>strong{color:#fff!important;text-shadow:none!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerRight>*{background:rgba(21,23,25,.92)!important;border-color:#5a5149!important;box-shadow:none!important}
+body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras .v72Panel{background:linear-gradient(140deg,#191b1e,#101214)!important;border:1px solid #51473d!important;box-shadow:0 10px 25px #0005!important;border-radius:17px!important}
+body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras .v72PanelGlyph,body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras header strong{color:#e3c29d!important}
+body.v6-ready #v6Dashboard.v72Retro .v72QuickButtons a,body.v6-ready #v6Dashboard.v72Retro .v72QuickButtons button{background:#252423!important;border-color:#7b6855!important;color:#f5e9db!important}
+body.v6-ready #v6Dashboard .v6Brand,body.v6-ready #v6Dashboard .v6Brand strong{color:#f2dfc6!important}
+body.v6-ready #v6Dashboard .v6IntroButtons button,body.v6-ready #v6Dashboard .v6IntroButtons a{border-color:#8c765d!important;background:#242426!important;color:#f6ede2!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe{background:linear-gradient(180deg,#121416,#08090a)!important;color:#f8f3ea!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0c0d0e30,#090a0be0),url('assets/aerion-minimal-luxe.svg?v=8') center center/cover no-repeat;opacity:.65;pointer-events:none;z-index:0}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v70Wave,#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v71ClusterDecor{display:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitTop{top:clamp(15px,3vh,28px)!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitBrand strong{color:#f6e6d0!important;text-shadow:none!important;letter-spacing:.27em!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe #cockpitClose{background:rgba(27,28,29,.91)!important;border-color:#a78a68!important;color:#fff4e5!important;box-shadow:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain{top:51%!important;--a72-dial:min(47vh,35vw,350px);width:var(--a72-dial)!important;height:var(--a72-dial)!important;aspect-ratio:1!important;box-shadow:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain::before,#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain::after{border-color:#d5b38a!important;box-shadow:0 0 12px #d9b48442!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain .cockpitSpeed{color:#fff!important;text-shadow:0 2px 16px #000!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > .v52Today{top:clamp(19px,3vh,34px)!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Today .v52Time{color:#f8f3ea!important;text-shadow:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > .v65Weather{top:clamp(16px,3vh,32px)!important;background:rgba(19,21,23,.85)!important;border:1px solid #8c735b!important;box-shadow:none!important;color:#fff!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > .v52Agenda,#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > .v70RiskCard,#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v69ForecastBar{display:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > .v73Telegram{bottom:clamp(35px,7vh,72px)!important;background:rgba(21,23,25,.96)!important;border-color:#aa8966!important;box-shadow:0 12px 25px #0008!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v73TelegramIcon{background:linear-gradient(135deg,#d7b48b,#947052)!important}
+@media(orientation:landscape) and (max-height:590px){#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain{top:50%!important;--a72-dial:min(49vh,32vw,270px)}}
+@media(orientation:portrait) and (max-width:850px){#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain{top:auto!important;--a72-dial:min(66vw,310px)}#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > .v73Telegram{bottom:auto!important}}
