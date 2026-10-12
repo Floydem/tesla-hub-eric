@@ -1,0 +1,1 @@
+(()=>{'use strict';const root=document.getElementById('immersiveCockpit');if(root)root.classList.add('v8Luxe');const footer=document.querySelector('.footer span');if(footer)footer.textContent='AERION • V8 Minimal Luxe';})();
