@@ -1,0 +1,26 @@
+/* AERION V8.4 · coherent graphite finish. No rectangular speed container. */
+:root{--a72-pink:#f4f5f6!important;--a72-cyan:#e4e7eb!important;--a72-purple:#aeb4bc!important}
+body.v6-ready,body.v6-ready .main{background-color:#090b0e!important}
+body.v6-ready .ambient{display:none!important}
+body.v6-ready .sidebar,body.v6-ready .dock{background:#111418!important;background-image:none!important;border-color:#414850!important;box-shadow:0 10px 24px #0008!important}
+body.v6-ready .sidebar .nav.active,body.v6-ready .dock .dockBtn.active{background:#2a2e34!important;background-image:none!important;border-color:#c6cbd0!important;box-shadow:inset 3px 0 #f0f2f4!important;color:#fff!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Titlebar .velomBrand img{display:none!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Titlebar .velomBrand{font-size:0!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Titlebar .velomBrand::before{content:"AERION";font:300 clamp(34px,4.2vw,61px)/1.2 Arial,Helvetica,sans-serif!important;letter-spacing:.27em!important;color:#f4f5f6!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Banner,body.v6-ready #v6Dashboard.v72Retro .v72Panel{background:#171b20!important;background-image:none!important;border:1px solid #4d555e!important;box-shadow:0 12px 32px #0005!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Sky{background:linear-gradient(110deg,#0d101390,#0d1013d9),url('assets/aerion-obsidian-road.svg?v=8.1') center/cover no-repeat!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerRight > *,body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras .v72Panel{background:#1b2025!important;background-image:none!important;border:1px solid #535b64!important;color:#f3f5f7!important}
+body.v6-ready #v6Dashboard.v72Retro :is(.v6TitleActions,.v72QuickButtons) :is(button,a){background:#282e34!important;background-image:none!important;border-color:#747c84!important;color:#f5f6f8!important;box-shadow:none!important}
+body.v6-ready #v6Dashboard.v72Retro :is(.v72PanelGlyph,.v6Eyebrow,.v6BannerCenter>span,.v6BannerRight small){color:#dce1e6!important;text-shadow:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe{background:#090c0f!important;background-image:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe::before{background:radial-gradient(ellipse at 50% 48%,#28303980,transparent 66%),linear-gradient(#12171c,#080a0c)!important;opacity:1!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain{background:transparent!important;background-image:none!important;border:0!important;border-radius:0!important;outline:0!important;box-shadow:none!important;filter:none!important;overflow:visible!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain::before,
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain::after{content:none!important;display:none!important;border:0!important;box-shadow:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitDial.v69SpeedDial{position:relative!important;width:100%!important;height:100%!important;border-radius:50%!important;background:radial-gradient(circle,#181e25 0%,#0c1015 69%,#0b0e12 100%)!important;border:1px solid #7b858e!important;box-shadow:0 0 0 3px #151a1f,0 0 0 5px #4b545d,inset 0 0 22px #0009!important;filter:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitDial.v69SpeedDial::before{filter:none!important;box-shadow:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitDial.v69SpeedDial::after{box-shadow:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitCurrentNum{color:#fff!important;text-shadow:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > :is(.v65Weather,.v52Today,.v73Telegram){background:#1a1e23!important;background-image:none!important;border-color:#636c75!important;box-shadow:0 8px 20px #0006!important;filter:grayscale(1)!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > :is(.v52Agenda,.v70RiskCard),#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v69ForecastBar{display:none!important}
+@media(orientation:landscape) and (max-height:590px){#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain{--a72-dial:min(49vh,30vw,275px)!important}}
