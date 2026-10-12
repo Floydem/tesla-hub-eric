@@ -1,0 +1,33 @@
+/* AERION V8.1 OBSIDIAN · monochrome production override. Functional UI unchanged. */
+:root{--a72-pink:#e5e8eb;--a72-cyan:#cfd4da;--a72-purple:#9da4ae;--a72-night:#090b0e}
+body.v6-ready{background:#090b0d!important;color:#f5f6f7!important}
+body.v6-ready .ambient{opacity:.015!important}
+body.v6-ready .sidebar{background:#0c0e10!important;border-color:#30343a!important}
+body.v6-ready .sidebar .nav.active,body.v6-ready .sidebar .nav:hover{background:#262a30!important;border-color:#aab0b8!important;box-shadow:inset 3px 0 #e9edf2!important}
+body.v6-ready .sidebar .nav svg{stroke:#dce0e5!important}
+body.v6-ready .dock{background:rgba(14,16,19,.98)!important;border-color:#50555c!important;box-shadow:0 16px 30px #0009!important}
+body.v6-ready .dock .dockBtn.active{background:#31353a!important;border-color:#e0e3e6!important;color:#fff!important;box-shadow:inset 3px 0 #f3f3f3!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Banner{border-color:#50555a!important;background:#101214!important;box-shadow:0 20px 42px #0009!important}
+body.v6-ready #v6Dashboard.v72Retro .v6Sky{background:linear-gradient(90deg,rgba(8,10,12,.08),rgba(8,10,12,.12) 42%,rgba(8,10,12,.83) 70%,#0a0c0e),url('assets/aerion-obsidian-road.svg?v=8.1') center/cover no-repeat,#111416!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerRight>*{background:rgba(17,20,23,.91)!important;border-color:#5c6167!important;color:#f5f5f5!important;box-shadow:none!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerRight *{text-shadow:none!important}
+body.v6-ready #v6Dashboard.v72Retro .v6BannerLeft>strong,body.v6-ready #v6Dashboard.v72Retro .v6BannerCenter strong{color:#fff!important;text-shadow:0 3px 14px #000!important}
+body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras .v72Panel{background:linear-gradient(145deg,#1b1e22,#101215)!important;border:1px solid #4b5057!important;box-shadow:0 12px 24px #0007!important;color:#f1f3f5!important}
+body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras .v72PanelGlyph,body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras header strong{color:#f0f2f4!important}
+body.v6-ready #v6Dashboard.v72Retro .v72QuickButtons a,body.v6-ready #v6Dashboard.v72Retro .v72QuickButtons button,body.v6-ready #v6Dashboard .v6IntroButtons button,body.v6-ready #v6Dashboard .v6IntroButtons a{background:#23262a!important;border:1px solid #686d74!important;color:#f5f6f7!important;box-shadow:none!important}
+body.v6-ready #v6Dashboard .v6Brand,body.v6-ready #v6Dashboard .v6Brand strong{color:#fff!important;text-shadow:none!important}
+body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras button,body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras a{color:#f5f6f7!important}
+body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras .v72Panel *,body.v6-ready #v6Dashboard.v72Retro .v72DashboardExtras .v72Panel :is(span,small,strong){border-color:#4f545b}
+body.v6-ready .dock,body.v6-ready .dock *{--a72-pink:#fff;--a72-cyan:#d4d9df;--a72-purple:#b9bfc6}
+body.v6-ready #v6Dashboard.v72Retro,body.v6-ready #v6Dashboard.v72Retro *{--a72-pink:#fff;--a72-cyan:#d4d9df;--a72-purple:#b9bfc6}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe{background:#080a0c!important;color:#f8f9fa!important;--a72-pink:#f0f1f3;--a72-cyan:#d6dce1;--a72-purple:#b3bac1}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe::before{background:linear-gradient(180deg,#080a0c80,#080a0cf0),url('assets/aerion-obsidian-road.svg?v=8.1') center/cover no-repeat!important;opacity:.65!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitBrand strong{color:#f4f6f8!important;text-shadow:none!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe #cockpitClose{background:#24272a!important;border-color:#aab0b7!important;color:#fff!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain{--a72-dial:min(48vh,36vw,360px);filter:grayscale(1)!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain::before,#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain::after{border-color:#f0f2f4!important;box-shadow:0 0 12px #ffffff45!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > .v65Weather{background:rgba(19,21,24,.9)!important;border-color:#6e747c!important;color:#fff!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > .v73Telegram{background:#1b1e22!important;border-color:#939aa3!important;color:#fff!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v73TelegramIcon{background:linear-gradient(140deg,#777e87,#343a42)!important}
+#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > .v52Agenda,#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v52Stage > .v70RiskCard,#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .v69ForecastBar{display:none!important}
+@media(orientation:portrait) and (max-width:850px){#immersiveCockpit#immersiveCockpit[data-cockpit-style="J"].v8Luxe .cockpitMain{--a72-dial:min(66vw,310px)}}
