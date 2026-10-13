@@ -1,0 +1,18 @@
+/* AERION 9.1 · finish legacy drawer and arcade surfaces in neutral graphite. */
+body.v6-ready{--accent:#e4e8ed!important;--accent2:#9ca5af!important;--cyan:#e4e8ed!important;--purple:#aab2bc!important;--blue:#aab2bc!important}
+body.v6-ready .main,body.v6-ready #v6Dashboard,body.v6-ready #v6DrawerList{background-color:#0b0e11!important;background-image:none!important}
+body.v6-ready #v6DrawerList .v6Drawer,body.v6-ready #v6DrawerList .v6DrawerContent,body.v6-ready #v6DrawerList .v6DrawerHead{background:#15191e!important;background-image:none!important;border-color:#414950!important;color:#f0f2f4!important;box-shadow:none!important}
+body.v6-ready #v6DrawerList .v6DrawerHead{background:#1b2025!important}
+body.v6-ready #v6DrawerList .v6DrawerIcon,body.v6-ready #v6DrawerList .v6DrawerIcon svg{color:#d8dde2!important;stroke:#d8dde2!important;filter:none!important}
+body.v6-ready #v6DrawerList .v6Drawer::before,body.v6-ready #v6DrawerList .v6Drawer::after{background:#626b74!important;box-shadow:none!important}
+body.v6-ready #v6DrawerList .section,body.v6-ready #v6DrawerList .entertainmentSection,body.v6-ready #v6DrawerList .driveSection,body.v6-ready #v6DrawerList .arcadeBanner,body.v6-ready #v6DrawerList .head,body.v6-ready #v6DrawerList .grid,body.v6-ready #v6DrawerList .card,body.v6-ready #v6DrawerList .tile,body.v6-ready #v6DrawerList .gameCard{background-color:#1b2026!important;background-image:none!important;border-color:#414950!important;box-shadow:none!important;color:#f1f3f5!important}
+body.v6-ready #v6DrawerList .arcadeBanner{background:#101419!important;border:1px solid #3e464f!important}
+body.v6-ready #v6DrawerList :is(.manage,.btn,.chip,.v6DrawerFlag,.v6Chevron){background:#292f35!important;background-image:none!important;border-color:#68727c!important;color:#e8edf1!important;box-shadow:none!important}
+body.v6-ready #v6DrawerList :is(h2,h3,strong,p,small,span){text-shadow:none!important}
+body.v6-ready #v6DrawerList :is(.head,.section,.entertainmentSection,.grid){outline-color:#4e5761!important}
+body.v6-ready #v6DrawerList :is(a,button):focus-visible{outline:2px solid #f0f2f4!important;outline-offset:3px}
+body.v6-ready .dock{background:#15191d!important;background-image:none!important;border:1px solid #626a72!important}
+body.v6-ready .dock .dockBtn{background:transparent!important;background-image:none!important;color:#cbd1d7!important;text-shadow:none!important}
+body.v6-ready .dock .dockBtn.active{background:#2d333a!important;color:#fff!important;border-color:#aab2bb!important}
+body.v6-ready .sidebar{border-right:1px solid #4a5159!important}
+body.v6-ready .sidebar::before,body.v6-ready .main::before{background:none!important}
