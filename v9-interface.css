@@ -1,0 +1,51 @@
+/* AERION V9.0 isolated premium UI: old cockpit graphics stay functional but never render. */
+:root{--a72-pink:#f5f6f8!important;--a72-cyan:#e3e7ec!important;--a72-purple:#aeb6c0!important}
+body.v6-ready{background:#090b0d!important;color:#f5f6f8!important}
+body.v6-ready .ambient{display:none!important}
+body.v6-ready .sidebar,body.v6-ready .dock{background:#111417!important;background-image:none!important;border-color:#444b53!important;box-shadow:none!important}
+body.v6-ready .sidebar .nav.active,body.v6-ready .dock .dockBtn.active{background:#292f35!important;background-image:none!important;border-color:#c8cdd3!important;box-shadow:inset 3px 0 #fff!important;color:#fff!important}
+body.v6-ready #v6Dashboard.v9Hub{color:#f5f6f8!important}
+body.v6-ready #v6Dashboard.v9Hub .v6Banner{background:#13171b!important;background-image:none!important;border:1px solid #4e565f!important;border-radius:18px!important;box-shadow:none!important;min-height:clamp(270px,35vh,380px)!important}
+body.v6-ready #v6Dashboard.v9Hub .v6Sky{background:linear-gradient(110deg,#12171aeb,#1c2228dd),url('assets/aerion-obsidian-road.svg?v=8.1') center/cover no-repeat!important;filter:grayscale(1)!important;opacity:.65!important}
+body.v6-ready #v6Dashboard.v9Hub .v6BannerRight>*,
+body.v6-ready #v6Dashboard.v9Hub .v72Panel{background:#1c2228!important;background-image:none!important;border:1px solid #535d67!important;box-shadow:none!important;color:#f5f6f8!important}
+body.v6-ready #v6Dashboard.v9Hub .v72DashboardExtras :is(a,button),body.v6-ready #v6Dashboard.v9Hub .v6IntroButtons :is(a,button){background:#2a3036!important;background-image:none!important;border:1px solid #6c7680!important;color:#f5f6f8!important;box-shadow:none!important}
+body.v6-ready #v6Dashboard.v9Hub .v6Brand,body.v6-ready #v6Dashboard.v9Hub .v6Brand *{color:#f5f6f8!important;text-shadow:none!important}
+body.v6-ready #v6Dashboard.v9Hub .velomBrand img{display:none!important}
+body.v6-ready #v6Dashboard.v9Hub .velomBrand{display:block!important;min-height:65px!important;font-size:0!important}
+body.v6-ready #v6Dashboard.v9Hub .velomBrand::before{content:"AERION";display:block;font:300 clamp(34px,4.5vw,62px)/1.15 Arial,Helvetica,sans-serif!important;letter-spacing:.29em!important;color:#f5f6f8!important;text-shadow:none!important}
+body.v6-ready #v6Dashboard.v9Hub :is(.v6Eyebrow,.v72PanelGlyph,.v6BannerCenter>span){color:#d7dde4!important;text-shadow:none!important}
+body.v6-ready #v6Dashboard.v9Hub .v72DashboardExtras{filter:grayscale(1)!important}
+#immersiveCockpit#immersiveCockpit.v9Cockpit[data-cockpit-style="J"]{background:#090c10!important;background-image:none!important;color:#f5f6f8!important;overflow:hidden!important}
+#immersiveCockpit#immersiveCockpit.v9Cockpit[data-cockpit-style="J"]::before{content:none!important;display:none!important}
+#immersiveCockpit#immersiveCockpit.v9Cockpit[data-cockpit-style="J"] > :not(.v9View){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+#immersiveCockpit#immersiveCockpit.v9Cockpit[data-cockpit-style="J"] .v9View,#immersiveCockpit#immersiveCockpit.v9Cockpit[data-cockpit-style="J"] .v9View *{visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+#immersiveCockpit .v9View{position:absolute;inset:0;z-index:9999;display:grid;grid-template-rows:auto minmax(0,1fr) auto;align-items:center;overflow:hidden;padding:clamp(16px,3vh,30px) clamp(18px,3vw,48px);box-sizing:border-box;background:radial-gradient(ellipse at 50% 48%,#28303955,transparent 62%),linear-gradient(150deg,#151b20,#090c10 70%);font-family:Arial,Helvetica,sans-serif;color:#f5f6f8}
+#immersiveCockpit .v9Head{width:100%;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:start;gap:14px}
+#immersiveCockpit .v9Identity strong{display:block;font-weight:300;letter-spacing:.32em;font-size:clamp(20px,2.6vw,36px)}
+#immersiveCockpit .v9Back{margin-top:14px;padding:10px 15px;background:#222a30;color:#fff;border:1px solid #7c858d;border-radius:10px;font:600 13px Arial;cursor:pointer}
+#immersiveCockpit .v9Clock{text-align:center;display:grid;gap:5px}
+#immersiveCockpit .v9Clock strong{font-size:clamp(24px,3vw,41px);font-weight:400;font-variant-numeric:tabular-nums}
+#immersiveCockpit .v9Clock span{font-size:clamp(11px,1vw,15px);color:#b9c1c9}
+#immersiveCockpit .v9Weather{text-align:right;display:grid;gap:5px}
+#immersiveCockpit .v9Weather>span,#immersiveCockpit .v9Foot small{font-size:10px;letter-spacing:.2em;color:#aeb8c2}
+#immersiveCockpit .v9Weather strong{font-size:clamp(24px,3vw,39px);font-weight:400}
+#immersiveCockpit .v9Weather small{color:#c8d0d8}
+#immersiveCockpit .v9Instrument{position:relative;width:min(49vh,35vw,385px);height:min(49vh,35vw,385px);min-width:180px;min-height:180px;justify-self:center;align-self:center;border-radius:50%;border:2px solid #9aa4ad;background:radial-gradient(circle at 50% 40%,#252c34,#0e1318 72%);box-shadow:0 0 0 7px #1b2229,0 0 0 8px #535c65,0 20px 50px #000b,inset 0 0 36px #000a}
+#immersiveCockpit .v9Ticks{position:absolute;inset:10px;border-radius:50%}
+#immersiveCockpit .v9Ticks i{position:absolute;top:50%;left:50%;width:1px;height:calc(100% - 16px);margin-top:calc((16px - 100%)/2);transform-origin:50% 50%;pointer-events:none}
+#immersiveCockpit .v9Ticks i::before{content:"";position:absolute;top:0;left:0;width:1px;height:8px;background:#6e7883}
+#immersiveCockpit .v9Ticks i.major::before{height:15px;width:2px;background:#e6ebef}
+#immersiveCockpit .v9Needle{position:absolute;top:50%;left:50%;width:2px;height:38%;transform-origin:50% 0;background:linear-gradient(#f2f5f7,#7d8894 70%,transparent);clip-path:polygon(50% 100%,0 0,100% 0);opacity:.75!important}
+#immersiveCockpit .v9SpeedInfo{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center}
+#immersiveCockpit .v9SpeedInfo span{font-size:clamp(9px,.85vw,12px);letter-spacing:.16em;color:#b6c0c9}
+#immersiveCockpit .v9SpeedInfo strong{font-size:clamp(68px,10vw,126px);font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+#immersiveCockpit .v9SpeedInfo small{font-size:clamp(16px,1.5vw,22px)}
+#immersiveCockpit .v9Scale{position:absolute;bottom:11%;left:19%;right:19%;display:flex;justify-content:space-between;color:#a8b2bc;font-size:12px}
+#immersiveCockpit .v9Foot{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:end;border-top:1px solid #414b54;padding-top:16px}
+#immersiveCockpit .v9Foot>div{display:grid;gap:7px}
+#immersiveCockpit .v9Foot>div:last-child{text-align:right}
+#immersiveCockpit .v9Foot strong{font-size:clamp(15px,1.5vw,21px);font-weight:400}
+#immersiveCockpit .v9Foot a{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 28px;border:1px solid #7a858f;border-radius:11px;background:#232b32;color:#fff;text-decoration:none;font-size:16px;font-weight:600}
+#immersiveCockpit .v9Foot a span{font-size:11px;color:#c4ccd4;font-weight:400}
+@media(max-width:700px){#immersiveCockpit .v9View{padding:16px;overflow:auto}#immersiveCockpit .v9Instrument{width:min(66vw,42vh);height:min(66vw,42vh)}#immersiveCockpit .v9Head{gap:5px}#immersiveCockpit .v9Identity strong{font-size:18px;letter-spacing:.16em}#immersiveCockpit .v9Back{font-size:10px;padding:8px}#immersiveCockpit .v9Foot{gap:7px}#immersiveCockpit .v9Foot a{padding:8px;font-size:13px}}
